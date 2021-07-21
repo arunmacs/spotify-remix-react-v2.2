@@ -1,0 +1,58 @@
+.nav-bar-container {
+}
+
+.top-bar-container {
+  background-color: #040306;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: sticky;
+  padding: 0px 10px 0px 10px;
+}
+
+.nav-links-container {
+  background-color: #040306;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  position: sticky;
+  padding: 0px 10px 0px 10px;
+}
+
+.music-spectrum-img {
+  height: 28px;
+  width: 85px;
+  margin: 5px 10px 5px 10px;
+}
+
+.menu-button {
+  border: 0;
+  background-color: transparent;
+  margin: 5px 10px 5px 10px;
+}
+
+.menu-img {
+  height: 20px;
+  width: 23px;
+}
+
+.menu-icon {
+  height: 26px;
+  width: 26px;
+}
+
+.menu-option {
+  height: 24px;
+  width: 24px;
+  margin: 5px 12px 5px 12px;
+}
+
+.active-tab {
+  color: #ffffff;
+}

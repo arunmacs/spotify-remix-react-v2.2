@@ -1,0 +1,24 @@
+.genres-moods-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  width: 120px;
+  height: 130px;
+}
+
+.item-image {
+  height: 90px;
+  width: 90px;
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.item-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+  margin: 4px;
+}

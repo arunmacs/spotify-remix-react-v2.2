@@ -1,0 +1,66 @@
+.profile-container {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #181818;
+}
+
+.user-icon {
+  height: 90px;
+  width: 90px;
+  margin: 10px 5px 10px 5px;
+}
+
+.active-tab {
+  color: #ffffff;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 20px 5px 20px 5px;
+}
+
+.followers-playlists-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.followers-playlists-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.followers-playlists-info {
+  color: #1db954;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px;
+}
+
+.followers-playlists-info-text {
+  color: #9b9b9b;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px;
+}
+
+.logout-button {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 22px;
+  padding: 12px 24px 12px 24px;
+  width: 99px;
+  height: 40px;
+  margin: 20px 5px 20px 5px;
+}

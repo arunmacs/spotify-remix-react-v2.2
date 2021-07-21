@@ -1,0 +1,129 @@
+.app-body {
+  width: 100%;
+  height: 100vh;
+}
+
+.main-container {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  overflow: auto;
+  border: 0px;
+  padding: 10px;
+}
+
+.side-nav-bar {
+  height: 100vh;
+  width: 20%;
+  color: white;
+  font-size: 20px;
+}
+
+.editor-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.playlist-name {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 10px 7px 20px;
+}
+
+.app-container {
+  width: 80%;
+}
+
+.genres-moods-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 20px 0px;
+}
+
+.new-releases-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 20px 0px;
+}
+
+.bottom-group {
+  display: flex;
+  position: fixed;
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  height: 50px;
+  width: 100%;
+  z-index: 10;
+  bottom: 0px;
+  padding-left: 10px;
+}
+
+.icons {
+  font-size: 24px;
+}
+
+.buttons-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.slider {
+  width: 100%;
+}
+
+.top-bar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #393b40;
+  color: white;
+  border: 1px solid white;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-input {
+  width: 250px;
+  height: 25px;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+}
+
+.loader-div {
+  background-color: #181818;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 150px;
+  height: 55px;
+}
+
+.loader-text {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 500;
+}
