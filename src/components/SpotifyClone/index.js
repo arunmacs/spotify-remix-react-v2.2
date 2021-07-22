@@ -12,7 +12,6 @@ class SpotifyClone extends Component {
     editorsPickData: [],
     genresAndMoodsData: [],
     newReleasesData: [],
-    isLoading: true,
   }
 
   componentDidMount() {
@@ -74,7 +73,7 @@ class SpotifyClone extends Component {
         uri: item.uri,
       }))
 
-      this.setState({editorsPickData: updatedData, isLoading: false})
+      this.setState({editorsPickData: updatedData})
     }
   }
 
@@ -102,7 +101,7 @@ class SpotifyClone extends Component {
         name: item.name,
       }))
 
-      this.setState({genresAndMoodsData: updatedData, isLoading: false})
+      this.setState({genresAndMoodsData: updatedData})
     }
   }
 
@@ -148,7 +147,7 @@ class SpotifyClone extends Component {
         uri: item.uri,
       }))
 
-      this.setState({newReleasesData: updatedData, isLoading: false})
+      this.setState({newReleasesData: updatedData})
     }
   }
 
@@ -205,8 +204,6 @@ class SpotifyClone extends Component {
   )
 
   render() {
-    const {isLoading} = this.state
-
     return (
       <div className="app-body">
         <NavBar />

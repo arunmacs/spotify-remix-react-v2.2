@@ -4,7 +4,7 @@ import './index.css'
 
 const EditorsPicks = props => {
   const {editorsPicksData} = props
-  const {name, images} = editorsPicksData
+  const {name, id, images} = editorsPicksData
 
   return (
     <div className="editors-picks-item">
