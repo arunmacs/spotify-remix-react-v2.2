@@ -65,7 +65,7 @@ class YourMusic extends Component {
   }
 
   renderYourMusicPlayLists = data => {
-    const {album, name, id, artists, durationMs} = data
+    const {album, name, artists, durationMs} = data
 
     return (
       <>

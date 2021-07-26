@@ -1,0 +1,62 @@
+.app-body {
+  width: 100%;
+  height: 100vh;
+}
+
+.main-container {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  overflow: auto;
+  border: 0px;
+  padding: 10px;
+}
+
+.playlist-name {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 10px 20px 8px;
+}
+
+.your-music-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 0px 8px 8px;
+}
+
+.item-image {
+  height: 70px;
+  width: 70px;
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 220px;
+  margin: 5px 10px 5px 5px;
+}
+
+.item-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 4px;
+  text-align: left;
+}
+
+.tracks {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 4px;
+  text-align: left;
+}
