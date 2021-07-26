@@ -7,8 +7,8 @@ const NewReleases = props => {
 
   return (
     <div className="new-releases-item">
-      <img src={images[0].url} alt="" className="item-image" />
-      <p className="item-name">{name}</p>
+      <img src={images[0].url} alt="" className="new-release-item-image" />
+      <p className="new-release-item-name">{name}</p>
     </div>
   )
 }

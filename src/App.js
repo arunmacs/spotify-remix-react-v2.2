@@ -5,8 +5,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import PlayLists from './components/PlayLists'
 import YourMusic from './components/YourMusic'
 import NotFound from './components/NotFound'
-
 import Profile from './components/Profile'
+import EditorPickItem from './components/EditorPickItem'
 
 import './App.css'
 
@@ -18,6 +18,11 @@ const App = () => (
       <ProtectedRoute exact path="/your-music" component={YourMusic} />
       <ProtectedRoute exact path="/playlists" component={PlayLists} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute
+        exact
+        path="/editor-pick/:id"
+        component={EditorPickItem}
+      />
       <Route path="/not-found" component={NotFound} />
       <Redirect to="not-found" />
     </Switch>

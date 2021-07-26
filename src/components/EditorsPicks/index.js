@@ -7,10 +7,12 @@ const EditorsPicks = props => {
   const {name, id, images} = editorsPicksData
 
   return (
-    <div className="editors-picks-item">
-      <img src={images[0].url} alt="" className="item-image" />
-      <p className="item-name">{name}</p>
-    </div>
+    <Link to={`/editor-pick/${id}`}>
+      <div className="editors-picks-item">
+        <img src={images[0].url} alt="" className="editor-pick-item-image" />
+        <p className="editor-pick-item-name">{name}</p>
+      </div>
+    </Link>
   )
 }
 

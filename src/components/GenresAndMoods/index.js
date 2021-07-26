@@ -7,8 +7,8 @@ const GenresAndMoods = props => {
 
   return (
     <div className="genres-moods-item">
-      <img src={icons[0].url} alt="" className="item-image" />
-      <p className="item-name">{name}</p>
+      <img src={icons[0].url} alt="" className="genres-moods-item-image" />
+      <p className="genres-moods-item-name">{name}</p>
     </div>
   )
 }

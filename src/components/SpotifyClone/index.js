@@ -12,6 +12,7 @@ class SpotifyClone extends Component {
     editorsPickData: [],
     genresAndMoodsData: [],
     newReleasesData: [],
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -101,7 +102,7 @@ class SpotifyClone extends Component {
         name: item.name,
       }))
 
-      this.setState({genresAndMoodsData: updatedData})
+      this.setState({genresAndMoodsData: updatedData, isLoading: false})
     }
   }
 
@@ -196,6 +197,14 @@ class SpotifyClone extends Component {
     )
   }
 
+  renderHomeView = () => (
+    <>
+      {this.renderEditorsPicksList()}
+      {this.renderGenresAndMoodList()}
+      {this.renderNewReleasesList()}
+    </>
+  )
+
   renderLoaderView = () => (
     <div className="loader-div">
       <img src="/img/music.svg" alt="music-spectrum" className="loader" />
@@ -204,13 +213,13 @@ class SpotifyClone extends Component {
   )
 
   render() {
+    const {isLoading} = this.state
+
     return (
       <div className="app-body">
         <NavBar />
         <div className="main-container">
-          {this.renderEditorsPicksList()}
-          {this.renderGenresAndMoodList()}
-          {this.renderNewReleasesList()}
+          {isLoading ? this.renderLoaderView() : this.renderHomeView()}
         </div>
       </div>
     )
