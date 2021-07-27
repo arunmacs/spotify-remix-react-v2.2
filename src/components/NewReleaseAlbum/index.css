@@ -75,7 +75,12 @@
 
 .specific-item-list {
   padding: 0px;
-  margin: 5px 0px 10px 0px;
+  margin: 5px 0px 60px 0px;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
 }
 
 .player-container {

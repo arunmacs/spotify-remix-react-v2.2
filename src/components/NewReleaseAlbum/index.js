@@ -1,9 +1,11 @@
 import {Component} from 'react'
+import moment from 'moment'
 import {BsArrowLeft} from 'react-icons/bs'
 import SongItem from '../SongItem'
+
 import './index.css'
 
-class EditorPickItem extends Component {
+class NewReleaseAlbum extends Component {
   state = {
     playlistData: [],
     playlistInfo: {},
@@ -30,7 +32,7 @@ class EditorPickItem extends Component {
     const {id} = params
 
     const token = this.getAccessToken()
-    const specificItemApiUrl = `https://api.spotify.com/v1/users/spotify/playlists/${id}`
+    const specificItemApiUrl = `https://api.spotify.com/v1/albums/${id}`
 
     const specificItemOptions = {
       headers: {
@@ -49,20 +51,18 @@ class EditorPickItem extends Component {
         id: data.id,
         images: data.images[0].url,
         name: data.name,
-        owner: data.owner,
         type: data.type,
         uri: data.uri,
       }
 
       const updatedData = data.tracks.items.map(item => ({
-        album: item.track.album,
-        artists: item.track.artists,
-        discNumber: item.track.disc_number,
-        durationMs: item.track.duration_ms,
-        href: item.track.href,
-        id: item.track.id,
-        name: item.track.name,
-        previewUrl: item.track.preview_url,
+        artists: item.artists,
+        durationMs: item.duration_ms,
+        id: item.preview_url,
+        href: item.href,
+        name: item.name,
+        album: [data.images],
+        previewUrl: item.preview_url,
       }))
 
       this.setState({playlistData: updatedData, playlistInfo: updatedInfo})
@@ -131,4 +131,4 @@ class EditorPickItem extends Component {
   }
 }
 
-export default EditorPickItem
+export default NewReleaseAlbum

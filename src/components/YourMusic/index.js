@@ -4,7 +4,7 @@ import NavBar from '../NavBar'
 import './index.css'
 
 class YourMusic extends Component {
-  state = {yourMusicPlayListData: []}
+  state = {yourMusicPlayListData: [], playingSong: {}}
 
   componentDidMount() {
     this.getYourMusicPlayLists()
@@ -87,6 +87,24 @@ class YourMusic extends Component {
     )
   }
 
+  renderPlayer = () => {
+    const {playingSong} = this.state
+
+    return (
+      <div className="player-container">
+        <audio
+          autoPlay
+          controls
+          src={playingSong.previewUrl}
+          style={{width: '100%', height: '56px'}}
+          type="audio/mpeg"
+        >
+          <track kind="captions" srcLang="en" />
+        </audio>
+      </div>
+    )
+  }
+
   render() {
     const {yourMusicPlayListData} = this.state
 
@@ -95,13 +113,13 @@ class YourMusic extends Component {
         <NavBar />
         <div className="main-container">
           <h1 className="playlist-name">Your Music</h1>
-
           {yourMusicPlayListData.map(item => (
             <div className="your-music-container" key={item.id}>
               {this.renderYourMusicPlayLists(item)}
             </div>
           ))}
         </div>
+        {this.renderPlayer()}
       </div>
     )
   }

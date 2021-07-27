@@ -1,0 +1,58 @@
+.song-item {
+  list-style-type: none;
+  width: 95%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 8px 10px 8px 10px;
+  padding: 5px 10px 5px 10px;
+  overflow: hidden;
+}
+
+.song-thumbnail {
+  height: 70px;
+  width: 70px;
+  margin: 5px 8px 5px 8px;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow: hidden;
+}
+
+.song-name {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 5px 5px 5px 3px;
+  line-height: 18px;
+  overflow: hidden;
+  max-height: 35px;
+}
+
+.artists-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px 3px 5px 3px;
+}
+
+.song-artist {
+  color: #9b9b9b;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 2px;
+  text-align: left;
+  line-height: 13px;
+}
+
+.song-duration {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  margin: 5px 10px 5px 10px;
+}

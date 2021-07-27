@@ -7,6 +7,7 @@ import YourMusic from './components/YourMusic'
 import NotFound from './components/NotFound'
 import Profile from './components/Profile'
 import EditorPickItem from './components/EditorPickItem'
+import NewReleaseAlbum from './components/NewReleaseAlbum'
 
 import './App.css'
 
@@ -22,6 +23,11 @@ const App = () => (
         exact
         path="/editor-pick/:id"
         component={EditorPickItem}
+      />
+      <ProtectedRoute
+        exact
+        path="/new-releases/album/:id"
+        component={NewReleaseAlbum}
       />
       <Route path="/not-found" component={NotFound} />
       <Redirect to="not-found" />
