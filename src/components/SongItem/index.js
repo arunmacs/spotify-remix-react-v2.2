@@ -3,20 +3,23 @@ import moment from 'moment'
 import './index.css'
 
 const SongItem = props => {
-  const {songData} = props
-  console.log(songData)
-  const {album, artists, durationMs, name} = songData
-  //   let thumbNail
+  const {songData, selectSong} = props
+  const {artists, previewUrl, durationMs, name} = songData
 
+  //   console.log(songData)
+
+  //   let thumbNail
   //   if (album.images) {
   //     thumbNail = album.images.filter(img => img.height <= 64)
   //   } else {
   //     thumbNail = album.filter(img => img.height <= 64)
   //   }
-
   //   console.log(thumbNail)
 
-  //   const onClickPlaySong = () => {}
+  const onClickSelectSong = () => {
+    // console.log(previewUrl)
+    selectSong(previewUrl)
+  }
 
   const getDurationTime = inMilliSecs => {
     const inSecs = moment.duration(inMilliSecs).seconds()
@@ -29,7 +32,7 @@ const SongItem = props => {
   }
 
   return (
-    <li className="song-item">
+    <li className="song-item" onClick={onClickSelectSong}>
       {/* <img
         src={thumbNail.url}
         alt="song thumbnail"

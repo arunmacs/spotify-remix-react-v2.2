@@ -30,7 +30,7 @@
   margin: 5px 5px 5px 3px;
   line-height: 18px;
   overflow: hidden;
-  max-height: 35px;
+  max-height: 20px;
 }
 
 .artists-div {
@@ -38,6 +38,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 5px 3px 5px 3px;
+  overflow: hidden;
+  max-height: 19px;
 }
 
 .song-artist {

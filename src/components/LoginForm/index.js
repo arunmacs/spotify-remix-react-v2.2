@@ -84,7 +84,8 @@ class LoginForm extends Component {
       return 'http://localhost:3000/login'
     }
     /* Change this redirectURL accordingly before publishing your project and ADD THIS URL to your Application Redirect URIs to redirect after authentication success OR failure */
-    return 'https://sample.ccbp.tech/login'
+    // return 'https://sample.ccbp.tech/login'
+    return 'https://lucid-hamilton-196f5b.netlify.app'
   }
 
   openLoginModal = () => {

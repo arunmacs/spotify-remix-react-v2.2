@@ -1,0 +1,40 @@
+.play-list-item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 5px 10px 5px;
+}
+
+.item-image {
+  height: 70px;
+  width: 70px;
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 220px;
+  margin: 5px 10px 5px 5px;
+}
+
+.item-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 4px;
+  text-align: left;
+}
+
+.tracks {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 4px;
+  text-align: left;
+}

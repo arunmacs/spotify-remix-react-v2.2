@@ -1,13 +1,3 @@
-.editor-pick-item-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #181818;
-  overflow: auto;
-  border: 0px;
-  padding: 15px 0px 0px 0px;
-}
-
 .back-arrow-container {
   display: flex;
   align-items: center;
@@ -33,16 +23,4 @@
   font-size: 17px;
   font-weight: 400;
   margin: 4px 8px 8px 8px;
-}
-
-.specific-item-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: auto;
-}
-
-.specific-item-list {
-  padding: 0px;
-  margin: 5px 0px 60px 0px;
 }

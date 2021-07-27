@@ -1,10 +1,12 @@
 import {Component} from 'react'
 import moment from 'moment'
 import NavBar from '../NavBar'
+import MusicPlayer from '../MusicPlayer'
+
 import './index.css'
 
 class YourMusic extends Component {
-  state = {yourMusicPlayListData: [], playingSong: {}}
+  state = {yourMusicPlayListData: [], playingSong: null}
 
   componentDidMount() {
     this.getYourMusicPlayLists()
@@ -48,7 +50,7 @@ class YourMusic extends Component {
         type: item.track.type,
         uri: item.track.uri,
       }))
-      console.log(updatedData)
+      //   console.log(updatedData)
 
       this.setState({yourMusicPlayListData: updatedData})
     }
@@ -65,10 +67,14 @@ class YourMusic extends Component {
   }
 
   renderYourMusicPlayLists = data => {
-    const {album, name, artists, durationMs} = data
+    const {album, name, id, artists, durationMs, previewUrl} = data
+
+    this.onClickSelectSong = () => {
+      this.setState({playingSong: previewUrl})
+    }
 
     return (
-      <>
+      <li className="music-item" onClick={this.onClickSelectSong} key={id}>
         <img src={album.images[2].url} alt={`album `} className="item-image" />
         <div className="item-info">
           <p className="item-name">{name}</p>
@@ -83,43 +89,25 @@ class YourMusic extends Component {
         <span className="item-duration">
           {this.getDurationTime(durationMs)}
         </span>
-      </>
-    )
-  }
-
-  renderPlayer = () => {
-    const {playingSong} = this.state
-
-    return (
-      <div className="player-container">
-        <audio
-          autoPlay
-          controls
-          src={playingSong.previewUrl}
-          style={{width: '100%', height: '56px'}}
-          type="audio/mpeg"
-        >
-          <track kind="captions" srcLang="en" />
-        </audio>
-      </div>
+      </li>
     )
   }
 
   render() {
-    const {yourMusicPlayListData} = this.state
+    const {yourMusicPlayListData, playingSong} = this.state
 
     return (
       <div className="app-body">
         <NavBar />
-        <div className="main-container">
+        <div className="your-music-main-container">
           <h1 className="playlist-name">Your Music</h1>
-          {yourMusicPlayListData.map(item => (
-            <div className="your-music-container" key={item.id}>
-              {this.renderYourMusicPlayLists(item)}
-            </div>
-          ))}
+          <ul className="your-music-container">
+            {yourMusicPlayListData.map(item =>
+              this.renderYourMusicPlayLists(item),
+            )}
+          </ul>
         </div>
-        {this.renderPlayer()}
+        <MusicPlayer songUrl={playingSong} />
       </div>
     )
   }

@@ -3,35 +3,45 @@
   height: 100vh;
 }
 
-.main-container {
-  height: 86vh;
+.your-music-main-container {
+  height: 90vh;
   display: flex;
   flex-direction: column;
   background-color: #181818;
-  overflow: auto;
   border: 0px;
   padding: 10px;
+  overflow: auto;
+}
+
+.music-item {
+  list-style-type: none;
+  width: 95%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 8px 10px 8px 5px;
+  padding: 5px 10px 5px 5px;
+  overflow: hidden;
 }
 
 .playlist-name {
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
-  margin: 20px 10px 20px 8px;
+  margin: 10px 10px 10px 8px;
 }
 
 .your-music-container {
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0px 0px 8px 8px;
+  flex-direction: column;
+  padding: 0px;
+  margin: 5px 5px 30px 5px;
 }
 
 .item-image {
-  height: 70px;
-  width: 70px;
+  height: 65px;
+  width: 65px;
   border-radius: 6px;
   margin: 4px;
 }
@@ -41,14 +51,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 220px;
+  width: 280px;
   margin: 5px 10px 5px 5px;
 }
 
 .item-name {
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   margin: 4px;
   text-align: left;
   overflow: hidden;
@@ -61,7 +71,7 @@
 }
 
 .item-artist {
-  color: #ffffff;
+  color: #9b9b9b;
   font-size: 12px;
   font-weight: 300;
   margin: 4px;
@@ -75,37 +85,4 @@
   font-weight: 300;
   text-align: center;
   margin: 5px 5px 5px 10px;
-}
-
-.player-container {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #181818;
-}
-
-audio::-webkit-media-controls-enclosure {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* We use flex-start here to ensure that the play button is visible even
-     * if we are too small to show all controls.
-     */
-  justify-content: flex-start;
-  -webkit-user-select: none;
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  text-align: right;
-  bottom: auto;
-  height: 30px;
-  border-radius: 4px;
-  /* The duration is also specified in MediaControlElements.cpp and LayoutTests/media/media-controls.js */
-  transition: opacity 0.3s;
 }

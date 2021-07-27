@@ -1,16 +1,15 @@
 import {Component} from 'react'
-import BackNavigation from '../BackNavigation'
+import MusicPlayer from '../MusicPlayer'
 import SongItem from '../SongItem'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
-import MusicPlayer from '../MusicPlayer'
-
+import BackNavigation from '../BackNavigation'
 import './index.css'
 
-class NewReleaseAlbum extends Component {
+class PlayListAlbum extends Component {
   state = {
     playlistData: [],
     playlistInfo: {},
-    playingSong: null,
+    playingSong: {},
   }
 
   componentDidMount() {
@@ -28,7 +27,7 @@ class NewReleaseAlbum extends Component {
     const {id} = params
 
     const token = this.getAccessToken()
-    const specificItemApiUrl = `https://api.spotify.com/v1/albums/${id}`
+    const specificItemApiUrl = `https://api.spotify.com/v1/users/spotify/playlists/${id}`
 
     const specificItemOptions = {
       headers: {
@@ -47,18 +46,20 @@ class NewReleaseAlbum extends Component {
         id: data.id,
         images: data.images[0].url,
         name: data.name,
+        owner: data.owner,
         type: data.type,
         uri: data.uri,
       }
 
       const updatedData = data.tracks.items.map(item => ({
-        artists: item.artists,
-        durationMs: item.duration_ms,
-        id: item.preview_url,
-        href: item.href,
-        name: item.name,
-        album: [data.images],
-        previewUrl: item.preview_url,
+        album: item.track.album,
+        artists: item.track.artists,
+        discNumber: item.track.disc_number,
+        durationMs: item.track.duration_ms,
+        href: item.track.href,
+        id: item.track.id,
+        name: item.track.name,
+        previewUrl: item.track.preview_url,
       }))
 
       this.setState({playlistData: updatedData, playlistInfo: updatedInfo})
@@ -66,6 +67,8 @@ class NewReleaseAlbum extends Component {
   }
 
   onClickPlaySong = url => {
+    // console.log(url)
+
     this.setState({playingSong: url})
   }
 
@@ -89,11 +92,11 @@ class NewReleaseAlbum extends Component {
     const {playlistInfo, playingSong} = this.state
 
     return (
-      <div className="editor-pick-item-container">
+      <div className="playlist-main-item-container">
         <BackNavigation />
-        <div className="specific-item-container">
+        <div className="playlist-item-container">
           <AlbumDisplayInfo playListInfo={playlistInfo} />
-          <ul className="specific-item-list">{this.renderSongsList()}</ul>
+          <ul className="playlist-item-list">{this.renderSongsList()}</ul>
         </div>
         <MusicPlayer songUrl={playingSong} />
       </div>
@@ -101,4 +104,4 @@ class NewReleaseAlbum extends Component {
   }
 }
 
-export default NewReleaseAlbum
+export default PlayListAlbum

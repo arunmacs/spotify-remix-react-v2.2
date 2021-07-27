@@ -1,5 +1,5 @@
-.editor-pick-item-container {
-  height: 100vh;
+.playlist-main-item-container {
+  height: 95vh;
   display: flex;
   flex-direction: column;
   background-color: #181818;
@@ -8,14 +8,14 @@
   padding: 15px 0px 0px 0px;
 }
 
-.specific-item-container {
+.playlist-item-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
 }
 
-.specific-item-list {
+.playlist-item-list {
   padding: 0px;
   margin: 5px 0px 10px 0px;
 }

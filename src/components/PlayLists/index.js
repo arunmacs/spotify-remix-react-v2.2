@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import NavBar from '../NavBar'
+import PlayListItem from '../PlayListItem'
 import './index.css'
 
 class PlayLists extends Component {
@@ -39,7 +40,6 @@ class PlayLists extends Component {
     const response = await fetch(yourPlaylistsApiUrl, yourPlaylistsOptions)
     if (response.ok === true) {
       const data = await response.json()
-      console.log(data)
 
       const updatedData = data.items.map(item => ({
         collaborative: item.collaborative,
@@ -58,24 +58,10 @@ class PlayLists extends Component {
         type: item.type,
         uri: item.uri,
       }))
-      console.log(updatedData)
+      //   console.log(updatedData)
 
       this.setState({yourPlayListData: updatedData})
     }
-  }
-
-  renderYourPlayLists = data => {
-    const {images, name, tracks} = data
-
-    return (
-      <>
-        <img src={images[2].url} alt={`album `} className="item-image" />
-        <div className="item-info">
-          <p className="item-name"># {name}</p>
-          <p className="tracks">{tracks.total} Tracks</p>
-        </div>
-      </>
-    )
   }
 
   render() {
@@ -84,13 +70,13 @@ class PlayLists extends Component {
     return (
       <div className="app-body">
         <NavBar />
-        <div className="main-container">
+        <div className="playlist-main-container">
           <h1 className="playlist-name">Your Playlists</h1>
-          {yourPlayListData.map(item => (
-            <div className="your-music-container" key={item.id}>
-              {this.renderYourPlayLists(item)}
-            </div>
-          ))}
+          <ul className="playlist-music-container">
+            {yourPlayListData.map(item => (
+              <PlayListItem playListItem={item} key={item.id} />
+            ))}
+          </ul>
         </div>
       </div>
     )

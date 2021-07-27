@@ -1,32 +1,5 @@
-.song-container {
-  width: 100%;
-  padding: 8px 10px 8px 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.playing-song {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.play-pause-button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-}
-
-.play-pause-icon {
-  color: #ffffff;
-  height: 20px;
-  width: 20px;
-}
-
 .player-container {
-  height: 53px;
+  width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -47,19 +20,13 @@ audio::-webkit-media-controls-enclosure {
      */
   justify-content: flex-start;
   -webkit-user-select: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100px;
+  position: relative;
   z-index: 0;
   overflow: hidden;
   text-align: right;
   bottom: auto;
   height: 30px;
-  background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 4px;
   /* The duration is also specified in MediaControlElements.cpp and LayoutTests/media/media-controls.js */
   transition: opacity 0.3s;
 }

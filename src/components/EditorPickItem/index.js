@@ -1,6 +1,8 @@
 import {Component} from 'react'
-import {BsArrowLeft} from 'react-icons/bs'
 import SongItem from '../SongItem'
+import MusicPlayer from '../MusicPlayer'
+import AlbumDisplayInfo from '../AlbumDisplayInfo'
+import BackNavigation from '../BackNavigation'
 import './index.css'
 
 class EditorPickItem extends Component {
@@ -17,11 +19,6 @@ class EditorPickItem extends Component {
   getAccessToken = () => {
     const token = localStorage.getItem('pa_token', '')
     return token
-  }
-
-  onClickGoBack = () => {
-    const {history} = this.props
-    history.replace('/')
   }
 
   getSpecificItem = async () => {
@@ -69,63 +66,37 @@ class EditorPickItem extends Component {
     }
   }
 
+  onClickPlaySong = url => {
+    this.setState({playingSong: url})
+  }
+
   renderSongsList = () => {
     const {playlistData} = this.state
 
     return (
       <>
         {playlistData.map(item => (
-          <SongItem songData={item} key={item.id} />
+          <SongItem
+            songData={item}
+            selectSong={this.onClickPlaySong}
+            key={item.id}
+          />
         ))}
       </>
     )
   }
 
-  renderPlayer = () => {
-    const {playingSong} = this.state
-
-    return (
-      <div className="player-container">
-        <audio
-          autoPlay
-          controls
-          src={playingSong.previewUrl}
-          style={{width: '100%', height: '56px'}}
-          type="audio/mpeg"
-        >
-          <track kind="captions" srcLang="en" />
-        </audio>
-      </div>
-    )
-  }
-
   render() {
-    const {playlistInfo} = this.state
+    const {playlistInfo, playingSong} = this.state
 
     return (
       <div className="editor-pick-item-container">
-        <div className="back-arrow-container">
-          <button
-            type="button"
-            onClick={this.onClickGoBack}
-            className="back-button"
-          >
-            <BsArrowLeft className="back-arrow" />
-          </button>
-          <p className="back-text">Back</p>
-        </div>
+        <BackNavigation />
         <div className="specific-item-container">
-          <div className="specific-item-info">
-            <img
-              src={playlistInfo.images}
-              alt=""
-              className="specific-item-image"
-            />
-            <h1 className="specific-item-name">{playlistInfo.name}</h1>
-          </div>
+          <AlbumDisplayInfo playListInfo={playlistInfo} />
           <ul className="specific-item-list">{this.renderSongsList()}</ul>
         </div>
-        {this.renderPlayer()}
+        <MusicPlayer songUrl={playingSong} />
       </div>
     )
   }
