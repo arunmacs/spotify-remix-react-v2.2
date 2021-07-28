@@ -8,7 +8,7 @@ import {IoMusicalNotesSharp} from 'react-icons/io5'
 import './index.css'
 
 class NavBar extends Component {
-  state = {showMenu: false, activeIconClass: 'active-tab'}
+  state = {showMenu: false}
 
   onClickToggleMenu = () => {
     this.setState(prevState => ({showMenu: !prevState.showMenu}))

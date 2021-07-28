@@ -6,7 +6,7 @@ import NavBar from '../NavBar'
 import './index.css'
 
 class Profile extends Component {
-  state = {userData: [], isLoading: true}
+  state = {userData: []}
 
   componentDidMount() {
     this.getUserProfileData()
@@ -44,7 +44,7 @@ class Profile extends Component {
         type: data.type,
         uri: data.uri,
       }
-      this.setState({userData: updatedUserData, isLoading: false})
+      this.setState({userData: updatedUserData})
     }
   }
 
@@ -77,8 +77,6 @@ class Profile extends Component {
   }
 
   render() {
-    const {isLoading} = this.state
-
     return (
       <>
         <NavBar />
