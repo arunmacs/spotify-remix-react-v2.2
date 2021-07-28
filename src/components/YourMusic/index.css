@@ -1,16 +1,19 @@
 .app-body {
   width: 100%;
-  height: 100vh;
+  height: 95vh;
+}
+
+.container {
+  height: 90vh;
+  overflow: auto;
+  background-color: #202020;
 }
 
 .your-music-main-container {
-  height: 90vh;
   display: flex;
   flex-direction: column;
-  background-color: #181818;
   border: 0px;
   padding: 10px;
-  overflow: auto;
 }
 
 .music-item {

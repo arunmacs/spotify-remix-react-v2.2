@@ -2,11 +2,12 @@ import {Component} from 'react'
 import moment from 'moment'
 import NavBar from '../NavBar'
 import MusicPlayer from '../MusicPlayer'
+import LoaderView from '../LoaderView'
 
 import './index.css'
 
 class YourMusic extends Component {
-  state = {yourMusicPlayListData: [], playingSong: null}
+  state = {yourMusicPlayListData: [], playingSong: null, isLoading: true}
 
   componentDidMount() {
     this.getYourMusicPlayLists()
@@ -36,15 +37,9 @@ class YourMusic extends Component {
         id: item.track.id,
         name: item.track.name,
         album: item.track.album,
-        availableMarkets: item.track.available_markets,
         artists: item.track.artists,
-        discNumber: item.track.disc_number,
         durationMs: item.track.duration_ms,
-        externalIds: item.track.external_ids,
-        explicit: item.track.explicit,
-        isLocal: item.track.isLocal,
         previewUrl: item.track.preview_url,
-        externalUrls: item.track.external_urls,
         popularity: item.track.popularity,
         trackNumber: item.track.trackNumber,
         type: item.track.type,
@@ -52,7 +47,7 @@ class YourMusic extends Component {
       }))
       //   console.log(updatedData)
 
-      this.setState({yourMusicPlayListData: updatedData})
+      this.setState({yourMusicPlayListData: updatedData, isLoading: false})
     }
   }
 
@@ -93,12 +88,11 @@ class YourMusic extends Component {
     )
   }
 
-  render() {
+  renderPage = () => {
     const {yourMusicPlayListData, playingSong} = this.state
 
     return (
-      <div className="app-body">
-        <NavBar />
+      <>
         <div className="your-music-main-container">
           <h1 className="playlist-name">Your Music</h1>
           <ul className="your-music-container">
@@ -108,6 +102,19 @@ class YourMusic extends Component {
           </ul>
         </div>
         <MusicPlayer songUrl={playingSong} />
+      </>
+    )
+  }
+
+  render() {
+    const {isLoading} = this.state
+
+    return (
+      <div className="app-body">
+        <NavBar />
+        <div className="container">
+          {isLoading ? <LoaderView /> : this.renderPage()}
+        </div>
       </div>
     )
   }

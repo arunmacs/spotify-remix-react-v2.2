@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import LoaderView from '../LoaderView'
 import SongItem from '../SongItem'
 import MusicPlayer from '../MusicPlayer'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
@@ -10,6 +11,7 @@ class EditorPickItem extends Component {
     playlistData: [],
     playlistInfo: {},
     playingSong: {},
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -62,7 +64,11 @@ class EditorPickItem extends Component {
         previewUrl: item.track.preview_url,
       }))
 
-      this.setState({playlistData: updatedData, playlistInfo: updatedInfo})
+      this.setState({
+        playlistData: updatedData,
+        playlistInfo: updatedInfo,
+        isLoading: false,
+      })
     }
   }
 
@@ -86,17 +92,27 @@ class EditorPickItem extends Component {
     )
   }
 
-  render() {
+  renderPage = () => {
     const {playlistInfo, playingSong} = this.state
 
     return (
-      <div className="editor-pick-item-container">
-        <BackNavigation />
+      <>
         <div className="specific-item-container">
           <AlbumDisplayInfo playListInfo={playlistInfo} />
           <ul className="specific-item-list">{this.renderSongsList()}</ul>
         </div>
         <MusicPlayer songUrl={playingSong} />
+      </>
+    )
+  }
+
+  render() {
+    const {isLoading} = this.state
+
+    return (
+      <div className="editor-pick-item-container">
+        <BackNavigation />
+        {isLoading ? <LoaderView /> : this.renderPage()}
       </div>
     )
   }

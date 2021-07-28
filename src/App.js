@@ -9,6 +9,7 @@ import Profile from './components/Profile'
 import EditorPickItem from './components/EditorPickItem'
 import NewReleaseAlbum from './components/NewReleaseAlbum'
 import PlayListAlbum from './components/PlayListAlbum'
+import GenreList from './components/GenreList'
 
 import './App.css'
 
@@ -35,6 +36,7 @@ const App = () => (
         path="/your-playlists/:id"
         component={PlayListAlbum}
       />
+      <ProtectedRoute exact path="/genre/:id" component={GenreList} />
       <Route path="/not-found" component={NotFound} />
       <Redirect to="/not-found" />
     </Switch>

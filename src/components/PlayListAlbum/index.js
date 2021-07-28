@@ -3,6 +3,7 @@ import MusicPlayer from '../MusicPlayer'
 import SongItem from '../SongItem'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
 import BackNavigation from '../BackNavigation'
+import LoaderView from '../LoaderView'
 import './index.css'
 
 class PlayListAlbum extends Component {
@@ -10,6 +11,7 @@ class PlayListAlbum extends Component {
     playlistData: [],
     playlistInfo: {},
     playingSong: {},
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -46,7 +48,6 @@ class PlayListAlbum extends Component {
         id: data.id,
         images: data.images[0].url,
         name: data.name,
-        owner: data.owner,
         type: data.type,
         uri: data.uri,
       }
@@ -62,13 +63,16 @@ class PlayListAlbum extends Component {
         previewUrl: item.track.preview_url,
       }))
 
-      this.setState({playlistData: updatedData, playlistInfo: updatedInfo})
+      this.setState({
+        playlistData: updatedData,
+        playlistInfo: updatedInfo,
+        isLoading: false,
+      })
     }
   }
 
   onClickPlaySong = url => {
     // console.log(url)
-
     this.setState({playingSong: url})
   }
 
@@ -88,17 +92,27 @@ class PlayListAlbum extends Component {
     )
   }
 
-  render() {
+  renderPage = () => {
     const {playlistInfo, playingSong} = this.state
 
     return (
-      <div className="playlist-main-item-container">
-        <BackNavigation />
+      <>
         <div className="playlist-item-container">
           <AlbumDisplayInfo playListInfo={playlistInfo} />
           <ul className="playlist-item-list">{this.renderSongsList()}</ul>
         </div>
         <MusicPlayer songUrl={playingSong} />
+      </>
+    )
+  }
+
+  render() {
+    const {isLoading} = this.state
+
+    return (
+      <div className="playlist-main-item-container">
+        <BackNavigation />
+        {isLoading ? <LoaderView /> : this.renderPage()}
       </div>
     )
   }

@@ -1,10 +1,14 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {BsFillPersonFill, BsMusicNoteList} from 'react-icons/bs'
+import {FiSearch} from 'react-icons/fi'
+import {IoMdHome} from 'react-icons/io'
+import {IoMusicalNotesSharp} from 'react-icons/io5'
 
 import './index.css'
 
 class NavBar extends Component {
-  state = {showMenu: false}
+  state = {showMenu: false, activeIconClass: 'active-tab'}
 
   onClickToggleMenu = () => {
     this.setState(prevState => ({showMenu: !prevState.showMenu}))
@@ -30,16 +34,19 @@ class NavBar extends Component {
   onClickRenderMenuOptions = () => (
     <nav className="nav-links-container">
       <Link to="/profile">
-        <img src="/img/person.svg" alt="person" className="menu-option" />
+        <BsFillPersonFill className="menu-option" />
       </Link>
       <Link to="/">
-        <img src="/img/home.svg" alt="home" className="menu-option" />
+        <IoMdHome className="menu-option" />
+      </Link>
+      <Link to="/search">
+        <FiSearch className="menu-option" />
       </Link>
       <Link to="/your-music">
-        <img src="/img/Solid.svg" alt="music" className="menu-option" />
+        <IoMusicalNotesSharp className="menu-option" />
       </Link>
       <Link to="/playlists">
-        <img src="/img/queue_music.svg" alt="queue" className="menu-option" />
+        <BsMusicNoteList className="menu-option" />
       </Link>
       <button
         type="button"

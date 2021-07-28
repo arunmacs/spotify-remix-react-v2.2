@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import moment from 'moment'
+import LoaderView from '../LoaderView'
 import EditorsPicks from '../EditorsPicks'
 import GenresAndMoods from '../GenresAndMoods'
 import NewReleases from '../NewReleases'
@@ -12,7 +13,9 @@ class SpotifyClone extends Component {
     editorsPickData: [],
     genresAndMoodsData: [],
     newReleasesData: [],
-    isLoading: true,
+    isEditorPickSectionLoading: true,
+    isGenreMoodSectionLoading: true,
+    isNewReleaseSectionLoading: true,
   }
 
   componentDidMount() {
@@ -58,23 +61,20 @@ class SpotifyClone extends Component {
     if (response.ok === true) {
       const data = await response.json()
       const updatedData = data.playlists.items.map(item => ({
-        collaborative: item.collaborative,
         description: item.description,
-        externalUrls: item.external_urls,
         href: item.href,
         id: item.id,
         images: item.images,
         name: item.name,
-        owner: item.owner,
-        primaryColor: item.primary_color,
-        public: item.public,
-        snapshotId: item.snapshot_id,
         tracks: item.tracks,
         type: item.type,
         uri: item.uri,
       }))
 
-      this.setState({editorsPickData: updatedData})
+      this.setState({
+        editorsPickData: updatedData,
+        isEditorPickSectionLoading: false,
+      })
     }
   }
 
@@ -102,7 +102,10 @@ class SpotifyClone extends Component {
         name: item.name,
       }))
 
-      this.setState({genresAndMoodsData: updatedData, isLoading: false})
+      this.setState({
+        genresAndMoodsData: updatedData,
+        isGenreMoodSectionLoading: false,
+      })
     }
   }
 
@@ -137,10 +140,7 @@ class SpotifyClone extends Component {
         id: item.id,
         images: item.images,
         name: item.name,
-        albumType: item.album_type,
-        availableMarkets: item.available_markets,
         artists: item.artists,
-        externalUrls: item.external_urls,
         releaseDate: item.release_date,
         releaseDatePrecision: item.release_date_precision,
         totalTracks: item.total_tracks,
@@ -148,7 +148,10 @@ class SpotifyClone extends Component {
         uri: item.uri,
       }))
 
-      this.setState({newReleasesData: updatedData})
+      this.setState({
+        newReleasesData: updatedData,
+        isNewReleaseSectionLoading: false,
+      })
     }
   }
 
@@ -197,30 +200,39 @@ class SpotifyClone extends Component {
     )
   }
 
-  renderHomeView = () => (
-    <>
-      {this.renderEditorsPicksList()}
-      {this.renderGenresAndMoodList()}
-      {this.renderNewReleasesList()}
-    </>
-  )
+  renderHomeView = () => {
+    const {
+      isEditorPickSectionLoading,
+      isGenreMoodSectionLoading,
+      isNewReleaseSectionLoading,
+    } = this.state
 
-  renderLoaderView = () => (
-    <div className="loader-div">
-      <img src="/img/music.svg" alt="music-spectrum" className="loader" />
-      <h1 className="loader-text">Loading...</h1>
-    </div>
-  )
+    return (
+      <>
+        {isEditorPickSectionLoading ? (
+          <LoaderView />
+        ) : (
+          this.renderEditorsPicksList()
+        )}
+        {isGenreMoodSectionLoading ? (
+          <LoaderView />
+        ) : (
+          this.renderGenresAndMoodList()
+        )}
+        {isNewReleaseSectionLoading ? (
+          <LoaderView />
+        ) : (
+          this.renderNewReleasesList()
+        )}
+      </>
+    )
+  }
 
   render() {
-    const {isLoading} = this.state
-
     return (
       <div className="app-body">
         <NavBar />
-        <div className="main-container">
-          {isLoading ? this.renderLoaderView() : this.renderHomeView()}
-        </div>
+        <div className="main-container">{this.renderHomeView()}</div>
       </div>
     )
   }

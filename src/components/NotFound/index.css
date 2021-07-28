@@ -1,0 +1,35 @@
+.not-found-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-img-mobile {
+  width: 75%;
+  height: 300px;
+}
+
+.not-found-img-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .not-found-img-mobile {
+    display: none;
+  }
+  .not-found-img-desktop {
+    display: flex;
+    width: 90%;
+    height: 300px;
+  }
+}
+
+.not-found-text {
+  font-size: 25px;
+  font-weight: 500;
+  color: #001f3f;
+  text-align: center;
+  margin: 20px;
+}

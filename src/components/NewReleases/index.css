@@ -3,22 +3,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3px;
+  margin: 5px 5px 5px 5px;
+  padding: 0px;
   width: 120px;
-  height: 140px;
+  height: 120px;
 }
 
 .new-release-item-image {
-  height: 95px;
-  width: 95px;
-  border-radius: 6px;
-  margin: 4px;
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 3px 2px 3px 2px;
 }
 
 .new-release-item-name {
-  color: #ffffff;
+  color: #f8fafc;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
-  margin: 4px;
+  margin: 3px 2px 3px 2px;
 }

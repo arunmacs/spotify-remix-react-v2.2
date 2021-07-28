@@ -1,3 +1,4 @@
+// import CardProfile from '../PlayerDevMode'
 import './index.css'
 
 const MusicPlayer = props => {

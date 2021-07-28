@@ -7,7 +7,7 @@
   height: 93vh;
   display: flex;
   flex-direction: column;
-  background-color: #181818;
+  background-color: #202020;
   overflow: auto;
   border: 0px;
   padding: 10px;
@@ -106,26 +106,6 @@
   border: none;
   outline: none;
   border-radius: 12px;
-}
-
-.loader-div {
-  background-color: #181818;
-  height: 93vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loader {
-  width: 150px;
-  height: 55px;
-}
-
-.loader-text {
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: 500;
 }
 
 a {

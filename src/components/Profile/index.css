@@ -18,7 +18,7 @@
 }
 
 .user-name {
-  color: #ffffff;
+  color: #dddddd;
   font-size: 30px;
   font-weight: 500;
   margin: 20px 5px 20px 5px;
@@ -46,21 +46,30 @@
 }
 
 .followers-playlists-info-text {
-  color: #9b9b9b;
+  color: #dddddd;
   font-size: 16px;
   font-weight: 400;
   margin: 5px;
 }
 
 .logout-button {
-  color: #ffffff;
+  color: #dddddd;
   font-size: 14px;
   font-weight: 400;
   background-color: transparent;
   border: 1px solid #ffffff;
   border-radius: 22px;
-  padding: 12px 24px 12px 24px;
+  padding: 10px 24px 10px 24px;
   width: 99px;
   height: 40px;
   margin: 20px 5px 20px 5px;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transition: 0.2s all;
+}
+
+.logout-button:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
 }

@@ -1,14 +1,14 @@
 import {Component} from 'react'
-import NavBar from '../NavBar'
-import PlayListItem from '../PlayListItem'
 import LoaderView from '../LoaderView'
+import BackNavigation from '../BackNavigation'
+import GenreListItem from '../GenreListItem'
 import './index.css'
 
-class PlayLists extends Component {
-  state = {yourPlayListData: [], isLoading: true}
+class GenreList extends Component {
+  state = {genreListData: [], isLoading: true}
 
   componentDidMount() {
-    this.getYourPlayLists()
+    this.getGenrePlayList()
   }
 
   getAccessToken = () => {
@@ -16,8 +16,12 @@ class PlayLists extends Component {
     return token
   }
 
-  getYourPlayLists = async () => {
+  getGenrePlayList = async () => {
     const token = this.getAccessToken()
+
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
 
     const userApiUrl = 'https://api.spotify.com/v1/me'
     const userOptions = {
@@ -28,25 +32,26 @@ class PlayLists extends Component {
     }
     const userDataResponse = await fetch(userApiUrl, userOptions)
     const userData = await userDataResponse.json()
-    const {username} = userData
+    const {country} = userData
 
-    const yourPlaylistsApiUrl = `https://api.spotify.com/v1/users/${username}/playlists?limit=50`
-    const yourPlaylistsOptions = {
+    const genreListApiUrl = `https://api.spotify.com/v1/browse/categories/${id}/playlists?country=${country}`
+    const genreListOptions = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
       method: 'GET',
     }
 
-    const response = await fetch(yourPlaylistsApiUrl, yourPlaylistsOptions)
+    const response = await fetch(genreListApiUrl, genreListOptions)
     if (response.ok === true) {
       const data = await response.json()
+      //   console.log(data)
 
-      const updatedData = data.items.map(item => ({
+      const updatedData = data.playlists.items.map(item => ({
         description: item.description,
         href: item.href,
-        id: item.id,
         images: item.images,
+        id: item.id,
         name: item.name,
         tracks: item.tracks,
         type: item.type,
@@ -54,22 +59,22 @@ class PlayLists extends Component {
       }))
       //   console.log(updatedData)
 
-      this.setState({yourPlayListData: updatedData, isLoading: false})
+      this.setState({genreListData: updatedData, isLoading: false})
     }
   }
 
   renderPage = () => {
-    const {yourPlayListData} = this.state
+    const {genreListData} = this.state
 
     return (
-      <div className="playlist-main-container">
-        <h1 className="playlist-name">Your Playlists</h1>
-        <ul className="playlist-music-container">
-          {yourPlayListData.map(item => (
-            <PlayListItem playListItem={item} key={item.id} />
+      <>
+        <h1 className="genre-name">Podcast</h1>
+        <ul className="list-container">
+          {genreListData.map(item => (
+            <GenreListItem genreListItem={item} key={item.id} />
           ))}
         </ul>
-      </div>
+      </>
     )
   }
 
@@ -77,12 +82,12 @@ class PlayLists extends Component {
     const {isLoading} = this.state
 
     return (
-      <div className="app-body">
-        <NavBar />
+      <div className="genre-list-container">
+        <BackNavigation />
         {isLoading ? <LoaderView /> : this.renderPage()}
       </div>
     )
   }
 }
 
-export default PlayLists
+export default GenreList
