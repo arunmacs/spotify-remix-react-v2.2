@@ -2,7 +2,7 @@ import './index.css'
 
 const GenreListItem = props => {
   const {genreListItem} = props
-  //   console.log(genreListItem)
+  console.log(genreListItem)
 
   return (
     <li className="genre-album-container">
