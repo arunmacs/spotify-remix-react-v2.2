@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CardProfile extends React.Component {
+class PlayerDevMode extends React.Component {
   state = {
     index: 3,
     currentTime: '0:00',
@@ -180,11 +180,15 @@ class CardProfile extends React.Component {
     return (
       <div className="card">
         <div className="current-song">
-          {/* <audio ref={ref => (this.playerRef = ref)}>
+          <audio
+            ref={ref => {
+              this.playerRef = ref
+            }}
+          >
             <source src={currentSong.audio} type="audio/ogg" />
             <track kind="captions" srcLang="en" />
             Your browser does not support the audio element.
-          </audio> */}
+          </audio>
           <div className="img-wrap">
             <img src={currentSong.img} alt="" />
           </div>
@@ -196,14 +200,26 @@ class CardProfile extends React.Component {
             <div className="end-time">{currentSong.duration}</div>
           </div>
 
-          {/* <div ref={ref => (this.timelineRef = ref)} id="timeline">
-            <div ref={ref => (this.playheadRef = ref)} id="playhead" />
+          <div
+            ref={ref => {
+              this.timelineRef = ref
+            }}
+            id="timeline"
+          >
             <div
-              ref={ref => (this.hoverPlayheadRef = ref)}
+              ref={ref => {
+                this.playheadRef = ref
+              }}
+              id="playhead"
+            />
+            <div
+              ref={ref => {
+                this.hoverPlayheadRef = ref
+              }}
               className="hover-playhead"
               data-content="0:00"
             />
-          </div> */}
+          </div>
 
           <div className="controls">
             <button
@@ -261,4 +277,4 @@ class CardProfile extends React.Component {
   }
 }
 
-export default CardProfile
+export default PlayerDevMode
