@@ -10,6 +10,7 @@ import EditorPickItem from './components/EditorPickItem'
 import NewReleaseAlbum from './components/NewReleaseAlbum'
 import PlayListAlbum from './components/PlayListAlbum'
 import GenreList from './components/GenreList'
+import Search from './components/Search'
 
 import './App.css'
 
@@ -37,6 +38,7 @@ const App = () => (
         component={PlayListAlbum}
       />
       <ProtectedRoute exact path="/genre/:id" component={GenreList} />
+      <ProtectedRoute exact path="/search" component={Search} />
       <Route path="/not-found" component={NotFound} />
       <Redirect to="/not-found" />
     </Switch>

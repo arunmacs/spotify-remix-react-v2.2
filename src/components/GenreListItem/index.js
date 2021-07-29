@@ -1,4 +1,3 @@
-import PlayerDevMode from '../PlayerDevMode'
 import './index.css'
 
 const GenreListItem = props => {
@@ -7,7 +6,6 @@ const GenreListItem = props => {
 
   return (
     <li className="genre-album-container">
-      <PlayerDevMode />
       <img
         src="/img/person.svg"
         alt="genre-album"
