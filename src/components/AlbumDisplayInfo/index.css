@@ -1,23 +1,24 @@
-.specific-item-info {
-  width: 320px;
-  height: 260px;
+.album-display-info {
+  width: 280px;
+  height: 225px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 15px 6px 5px 6px;
+  margin: 13px 5px 10px 5px;
 }
 
-.specific-item-image {
-  height: 155px;
-  width: 155px;
+.album-display-image {
+  height: 150px;
+  width: 150px;
   border-radius: 6px;
-  margin: 8px 4px 8px 4px;
+  margin: 5px 3px 5px 3px;
 }
 
-.specific-item-name {
+.album-display-name {
   color: #ffffff;
-  font-size: 26px;
-  font-weight: 400;
-  margin: 8px 4px 8px 4px;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
+  margin: 5px 4px 5px 4px;
 }

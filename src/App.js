@@ -2,14 +2,15 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import SpotifyClone from './components/SpotifyClone'
 import LoginForm from './components/LoginForm'
 import ProtectedRoute from './components/ProtectedRoute'
-import PlayLists from './components/PlayLists'
+import YourPlayLists from './components/YourPlayLists'
 import YourMusic from './components/YourMusic'
 import NotFound from './components/NotFound'
 import Profile from './components/Profile'
-import EditorPickItem from './components/EditorPickItem'
-import NewReleaseAlbum from './components/NewReleaseAlbum'
+import EditorPickPlaylist from './components/EditorPickPlaylist'
+import NewReleasePlaylist from './components/NewReleasePlaylist'
 import PlayListAlbum from './components/PlayListAlbum'
-import GenreList from './components/GenreList'
+import GenreCategory from './components/GenreCategory'
+import GenreAlbumPlaylist from './components/GenreAlbumPlaylist'
 import Search from './components/Search'
 
 import './App.css'
@@ -20,24 +21,29 @@ const App = () => (
       <Route exact path="/login" component={LoginForm} />
       <ProtectedRoute exact path="/" component={SpotifyClone} />
       <ProtectedRoute exact path="/your-music" component={YourMusic} />
-      <ProtectedRoute exact path="/playlists" component={PlayLists} />
+      <ProtectedRoute exact path="/playlists" component={YourPlayLists} />
       <ProtectedRoute exact path="/profile" component={Profile} />
       <ProtectedRoute
         exact
         path="/editor-pick/:id"
-        component={EditorPickItem}
+        component={EditorPickPlaylist}
       />
       <ProtectedRoute
         exact
         path="/new-releases/album/:id"
-        component={NewReleaseAlbum}
+        component={NewReleasePlaylist}
       />
       <ProtectedRoute
         exact
         path="/your-playlists/:id"
         component={PlayListAlbum}
       />
-      <ProtectedRoute exact path="/genre/:id" component={GenreList} />
+      <ProtectedRoute exact path="/genre/:id" component={GenreCategory} />
+      <ProtectedRoute
+        exact
+        path="/genre/category/album/:id"
+        component={GenreAlbumPlaylist}
+      />
       <ProtectedRoute exact path="/search" component={Search} />
       <Route path="/not-found" component={NotFound} />
       <Redirect to="/not-found" />

@@ -1,44 +1,50 @@
 import React from 'react'
+import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
+
 import './index.css'
 
-const file = {
-  name: 'Nice piano and ukulele',
-  author: 'Royalty',
-  img: 'https://www.bensound.com/bensound-img/buddy.jpg',
-  audio: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
-  duration: '2:02',
-}
+class MusicPlayer extends React.Component {
+  state = {pause: false}
 
-class PlayerTesting extends React.Component {
-  playSong = () => {
-    this.musicRef.play()
-  }
+  onClickPlayPauseSong = () => {
+    const {pause} = this.state
 
-  pauseSong = () => {
-    this.musicRef.pause()
+    if (!pause) {
+      this.audioElement.play()
+    } else {
+      this.audioElement.pause()
+    }
+
+    this.setState(prevState => ({pause: !prevState.pause}))
   }
 
   render() {
+    const {pause} = this.state
+
     return (
-      <div>
-        <h1>Music Player Testing In Progress</h1>
+      <div className="music-player-controls">
         <audio
           ref={ref => {
-            this.musicRef = ref
+            this.audioElement = ref
           }}
         >
-          <source src={file.audio} type="audio/ogg" />
+          <source src="" type="audio/ogg" />
           <track kind="captions" srcLang="en" />
         </audio>
-        <button type="button" onClick={this.playSong}>
-          <img src="/img/music.svg" alt="music" />
-        </button>
-        <button type="button" onClick={this.pauseSong}>
-          <img src="/img/person.svg" alt="music" />
+        <button
+          type="button"
+          onClick={this.onClickPlayPauseSong}
+          className="play-pause-button"
+        >
+          {!pause ? (
+            <BsFillPlayFill className="play-pause-icon" />
+          ) : (
+            <BsPauseFill className="play-pause-icon" />
+          )}
         </button>
       </div>
     )
   }
 }
 
-export default PlayerTesting
+export default MusicPlayer

@@ -1,5 +1,5 @@
-.nav-bar-container {
-}
+/* .nav-bar-container {
+} */
 
 .top-bar-container {
   background-color: #000000;
@@ -37,14 +37,16 @@
   margin: 5px 10px 5px 10px;
 }
 
-.menu-img {
-  height: 20px;
-  width: 23px;
+.menu-icon {
+  height: 30px;
+  width: 30px;
+  color: #ffffff;
 }
 
-.menu-icon {
-  height: 28px;
-  width: 28px;
+.close-icon {
+  height: 30px;
+  width: 30px;
+  color: #ffffff;
 }
 
 .menu-option {
@@ -52,10 +54,6 @@
   width: 25px;
   color: #aaaaaa;
   margin: 5px 8px 5px 8px;
-}
-
-.menu-option::hover {
-  color: white;
 }
 
 .active-tab {

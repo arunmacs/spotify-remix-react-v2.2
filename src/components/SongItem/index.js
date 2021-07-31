@@ -4,21 +4,24 @@ import './index.css'
 
 const SongItem = props => {
   const {songData, selectSong} = props
-  const {artists, previewUrl, durationMs, name} = songData
+  const {artists, album, durationMs, name} = songData
 
-  //   console.log(songData)
+  //   console.log(songData.album)
 
-  //   let thumbNail
-  //   if (album.images) {
-  //     thumbNail = album.images.filter(img => img.height <= 64)
-  //   } else {
-  //     thumbNail = album.filter(img => img.height <= 64)
-  //   }
-  //   console.log(thumbNail)
+  let image
+
+  if (album !== undefined) {
+    image = album.images.reduce((prev, curr) =>
+      prev.height < curr.height ? prev : curr,
+    )
+    image = image.url
+  } else {
+    image = null
+  }
 
   const onClickSelectSong = () => {
     // console.log(previewUrl)
-    selectSong(previewUrl)
+    selectSong(songData)
   }
 
   const getDurationTime = inMilliSecs => {
@@ -33,19 +36,14 @@ const SongItem = props => {
 
   return (
     <li className="song-item" onClick={onClickSelectSong}>
-      {/* <img
-        src={thumbNail.url}
-        alt="song thumbnail"
-        className="song-thumbnail"
-      /> */}
+      <img src={image} alt="album" className="song-thumbnail" />
       <div className="song-info">
         <p className="song-name">{name}</p>
         <div className="artists-div">
-          {artists.map(artist => (
-            <span className="song-artist" key={artist.id}>
-              {artist.name}
-            </span>
-          ))}
+          <span className="song-artist">{artists[0].name}</span>
+          {/* {artists.map(artist => (
+            
+          ))} */}
         </div>
       </div>
       <span className="song-duration">{getDurationTime(durationMs)}</span>

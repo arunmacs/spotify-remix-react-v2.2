@@ -1,9 +1,9 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {BsFillPersonFill, BsMusicNoteList} from 'react-icons/bs'
-import {FiSearch} from 'react-icons/fi'
+import {FiSearch, FiMenu} from 'react-icons/fi'
 import {IoMdHome} from 'react-icons/io'
-import {IoMusicalNotesSharp} from 'react-icons/io5'
+import {IoMusicalNotesSharp, IoClose} from 'react-icons/io5'
 
 import './index.css'
 
@@ -26,7 +26,7 @@ class NavBar extends Component {
         onClick={this.onClickToggleMenu}
         className="menu-button"
       >
-        <img src="/img/menu.svg" alt="menu-icon" className="menu-icon" />
+        <FiMenu className="menu-icon" />
       </button>
     </nav>
   )
@@ -53,7 +53,7 @@ class NavBar extends Component {
         onClick={this.onClickToggleMenu}
         className="menu-button"
       >
-        <img src="/img/close.svg" alt="close" className="menu-icon" />
+        <IoClose className="close-icon" />
       </button>
     </nav>
   )

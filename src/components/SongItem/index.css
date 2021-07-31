@@ -5,41 +5,39 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 8px 10px 8px 10px;
-  padding: 5px 10px 5px 10px;
+  margin: 6px 8px 6px 8px;
+  padding: 4px 8px 4px 8px;
   overflow: hidden;
 }
 
 .song-thumbnail {
-  height: 70px;
-  width: 70px;
-  margin: 5px 8px 5px 8px;
+  height: 55px;
+  width: 55px;
+  margin: 3px 5px 3px 5px;
 }
 
 .song-info {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 270px;
   overflow: hidden;
 }
 
 .song-name {
   color: #ffffff;
   font-size: 15px;
-  font-weight: 400;
-  margin: 5px 5px 5px 3px;
+  font-weight: 300;
+  margin: 3px 3px 4px 3px;
   line-height: 18px;
   overflow: hidden;
-  max-height: 20px;
 }
 
 .artists-div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 5px 3px 5px 3px;
+  margin: 3px 2px 3px 2px;
   overflow: hidden;
-  max-height: 19px;
 }
 
 .song-artist {
@@ -56,5 +54,5 @@
   font-size: 14px;
   font-weight: 300;
   text-align: center;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 8px 5px 8px;
 }

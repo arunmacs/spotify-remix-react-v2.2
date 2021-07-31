@@ -1,23 +1,23 @@
-.genre-list-container {
+.genre-category-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #202020;
   overflow: auto;
   border: 0px;
-  padding: 15px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
-.genre-name {
+.podcast-heading {
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
-  margin: 5px 10px 10px 20px;
+  margin: 5px 8px 8px 20px;
 }
 
-.list-container {
+.genre-list-container {
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin: 10px;
+  margin: 10px 5px 70px 10px;
 }

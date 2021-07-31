@@ -1,13 +1,13 @@
 import {Component} from 'react'
 import moment from 'moment'
 import NavBar from '../NavBar'
-import MusicPlayer from '../MusicPlayer'
+// import MusicPlayer from '../MusicPlayer'
 import LoaderView from '../LoaderView'
 
 import './index.css'
 
 class YourMusic extends Component {
-  state = {yourMusicPlayListData: [], playingSong: null, isLoading: true}
+  state = {yourMusicPlayListData: [], playingSong: {}, isLoading: true}
 
   componentDidMount() {
     this.getYourMusicPlayLists()
@@ -31,23 +31,35 @@ class YourMusic extends Component {
     const response = await fetch(yourMusicApiUrl, yourMusicOptions)
     if (response.ok === true) {
       const data = await response.json()
+      //   console.log(data)
 
-      const updatedData = data.items.map(item => ({
-        href: item.track.href,
-        id: item.track.id,
-        name: item.track.name,
+      const updatedMusicListData = data.items.map(item => ({
         album: item.track.album,
         artists: item.track.artists,
+        availableMarkets: item.track.available_markets,
+        discNumber: item.track.disc_number,
         durationMs: item.track.duration_ms,
-        previewUrl: item.track.preview_url,
+        episode: item.track.episode,
+        explicit: item.track.explicit,
+        externalIds: item.track.external_ids,
+        externalUrls: item.track.external_urls,
+        href: item.track.href,
+        id: item.track.id,
+        isLocal: item.track.is_local,
+        name: item.track.name,
         popularity: item.track.popularity,
-        trackNumber: item.track.trackNumber,
+        previewUrl: item.track.preview_url,
+        track: item.track.track,
+        trackNumber: item.track.track_number,
         type: item.track.type,
         uri: item.track.uri,
       }))
       //   console.log(updatedData)
 
-      this.setState({yourMusicPlayListData: updatedData, isLoading: false})
+      this.setState({
+        yourMusicPlayListData: updatedMusicListData,
+        isLoading: false,
+      })
     }
   }
 
@@ -90,6 +102,7 @@ class YourMusic extends Component {
 
   renderPage = () => {
     const {yourMusicPlayListData, playingSong} = this.state
+    console.log(playingSong)
 
     return (
       <>
@@ -101,7 +114,7 @@ class YourMusic extends Component {
             )}
           </ul>
         </div>
-        <MusicPlayer songUrl={playingSong} />
+        {/* <MusicPlayer songUrl={playingSong} /> */}
       </>
     )
   }

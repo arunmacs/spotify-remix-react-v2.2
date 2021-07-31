@@ -1,32 +1,67 @@
-.player-container {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #181818;
-}
-
-audio::-webkit-media-controls-enclosure {
+.music-player {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* We use flex-start here to ensure that the play button is visible even
-     * if we are too small to show all controls.
-     */
-  justify-content: flex-start;
-  -webkit-user-select: none;
-  position: relative;
-  z-index: 0;
+  background-color: #202020;
+  border-top: 1px solid #9b9b9b;
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  bottom: 0px;
+}
+
+.album-img {
+  margin: 5px 7px 5px 13px;
+  height: 55px;
+}
+
+.album-info {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 2px 5px 2px 5px;
+}
+
+.album-name {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 3px 3px 3px 0px;
+  line-height: 16px;
   overflow: hidden;
-  text-align: right;
-  bottom: auto;
-  height: 30px;
-  border-radius: 4px;
-  /* The duration is also specified in MediaControlElements.cpp and LayoutTests/media/media-controls.js */
-  transition: opacity 0.3s;
+}
+
+.artist-name {
+  color: #9b9b9b;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+.play-pause-button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  padding: 5px;
+}
+
+.play-pause-icon {
+  color: #ffffff;
+  height: 34px;
+  width: 34px;
+}
+
+.music-controls {
+  margin: 3px 5px 3px 7px;
+}
+
+.artist-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2px 3px 2px 0px;
+  overflow: hidden;
 }

@@ -1,280 +1,291 @@
-// import React from 'react'
+import React from 'react'
 
-// class PlayerDevMode extends React.Component {
-//   state = {
-//     index: 3,
-//     currentTime: '0:00',
-//     musicList: [
-//       {
-//         name: 'Nice piano and ukulele',
-//         author: 'Royalty',
-//         img: 'https://www.bensound.com/bensound-img/buddy.jpg',
-//         audio: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
-//         duration: '2:02',
-//       },
-//       {
-//         name: 'Gentle acoustic',
-//         author: 'Acoustic',
-//         img: 'https://www.bensound.com/bensound-img/sunny.jpg',
-//         audio: 'https://www.bensound.com//bensound-music/bensound-sunny.mp3',
-//         duration: '2:20',
-//       },
-//       {
-//         name: 'Corporate motivational',
-//         author: 'Corporate',
-//         img: 'https://www.bensound.com/bensound-img/energy.jpg',
-//         audio: 'https://www.bensound.com/bensound-music/bensound-energy.mp3',
-//         duration: '2:59',
-//       },
-//       {
-//         name: 'Slow cinematic',
-//         author: 'Royalty',
-//         img: 'https://www.bensound.com/bensound-img/slowmotion.jpg',
-//         audio:
-//           'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
-//         duration: '3:26',
-//       },
-//     ],
-//     pause: false,
-//   }
+class PlayerDevMode extends React.Component {
+  state = {
+    index: 3,
+    currentTime: '0:00',
+    musicList: [
+      {
+        name: 'Nice piano and ukulele',
+        author: 'Royalty',
+        img: 'https://www.bensound.com/bensound-img/buddy.jpg',
+        audio:
+          'https://p.scdn.co/mp3-preview/01e2ee769872383e18b6c9c0f2934faac9b38050?cid=b5e6eff01ab04a2299a6d7d0a99c8046',
+        duration: '2:02',
+      },
+      {
+        name: 'Gentle acoustic',
+        author: 'Acoustic',
+        img: 'https://www.bensound.com/bensound-img/sunny.jpg',
+        audio: 'https://www.bensound.com//bensound-music/bensound-sunny.mp3',
+        duration: '2:20',
+      },
+      {
+        name: 'Corporate motivational',
+        author: 'Corporate',
+        img: 'https://www.bensound.com/bensound-img/energy.jpg',
+        audio: 'https://www.bensound.com/bensound-music/bensound-energy.mp3',
+        duration: '2:59',
+      },
+      {
+        name: 'Slow cinematic',
+        author: 'Royalty',
+        img: 'https://www.bensound.com/bensound-img/slowmotion.jpg',
+        audio:
+          'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
+        duration: '3:26',
+      },
+    ],
+    pause: false,
+  }
 
-//   componentDidMount() {
-//     this.playerRef.addEventListener('timeupdate', this.timeUpdate, false)
-//     this.playerRef.addEventListener('ended', this.nextSong, false)
-//     this.timelineRef.addEventListener('click', this.changeCurrentTime, false)
-//     this.timelineRef.addEventListener('mousemove', this.hoverTimeLine, false)
-//     this.timelineRef.addEventListener('mouseout', this.resetTimeLine, false)
-//   }
+  componentDidMount() {
+    console.log('DidMount - MusicDevMode')
 
-//   componentWillUnmount() {
-//     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
-//     this.playerRef.removeEventListener('ended', this.nextSong)
-//     this.timelineRef.removeEventListener('click', this.changeCurrentTime)
-//     this.timelineRef.removeEventListener('mousemove', this.hoverTimeLine)
-//     this.timelineRef.removeEventListener('mouseout', this.resetTimeLine)
-//   }
+    this.playerRef.addEventListener('timeupdate', this.timeUpdate, false)
+    this.playerRef.addEventListener('ended', this.nextSong, false)
+    this.timelineRef.addEventListener('click', this.changeCurrentTime, false)
+    this.timelineRef.addEventListener('mousemove', this.hoverTimeLine, false)
+    this.timelineRef.addEventListener('mouseout', this.resetTimeLine, false)
+  }
 
-//   changeCurrentTime = e => {
-//     const {duration} = this.playerRef
+  componentWillUnmount() {
+    console.log('WillUnMount - MusicDevMode')
+    this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
+    this.playerRef.removeEventListener('ended', this.nextSong)
+    this.timelineRef.removeEventListener('click', this.changeCurrentTime)
+    this.timelineRef.removeEventListener('mousemove', this.hoverTimeLine)
+    this.timelineRef.removeEventListener('mouseout', this.resetTimeLine)
+  }
 
-//     const playheadWidth = this.timelineRef.offsetWidth
-//     const offsetWidth = this.timelineRef.offsetLeft
-//     const userClickWidth = e.clientX - offsetWidth
+  changeCurrentTime = e => {
+    const {duration} = this.playerRef
 
-//     const userClickWidthInPercent = (userClickWidth * 100) / playheadWidth
+    const playheadWidth = this.timelineRef.offsetWidth
+    const offsetWidth = this.timelineRef.offsetLeft
+    const userClickWidth = e.clientX - offsetWidth
 
-//     this.playheadRef.style.Width = `${userClickWidthInPercent} + '%'`
-//     this.playerRef.currentTime = (duration * userClickWidthInPercent) / 100
-//   }
+    const userClickWidthInPercent = (userClickWidth * 100) / playheadWidth
 
-//   hoverTimeLine = e => {
-//     const {duration} = this.playerRef
+    this.playheadRef.style.Width = `${userClickWidthInPercent} + '%'`
+    this.playerRef.currentTime = (duration * userClickWidthInPercent) / 100
+  }
 
-//     const playheadWidth = this.timelineRef.offsetWidth
+  hoverTimeLine = e => {
+    const {duration} = this.playerRef
 
-//     const offsetWidth = this.timelineRef.offsetLeft
-//     const userClickWidth = e.clientX - offsetWidth
-//     const userClickWidthInPercent = (userClickWidth * 100) / playheadWidth
+    const playheadWidth = this.timelineRef.offsetWidth
 
-//     if (userClickWidthInPercent <= 100) {
-//       this.hoverPlayheadRef.style.Width = `${userClickWidthInPercent} + '%'`
-//     }
+    const offsetWidth = this.timelineRef.offsetLeft
+    const userClickWidth = e.clientX - offsetWidth
+    const userClickWidthInPercent = (userClickWidth * 100) / playheadWidth
 
-//     const time = (duration * userClickWidthInPercent) / 100
+    if (userClickWidthInPercent <= 100) {
+      this.hoverPlayheadRef.style.Width = `${userClickWidthInPercent} + '%'`
+    }
 
-//     if (time >= 0 && time <= duration) {
-//       this.hoverPlayheadRef.dataset.content = this.formatTime(time)
-//     }
-//   }
+    const time = (duration * userClickWidthInPercent) / 100
 
-//   resetTimeLine = () => {
-//     this.hoverPlayheadRef.style.Width = 0
-//   }
+    if (time >= 0 && time <= duration) {
+      this.hoverPlayheadRef.dataset.content = this.formatTime(time)
+    }
+  }
 
-//   timeUpdate = () => {
-//     const {duration} = this.playerRef
-//     const timelineWidth =
-//       this.timelineRef.offsetWidth - this.playheadRef.offsetWidth
-//     const playPercent = 100 * (this.playerRef.currentTime / duration)
-//     this.playheadRef.style.Width = `${playPercent} + '%'`
-//     const currentTime = this.formatTime(
-//       parseInt(this.playerRef.currentTime, 10),
-//     )
-//     this.setState({
-//       currentTime,
-//     })
-//   }
+  resetTimeLine = () => {
+    this.hoverPlayheadRef.style.Width = 0
+  }
 
-//   formatTime = currentTime => {
-//     const minutes = Math.floor(currentTime / 60)
-//     let seconds = Math.floor(currentTime % 60)
+  timeUpdate = () => {
+    const {duration} = this.playerRef
+    const timelineWidth =
+      this.timelineRef.offsetWidth - this.playheadRef.offsetWidth
+    console.log(timelineWidth)
 
-//     seconds = seconds >= 10 ? seconds : `0${seconds % 60}`
+    const playPercent = 100 * (this.playerRef.currentTime / duration)
+    this.playheadRef.style.Width = `${playPercent} + '%'`
+    const currentTime = this.formatTime(
+      parseInt(this.playerRef.currentTime, 10),
+    )
+    this.setState({
+      currentTime,
+    })
+  }
 
-//     const formatTime = `${minutes}:${seconds}`
+  formatTime = currentTime => {
+    const minutes = Math.floor(currentTime / 60)
+    let seconds = Math.floor(currentTime % 60)
 
-//     return formatTime
-//   }
+    seconds = seconds >= 10 ? seconds : `0${seconds % 60}`
 
-//   updatePlayer = () => {
-//     const {musicList, index} = this.state
-//     const currentSong = musicList[index]
-//     const audio = new Audio(currentSong.audio)
-//     this.playerRef.load()
-//   }
+    const formatTime = `${minutes}:${seconds}`
 
-//   nextSong = () => {
-//     const {musicList, index, pause} = this.state
+    return formatTime
+  }
 
-//     this.setState({
-//       index: (index + 1) % musicList.length,
-//     })
-//     this.updatePlayer()
-//     if (pause) {
-//       this.playerRef.play()
-//     }
-//   }
+  updatePlayer = () => {
+    const {musicList, index} = this.state
+    const currentSong = musicList[index]
+    const audio = new Audio(currentSong.audio)
+    console.log(audio)
 
-//   prevSong = () => {
-//     const {musicList, index, pause} = this.state
+    this.playerRef.load()
+  }
 
-//     this.setState({
-//       index: (index + musicList.length - 1) % musicList.length,
-//     })
-//     this.updatePlayer()
-//     if (pause) {
-//       this.playerRef.play()
-//     }
-//   }
+  nextSong = () => {
+    const {musicList, index, pause} = this.state
 
-//   playOrPause = () => {
-//     const {musicList, index, pause} = this.state
-//     const currentSong = musicList[index]
-//     const audio = new Audio(currentSong.audio)
-//     if (!pause) {
-//       this.playerRef.play()
-//     } else {
-//       this.playerRef.pause()
-//     }
-//     this.setState({
-//       pause: !pause,
-//     })
-//   }
+    this.setState({
+      index: (index + 1) % musicList.length,
+    })
+    this.updatePlayer()
+    if (pause) {
+      this.playerRef.play()
+    }
+  }
 
-//   clickAudio = key => {
-//     const {pause} = this.state
+  prevSong = () => {
+    const {musicList, index, pause} = this.state
 
-//     this.setState({
-//       index: key,
-//     })
+    this.setState({
+      index: (index + musicList.length - 1) % musicList.length,
+    })
+    this.updatePlayer()
+    if (pause) {
+      this.playerRef.play()
+    }
+  }
 
-//     this.updatePlayer()
-//     if (pause) {
-//       this.playerRef.play()
-//     }
-//   }
+  playOrPause = () => {
+    const {musicList, index, pause} = this.state
+    const currentSong = musicList[index]
+    const audio = new Audio(currentSong.audio)
+    console.log(audio)
 
-//   render() {
-//     const {musicList, index, currentTime, pause} = this.state
-//     const currentSong = musicList[index]
-//     return (
-//       <div className="card">
-//         <div className="current-song">
-//           <audio
-//             ref={ref => {
-//               this.playerRef = ref
-//             }}
-//           >
-//             <source src={currentSong.audio} type="audio/ogg" />
-//             <track kind="captions" srcLang="en" />
-//             Your browser does not support the audio element.
-//           </audio>
-//           <div className="img-wrap">
-//             <img src={currentSong.img} alt="" />
-//           </div>
-//           <span className="song-name">{currentSong.name}</span>
-//           <span className="song-author">{currentSong.author}</span>
+    if (!pause) {
+      this.playerRef.play()
+    } else {
+      this.playerRef.pause()
+    }
+    this.setState({
+      pause: !pause,
+    })
+  }
 
-//           <div className="time">
-//             <div className="current-time">{currentTime}</div>
-//             <div className="end-time">{currentSong.duration}</div>
-//           </div>
+  clickAudio = key => {
+    const {pause} = this.state
 
-//           <div
-//             ref={ref => {
-//               this.timelineRef = ref
-//             }}
-//             id="timeline"
-//           >
-//             <div
-//               ref={ref => {
-//                 this.playheadRef = ref
-//               }}
-//               id="playhead"
-//             />
-//             <div
-//               ref={ref => {
-//                 this.hoverPlayheadRef = ref
-//               }}
-//               className="hover-playhead"
-//               data-content="0:00"
-//             />
-//           </div>
+    this.setState({
+      index: key,
+    })
 
-//           <div className="controls">
-//             <button
-//               type="button"
-//               onClick={this.prevSong}
-//               className="prev prev-next current-btn"
-//             >
-//               <i className="fas fa-backward" />
-//             </button>
+    this.updatePlayer()
+    if (pause) {
+      this.playerRef.play()
+    }
+  }
 
-//             <button
-//               onClick={this.playOrPause}
-//               type="button"
-//               className="play current-btn"
-//             >
-//               {!pause ? (
-//                 <i className="fas fa-play" />
-//               ) : (
-//                 <i className="fas fa-pause" />
-//               )}
-//             </button>
-//             <button
-//               type="button"
-//               onClick={this.nextSong}
-//               className="next prev-next current-btn"
-//             >
-//               <i className="fas fa-forward" />
-//             </button>
-//           </div>
-//         </div>
-//         <div className="play-list">
-//           {musicList.map((music, key = 0) => (
-//             <div
-//               key={key}
-//               role="button"
-//               onClick={() => this.clickAudio(key)}
-//               aria-hidden="true"
-//               className={`track ${
-//                 index === key && !pause ? 'current-audio' : ''
-//               }${index === key && pause ? 'play-now' : ''}`}
-//             >
-//               <img className="track-img" src={music.img} alt="" />
-//               <div className="track-discr">
-//                 <span className="track-name">{music.name}</span>
-//                 <span className="track-author">{music.author}</span>
-//               </div>
-//               <span className="track-duration">
-//                 {index === key ? currentTime : music.duration}
-//               </span>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     )
-//   }
-// }
+  render() {
+    console.log('Render - MusicDevMode')
+    const {musicList, index, currentTime, pause} = this.state
+    const currentSong = musicList[index]
+    return (
+      <div className="card">
+        <div className="current-song">
+          <audio
+            ref={ref => {
+              this.playerRef = ref
+            }}
+          >
+            <source src={currentSong.audio} type="audio/ogg" />
+            <track kind="captions" srcLang="en" />
+            Your browser does not support the audio element.
+          </audio>
+          <div className="img-wrap">
+            <img src={currentSong.img} alt="" />
+          </div>
+          <span className="song-name">{currentSong.name}</span>
+          <span className="song-author">{currentSong.author}</span>
 
-// export default PlayerDevMode
+          <div className="time">
+            <div className="current-time">{currentTime}</div>
+            <div className="end-time">{currentSong.duration}</div>
+          </div>
+
+          <div
+            ref={ref => {
+              this.timelineRef = ref
+            }}
+            id="timeline"
+          >
+            <div
+              ref={ref => {
+                this.playheadRef = ref
+              }}
+              id="playhead"
+            />
+            <div
+              ref={ref => {
+                this.hoverPlayheadRef = ref
+              }}
+              className="hover-playhead"
+              data-content="0:00"
+            />
+          </div>
+
+          <div className="controls">
+            <button
+              type="button"
+              onClick={this.prevSong}
+              className="prev prev-next current-btn"
+            >
+              <i className="fas fa-backward" />
+            </button>
+
+            <button
+              onClick={this.playOrPause}
+              type="button"
+              className="play current-btn"
+            >
+              {!pause ? (
+                <i className="fas fa-play" />
+              ) : (
+                <i className="fas fa-pause" />
+              )}
+            </button>
+            <button
+              type="button"
+              onClick={this.nextSong}
+              className="next prev-next current-btn"
+            >
+              <i className="fas fa-forward" />
+            </button>
+          </div>
+        </div>
+        <div className="play-list">
+          {musicList.map((music, key = 0) => (
+            <div
+              key={key}
+              role="button"
+              onClick={() => this.clickAudio(key)}
+              aria-hidden="true"
+              className={`track ${
+                index === key && !pause ? 'current-audio' : ''
+              }${index === key && pause ? 'play-now' : ''}`}
+            >
+              <img className="track-img" src={music.img} alt="" />
+              <div className="track-discr">
+                <span className="track-name">{music.name}</span>
+                <span className="track-author">{music.author}</span>
+              </div>
+              <span className="track-duration">
+                {index === key ? currentTime : music.duration}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+}
+
+export default PlayerDevMode

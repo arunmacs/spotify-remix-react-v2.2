@@ -1,10 +1,10 @@
 import {Component} from 'react'
 import LoaderView from '../LoaderView'
 import BackNavigation from '../BackNavigation'
-import GenreListItem from '../GenreListItem'
+import GenreCategoryItem from '../GenreCategoryItem'
 import './index.css'
 
-class GenreList extends Component {
+class GenreCategory extends Component {
   state = {genreListData: [], isLoading: true}
 
   componentDidMount() {
@@ -48,11 +48,17 @@ class GenreList extends Component {
       //   console.log(data)
 
       const updatedData = data.playlists.items.map(item => ({
+        collaborative: item.collaborative,
         description: item.description,
+        externalUrls: item.external_urls,
         href: item.href,
-        images: item.images,
         id: item.id,
+        images: item.images,
         name: item.name,
+        owner: item.owner,
+        primaryColor: item.primary_color,
+        public: item.public,
+        snapshotId: item.snapshot_id,
         tracks: item.tracks,
         type: item.type,
         uri: item.uri,
@@ -65,13 +71,14 @@ class GenreList extends Component {
 
   renderPage = () => {
     const {genreListData} = this.state
+    // console.log(genreListData)
 
     return (
       <>
-        <h1 className="genre-name">Podcast</h1>
-        <ul className="list-container">
+        <h1 className="podcast-heading">Podcast</h1>
+        <ul className="genre-list-container">
           {genreListData.map(item => (
-            <GenreListItem genreListItem={item} key={item.id} />
+            <GenreCategoryItem genreListItem={item} key={item.id} />
           ))}
         </ul>
       </>
@@ -82,12 +89,14 @@ class GenreList extends Component {
     const {isLoading} = this.state
 
     return (
-      <div className="genre-list-container">
+      <>
         <BackNavigation />
-        {isLoading ? <LoaderView /> : this.renderPage()}
-      </div>
+        <div className="genre-category-container">
+          {isLoading ? <LoaderView /> : this.renderPage()}
+        </div>
+      </>
     )
   }
 }
 
-export default GenreList
+export default GenreCategory

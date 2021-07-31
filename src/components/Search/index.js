@@ -1,12 +1,12 @@
-// // import PlayerDevMode from '../PlayerDevMode'
+import PlayerDevMode from '../PlayerDevMode'
 // import PlayerTesting from '../PlayerTesting'
-// import './index.css'
+import './index.css'
 
-// const Search = () => (
-//   <div>
-//     <h1>Search</h1>
-//     <PlayerTesting />
-//   </div>
-// )
+const Search = () => (
+  <div>
+    <h1>Search</h1>
+    <PlayerDevMode />
+  </div>
+)
 
-// export default Search
+export default Search

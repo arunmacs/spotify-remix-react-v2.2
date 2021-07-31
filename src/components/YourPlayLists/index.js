@@ -4,7 +4,7 @@ import PlayListItem from '../PlayListItem'
 import LoaderView from '../LoaderView'
 import './index.css'
 
-class PlayLists extends Component {
+class YourPlayLists extends Component {
   state = {yourPlayListData: [], isLoading: true}
 
   componentDidMount() {
@@ -41,20 +41,27 @@ class PlayLists extends Component {
     const response = await fetch(yourPlaylistsApiUrl, yourPlaylistsOptions)
     if (response.ok === true) {
       const data = await response.json()
+      //   console.log(data)
 
-      const updatedData = data.items.map(item => ({
+      const updatedPlaylistData = data.items.map(item => ({
+        collaborative: item.collaborative,
         description: item.description,
+        externalUrls: item.external_urls,
         href: item.href,
         id: item.id,
         images: item.images,
         name: item.name,
+        owner: item.owner,
+        primaryColor: item.primary_color,
+        public: item.public,
+        snapshotId: item.snapshot_id,
         tracks: item.tracks,
         type: item.type,
         uri: item.uri,
       }))
       //   console.log(updatedData)
 
-      this.setState({yourPlayListData: updatedData, isLoading: false})
+      this.setState({yourPlayListData: updatedPlaylistData, isLoading: false})
     }
   }
 
@@ -85,4 +92,4 @@ class PlayLists extends Component {
   }
 }
 
-export default PlayLists
+export default YourPlayLists

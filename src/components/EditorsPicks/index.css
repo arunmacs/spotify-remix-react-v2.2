@@ -1,4 +1,4 @@
-.editors-picks-item {
+.editor-picks-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,14 +9,14 @@
   height: 120px;
 }
 
-.editor-pick-item-image {
+.editor-pick-image {
   height: 80px;
   width: 80px;
   border-radius: 5px;
   margin: 3px 2px 3px 2px;
 }
 
-.editor-pick-item-name {
+.editor-pick-name {
   color: #f8fafc;
   font-size: 13px;
   font-weight: 300;

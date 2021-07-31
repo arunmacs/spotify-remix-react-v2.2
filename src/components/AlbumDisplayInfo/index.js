@@ -2,12 +2,24 @@ import './index.css'
 
 const AlbumDisplayInfo = props => {
   const {playListInfo} = props
-  console.log(playListInfo)
+  const {images, name} = playListInfo
+  //   console.log(playListInfo)
+
+  let image
+
+  if (images !== undefined) {
+    image = images.reduce((prev, curr) =>
+      prev.height > curr.height ? prev : curr,
+    )
+    image = image.url
+  } else {
+    image = null
+  }
 
   return (
-    <div className="specific-item-info">
-      <img src={playListInfo.images} alt="" className="specific-item-image" />
-      <h1 className="specific-item-name">{playListInfo.name}</h1>
+    <div className="album-display-info">
+      <img src={image} alt="" className="album-display-image" />
+      <h1 className="album-display-name">{name}</h1>
     </div>
   )
 }

@@ -6,11 +6,16 @@ const EditorsPicks = props => {
   const {editorsPicksData} = props
   const {name, id, images} = editorsPicksData
 
+  const image = images.reduce((prev, curr) =>
+    prev.height < curr.height ? prev : curr,
+  )
+  //   console.log(image, 'image')
+
   return (
     <Link to={`/editor-pick/${id}`}>
-      <div className="editors-picks-item">
-        <img src={images[0].url} alt="" className="editor-pick-item-image" />
-        <p className="editor-pick-item-name">{name}</p>
+      <div className="editor-picks-item">
+        <img src={image.url} alt="" className="editor-pick-image" />
+        <p className="editor-pick-name">{name}</p>
       </div>
     </Link>
   )

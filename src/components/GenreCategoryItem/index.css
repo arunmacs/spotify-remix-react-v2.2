@@ -1,0 +1,34 @@
+.genre-album-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 3px 0px 3px;
+  margin: 4px 2px 4px 2px;
+}
+
+.genre-album-image {
+  height: 85px;
+  width: 85px;
+  margin: 3px 6px 3px 3px;
+  border-radius: 5px;
+}
+
+.genre-album-info {
+  margin: 3px 5px 3px 6px;
+}
+
+.genre-album-name {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 5px 5px 5px 0px;
+}
+
+.genre-album-tracks {
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 5px 5px 5px 0px;
+}
