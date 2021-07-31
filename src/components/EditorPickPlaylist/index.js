@@ -1,19 +1,19 @@
 import {Component} from 'react'
-import MusicPlayer from '../MusicPlayer'
+import Player from '../Player'
 import LoaderView from '../LoaderView'
-import SongItem from '../SongItem'
+// import SongItem from '../SongItem'
 // import MusicPlayer from '../MusicPlayer'
-import AlbumDisplayInfo from '../AlbumDisplayInfo'
-import BackNavigation from '../BackNavigation'
+// import AlbumDisplayInfo from '../AlbumDisplayInfo'
+// import BackNavigation from '../BackNavigation'
 import './index.css'
 
 class EditorPickPlaylist extends Component {
   state = {
     playlistData: [],
-    playlistInfo: {},
-    playingSong: {},
+    playDisplayInfo: {},
+    // playingSong: {},
     isLoading: true,
-    pause: false,
+    // pause: false,
   }
 
   componentDidMount() {
@@ -63,6 +63,8 @@ class EditorPickPlaylist extends Component {
         uri: data.uri,
       }
 
+      //   console.log(updatedPlaylistInfo)
+
       const updatedTracksData = data.tracks.items.map(item => ({
         album: item.track.album,
         artists: item.track.artists,
@@ -87,65 +89,72 @@ class EditorPickPlaylist extends Component {
 
       this.setState({
         playlistData: updatedTracksData,
-        playlistInfo: updatedPlaylistInfo,
-        playingSong: updatedTracksData[0],
+        playDisplayInfo: updatedPlaylistInfo,
+        // playingSong: updatedTracksData[0],
         isLoading: false,
       })
     }
   }
 
-  onClickPlaySong = song => {
-    this.setState({playingSong: song})
-  }
+  //   onClickPlaySong = song => {
+  //     this.setState({playingSong: song})
+  //   }
 
-  renderSongsList = () => {
-    const {playlistData} = this.state
+  //   renderSongsList = () => {
+  //     const {playlistData} = this.state
 
-    return (
-      <>
-        {playlistData.map(item => (
-          <SongItem
-            songData={item}
-            selectSong={this.onClickPlaySong}
-            key={item.id}
-          />
-        ))}
-      </>
-    )
-  }
+  //     return (
+  //       <>
+  //         {playlistData.map(item => (
+  //           <SongItem
+  //             songData={item}
+  //             selectSong={this.onClickPlaySong}
+  //             key={item.id}
+  //           />
+  //         ))}
+  //       </>
+  //     )
+  //   }
 
-  playPauseStatus = () => {
-    this.setState(prevState => ({pause: !prevState.pause}))
-  }
+  //   playPauseStatus = () => {
+  //     this.setState(prevState => ({pause: !prevState.pause}))
+  //   }
 
-  renderPage = () => {
-    const {playingSong, playlistInfo, pause} = this.state
+  //   renderPage = () => {
+  //     const {playingSong, playlistInfo, pause} = this.state
+  //     // console.log(playingSong)
 
-    return (
-      <>
-        <div className="editor-pick-playlist">
-          <AlbumDisplayInfo playListInfo={playlistInfo} />
-          <ul className="editor-pick-playlist-item">
-            {this.renderSongsList()}
-          </ul>
-        </div>
-        <MusicPlayer
-          playingSong={playingSong}
-          pause={pause}
-          playPauseStatus={this.playPauseStatus}
-        />
-      </>
-    )
-  }
+  //     return (
+  //       <>
+  //         <div className="editor-pick-playlist">
+  //           <AlbumDisplayInfo playListInfo={playlistInfo} />
+  //           <ul className="editor-pick-playlist-item">
+  //             {this.renderSongsList()}
+  //           </ul>
+  //         </div>
+  //         <MusicPlayer
+  //           playingSong={playingSong}
+  //           pause={pause}
+  //           playPauseStatus={this.playPauseStatus}
+  //         />
+  //       </>
+  //     )
+  //   }
 
   render() {
-    const {isLoading} = this.state
-    // console.log(pause)
+    const {isLoading, playDisplayInfo, playlistData} = this.state
 
     return (
-      <div className="editor-pick-playlist-container">
-        <BackNavigation />
-        {isLoading ? <LoaderView /> : this.renderPage()}
+      <div>
+        {isLoading ? (
+          <LoaderView />
+        ) : (
+          <Player
+            displayInfo={playDisplayInfo}
+            musicList={playlistData}
+            // playingSong={playingSong}
+          />
+        )}
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {BsFillPersonFill, BsMusicNoteList} from 'react-icons/bs'
 import {FiSearch, FiMenu} from 'react-icons/fi'
 import {IoMdHome} from 'react-icons/io'
@@ -14,13 +14,26 @@ class NavBar extends Component {
     this.setState(prevState => ({showMenu: !prevState.showMenu}))
   }
 
+  onClickRedirectHome = () => {
+    const {history} = this.props
+    // console.log(history)
+
+    history.replace('/')
+  }
+
   onClickRenderMenuButton = () => (
     <nav className="top-bar-container">
-      <img
-        src="/img/music.svg"
-        alt="music-spectrum"
-        className="music-spectrum-img"
-      />
+      <button
+        type="button"
+        onClick={this.onClickRedirectHome}
+        className="menu-button"
+      >
+        <img
+          src="/img/music.svg"
+          alt="music-spectrum"
+          className="music-spectrum-img"
+        />
+      </button>
       <button
         type="button"
         onClick={this.onClickToggleMenu}
@@ -71,4 +84,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

@@ -6,7 +6,7 @@ const MusicPlayer = props => {
   const {pause, playingSong, playPauseStatus} = props
   const {album, artists, name, previewUrl} = playingSong
 
-  //   console.log(playingSong, 'album')
+  console.log(previewUrl, 'album')
 
   let image
 
@@ -29,11 +29,15 @@ const MusicPlayer = props => {
 
   const onClickPlayPauseSong = () => {
     playPauseStatus()
-    const audio = document.getElementById('music')
+    const music = new Audio(previewUrl)
+    console.log(pause)
+
+    // const audio = document.getElementById('music')
+
     if (!pause) {
-      audio.play()
+      music.play()
     } else {
-      audio.pause()
+      music.pause()
     }
   }
 

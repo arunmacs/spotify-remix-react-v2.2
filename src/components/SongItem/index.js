@@ -3,7 +3,7 @@ import moment from 'moment'
 import './index.css'
 
 const SongItem = props => {
-  const {songData, selectSong} = props
+  const {songData, selectSong, index} = props
   const {artists, album, durationMs, name} = songData
 
   //   console.log(songData.album)
@@ -20,8 +20,8 @@ const SongItem = props => {
   }
 
   const onClickSelectSong = () => {
-    // console.log(previewUrl)
-    selectSong(songData)
+    // console.log(songData)
+    selectSong(index)
   }
 
   const getDurationTime = inMilliSecs => {

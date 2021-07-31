@@ -28,13 +28,13 @@
 .music-spectrum-img {
   height: 28px;
   width: 85px;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 0px;
 }
 
 .menu-button {
   border: 0;
   background-color: transparent;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 5px;
 }
 
 .menu-icon {
