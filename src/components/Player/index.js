@@ -7,10 +7,10 @@ import SongItem from '../SongItem'
 import './index.css'
 
 class Player extends React.Component {
-  state = {...this.props, index: 0, pause: false}
+  state = {...this.props, index: 0, pause: false, activeSong: null}
 
   componentDidMount() {
-    console.log('DidMount - Music')
+    // console.log('DidMount - Music')
 
     this.playerRef.addEventListener('timeupdate', this.timeUpdate, false)
     // this.playerRef.addEventListener('ended', this.nextSong, false)
@@ -20,7 +20,7 @@ class Player extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('WillUnMount - Music')
+    // console.log('WillUnMount - Music')
 
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
     // this.playerRef.removeEventListener('ended', this.nextSong)
@@ -36,31 +36,34 @@ class Player extends React.Component {
     return 'Artist'
   }
 
-  getAlbumImage = images => {
-    if (images !== undefined) {
-      const image = images.reduce((prev, curr) =>
+  getAlbumImageArtist = currentSong => {
+    const {album, artists} = currentSong
+    let image
+    let artist
+
+    if (album !== undefined) {
+      image = album.images.reduce((prev, curr) =>
         prev.height < curr.height ? prev : curr,
       )
-      return image.url
+      image = image.url
+    } else {
+      image = null
     }
-    return null
+
+    if (artists !== undefined) {
+      artist = artists[0].name
+    } else {
+      artist = 'Artist'
+    }
+
+    // console.log(image, artist)
+
+    return {albumImage: image, albumArtist: artist}
   }
 
-  //   timeUpdate = () => {
-  //     const {duration} = this.playerRef
-  //     const timelineWidth =
-  //       this.timelineRef.offsetWidth - this.playheadRef.offsetWidth
-  //     console.log(timelineWidth)
-
-  //     const playPercent = 100 * (this.playerRef.currentTime / duration)
-  //     this.playheadRef.style.Width = `${playPercent} + '%'`
-  //     const currentTime = this.formatTime(
-  //       parseInt(this.playerRef.currentTime, 10),
-  //     )
-  //     this.setState({
-  //       currentTime,
-  //     })
-  //   }
+  updateActiveSongClass = id => {
+    this.setState({activeSong: id})
+  }
 
   playOrPause = () => {
     const {musicList, index, pause} = this.state
@@ -103,7 +106,7 @@ class Player extends React.Component {
   renderMusicControls = () => {
     const {musicList, index, pause} = this.state
     const currentSong = musicList[index]
-    // console.log(currentSong, index, 'currentSong')
+    const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
 
     return (
       <>
@@ -115,17 +118,11 @@ class Player extends React.Component {
           <source src={currentSong.previewUrl} type="audio/mp3" />
           <track kind="captions" srcLang="en" />
         </audio>
-        <img
-          src={this.getAlbumImage(currentSong.album.images)}
-          alt="album"
-          className="album-img"
-        />
+        <img src={albumImage} alt="album" className="album-img" />
         <div className="album-info">
           <p className="album-name">{currentSong.name}</p>
           <div className="artist-div">
-            <span className="artist-name">
-              {this.getArtistName(currentSong.artists)}
-            </span>
+            <span className="artist-name">{albumArtist}</span>
             {/* {artists.map(item => (
             
           ))} */}
@@ -147,7 +144,7 @@ class Player extends React.Component {
   }
 
   renderSongsList = () => {
-    const {musicList} = this.state
+    const {musicList, activeSong} = this.state
     // console.log(musicList, 'musicList')
 
     return (
@@ -156,6 +153,8 @@ class Player extends React.Component {
           <SongItem
             songData={item}
             selectSong={this.onClickSelectSong}
+            updateActiveSongClass={this.updateActiveSongClass}
+            isActive={activeSong === key}
             index={key}
             key={key}
           />
@@ -166,13 +165,13 @@ class Player extends React.Component {
 
   render() {
     const {displayInfo} = this.state
-    console.log('Render')
+    // console.log('Render')
 
     return (
       <div className="player-container">
         <BackNavigation />
         <div className="playlist-container">
-          <AlbumDisplayInfo playDisplayInfo={displayInfo} />
+          <AlbumDisplayInfo displayInfo={displayInfo} />
           <ul className="playlist">{this.renderSongsList()}</ul>
         </div>
         <div className="music-controls">{this.renderMusicControls()}</div>

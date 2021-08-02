@@ -1,9 +1,9 @@
 import './index.css'
 
 const AlbumDisplayInfo = props => {
-  const {playDisplayInfo} = props
-  const {images, name} = playDisplayInfo
-  //   console.log(playListInfo)
+  const {displayInfo} = props
+  const {images, name} = displayInfo
+  console.log(displayInfo, 'albumInfo')
 
   let image
 

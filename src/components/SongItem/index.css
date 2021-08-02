@@ -1,18 +1,18 @@
 .song-item {
   list-style-type: none;
-  width: 95%;
-  height: 70px;
+  width: 97%;
+  height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 6px 8px 6px 8px;
-  padding: 4px 8px 4px 8px;
+  margin: 3px 4px 3px 4px;
+  padding: 3px 5px 3px 5px;
   overflow: hidden;
 }
 
 .song-thumbnail {
-  height: 55px;
-  width: 55px;
+  height: 60px;
+  width: 60px;
   margin: 3px 5px 3px 5px;
 }
 
@@ -54,5 +54,11 @@
   font-size: 14px;
   font-weight: 300;
   text-align: center;
-  margin: 5px 8px 5px 8px;
+  margin: 4px 6px 4px 6px;
+}
+
+.activeClass {
+  background-color: #1e3353;
+  border-radius: 5px;
+  border-left: 4px solid #1db954;
 }

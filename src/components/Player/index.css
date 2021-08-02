@@ -16,13 +16,14 @@
 .playlist {
   padding: 0;
   width: 99%;
+  margin: 15px 3px 55px 3px;
 }
 
 .music-controls {
   height: 70px;
   width: 100%;
   background-color: #202020;
-  position: relative;
+  position: fixed;
   bottom: 0;
   display: flex;
   flex-direction: row;

@@ -3,10 +3,12 @@ import moment from 'moment'
 import './index.css'
 
 const SongItem = props => {
-  const {songData, selectSong, index} = props
+  const {songData, selectSong, index, updateActiveSongClass, isActive} = props
   const {artists, album, durationMs, name} = songData
 
   //   console.log(songData.album)
+
+  const activeSongClass = isActive ? 'activeClass' : ''
 
   let image
 
@@ -22,6 +24,7 @@ const SongItem = props => {
   const onClickSelectSong = () => {
     // console.log(songData)
     selectSong(index)
+    updateActiveSongClass(index)
   }
 
   const getDurationTime = inMilliSecs => {
@@ -35,7 +38,7 @@ const SongItem = props => {
   }
 
   return (
-    <li className="song-item" onClick={onClickSelectSong}>
+    <li className={`song-item ${activeSongClass}`} onClick={onClickSelectSong}>
       <img src={image} alt="album" className="song-thumbnail" />
       <div className="song-info">
         <p className="song-name">{name}</p>

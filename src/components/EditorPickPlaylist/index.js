@@ -9,8 +9,8 @@ import './index.css'
 
 class EditorPickPlaylist extends Component {
   state = {
-    playlistData: [],
-    playDisplayInfo: {},
+    musicList: [],
+    displayInfo: {},
     // playingSong: {},
     isLoading: true,
     // pause: false,
@@ -88,8 +88,8 @@ class EditorPickPlaylist extends Component {
       }))
 
       this.setState({
-        playlistData: updatedTracksData,
-        playDisplayInfo: updatedPlaylistInfo,
+        musicList: updatedTracksData,
+        displayInfo: updatedPlaylistInfo,
         // playingSong: updatedTracksData[0],
         isLoading: false,
       })
@@ -142,7 +142,8 @@ class EditorPickPlaylist extends Component {
   //   }
 
   render() {
-    const {isLoading, playDisplayInfo, playlistData} = this.state
+    const {isLoading, displayInfo, musicList} = this.state
+    // console.log(displayInfo, ' editPlay')
 
     return (
       <div>
@@ -150,8 +151,8 @@ class EditorPickPlaylist extends Component {
           <LoaderView />
         ) : (
           <Player
-            displayInfo={playDisplayInfo}
-            musicList={playlistData}
+            displayInfo={displayInfo}
+            musicList={musicList}
             // playingSong={playingSong}
           />
         )}
