@@ -1,11 +1,10 @@
-import PlayerDevMode from '../PlayerDevMode'
-// import PlayerTesting from '../PlayerTesting'
+import BackNavigation from '../BackNavigation'
 import './index.css'
 
 const Search = () => (
   <div>
-    <h1>Search</h1>
-    <PlayerDevMode />
+    <BackNavigation />
+    <h1>Agent Search Coming Soon...</h1>
   </div>
 )
 

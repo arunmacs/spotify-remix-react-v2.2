@@ -88,6 +88,8 @@ class LoginForm extends Component {
     return 'https://arunm.ccbp.tech/login'
   }
 
+  //   submit and Deploy Project ---  ccbp publish RJSCP2G83E arunm.ccbp.tech
+
   openLoginModal = () => {
     // YOU NEED TO ADD YOUR CLIENT ID HERE
     const clientId = 'b5e6eff01ab04a2299a6d7d0a99c8046'

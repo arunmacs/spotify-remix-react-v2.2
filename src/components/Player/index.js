@@ -7,23 +7,23 @@ import SongItem from '../SongItem'
 import './index.css'
 
 class Player extends React.Component {
-  state = {...this.props, index: 0, pause: false, activeSong: null}
+  state = {...this.props, index: 0, pause: false, activeSongClass: 0}
 
   componentDidMount() {
-    // console.log('DidMount - Music')
+    console.log('DidMount - Music')
 
-    this.playerRef.addEventListener('timeupdate', this.timeUpdate, false)
-    // this.playerRef.addEventListener('ended', this.nextSong, false)
+    this.playerRef.addEventListener('timeupdate', this.timeUpdate)
+    this.playerRef.addEventListener('ended', this.nextSong)
     // this.timelineRef.addEventListener('click', this.changeCurrentTime, false)
     // this.timelineRef.addEventListener('mousemove', this.hoverTimeLine, false)
     // this.timelineRef.addEventListener('mouseout', this.resetTimeLine, false)
   }
 
   componentWillUnmount() {
-    // console.log('WillUnMount - Music')
+    console.log('WillUnMount - Music')
 
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
-    // this.playerRef.removeEventListener('ended', this.nextSong)
+    this.playerRef.removeEventListener('ended', this.nextSong)
     // this.timelineRef.removeEventListener('click', this.changeCurrentTime)
     // this.timelineRef.removeEventListener('mousemove', this.hoverTimeLine)
     // this.timelineRef.removeEventListener('mouseout', this.resetTimeLine)
@@ -56,13 +56,28 @@ class Player extends React.Component {
       artist = 'Artist'
     }
 
-    // console.log(image, artist)
-
     return {albumImage: image, albumArtist: artist}
   }
 
-  updateActiveSongClass = id => {
-    this.setState({activeSong: id})
+  nextSong = () => {
+    const {index, activeSongClass, pause, musicList} = this.state
+    // console.log('NextSong', index, activeSongClass, pause, musicList)
+
+    if (
+      index + 1 === musicList.length &&
+      activeSongClass + 1 === musicList.length
+    ) {
+      this.playerRef.pause()
+      this.setState({pause: !pause})
+    } else {
+      this.setState(
+        {
+          index: index + 1,
+          activeSongClass: activeSongClass + 1,
+        },
+        this.updatePlayer,
+      )
+    }
   }
 
   playOrPause = () => {
@@ -82,25 +97,29 @@ class Player extends React.Component {
   }
 
   updatePlayer = () => {
-    const {musicList, index} = this.state
+    const {musicList, index, pause} = this.state
+
     const currentSong = musicList[index]
     const audio = new Audio(currentSong.audio)
     console.log(audio)
-
     this.playerRef.load()
+
+    if (pause) {
+      this.playerRef.play()
+    } else {
+      this.playerRef.pause()
+    }
   }
 
   onClickSelectSong = indx => {
-    const {pause} = this.state
-
-    this.setState({
-      index: indx,
-    })
-
-    this.updatePlayer()
-    if (pause) {
-      this.playerRef.play()
-    }
+    this.setState(
+      {
+        index: indx,
+        activeSongClass: indx,
+        pause: true,
+      },
+      this.updatePlayer,
+    )
   }
 
   renderMusicControls = () => {
@@ -144,8 +163,7 @@ class Player extends React.Component {
   }
 
   renderSongsList = () => {
-    const {musicList, activeSong} = this.state
-    // console.log(musicList, 'musicList')
+    const {musicList, activeSongClass} = this.state
 
     return (
       <>
@@ -153,8 +171,7 @@ class Player extends React.Component {
           <SongItem
             songData={item}
             selectSong={this.onClickSelectSong}
-            updateActiveSongClass={this.updateActiveSongClass}
-            isActive={activeSong === key}
+            isActive={activeSongClass === key}
             index={key}
             key={key}
           />
@@ -165,7 +182,6 @@ class Player extends React.Component {
 
   render() {
     const {displayInfo} = this.state
-    // console.log('Render')
 
     return (
       <div className="player-container">
