@@ -70,7 +70,7 @@ class YourPlayLists extends Component {
 
     return (
       <div className="playlist-main-container">
-        <h1 className="playlist-name">Your Playlists</h1>
+        <h1 className="your-playlist-name">Your Playlists</h1>
         <ul className="playlist-music-container">
           {yourPlayListData.map(item => (
             <PlayListItem playListItem={item} key={item.id} />

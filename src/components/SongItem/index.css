@@ -4,11 +4,18 @@
   height: 75px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   margin: 5px 3px 5px 3px;
   padding: 2px 4px 2px 4px;
   overflow: hidden;
 }
+
+/* .song-item .activeSongClass {
+  background-color: #1e3353;
+  border-radius: 5px;
+  border-left: 4px solid #1db954;
+} */
 
 .song-thumbnail {
   height: 60px;
