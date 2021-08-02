@@ -1,10 +1,17 @@
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import './index.css'
 
 const GenreCategoryItem = props => {
   const {genreListItem} = props
   const {images, name, tracks, id} = genreListItem
-  //   console.log(genreListItem)
+  //   console.log(id, 'idd')
+
+  const getCategoryId = () => {
+    const {match} = props
+    const {params} = match
+    const {categoryId} = params
+    return categoryId
+  }
 
   let image
 
@@ -17,10 +24,8 @@ const GenreCategoryItem = props => {
     image = null
   }
 
-  //   console.log(genreListItem)
-
   return (
-    <Link to={`/genre/category/album/${id}`}>
+    <Link to={`/genre/${getCategoryId()}/${id}/playlist`}>
       <li className="genre-album-container">
         <img
           src={image}
@@ -37,4 +42,4 @@ const GenreCategoryItem = props => {
   )
 }
 
-export default GenreCategoryItem
+export default withRouter(GenreCategoryItem)

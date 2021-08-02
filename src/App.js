@@ -38,10 +38,14 @@ const App = () => (
         path="/your-playlists/:id"
         component={PlayListAlbum}
       />
-      <ProtectedRoute exact path="/genre/:id" component={GenreCategory} />
       <ProtectedRoute
         exact
-        path="/genre/category/album/:id"
+        path="/genre/:categoryId"
+        component={GenreCategory}
+      />
+      <ProtectedRoute
+        exact
+        path="/genre/:categoryId/:id/playlist"
         component={GenreAlbumPlaylist}
       />
       <ProtectedRoute exact path="/search" component={Search} />

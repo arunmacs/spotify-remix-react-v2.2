@@ -18,7 +18,7 @@ const SongItem = props => {
     )
     image = image.url
   } else {
-    image = null
+    image = '/img/no-album-image.png'
   }
 
   const onClickSelectSong = () => {

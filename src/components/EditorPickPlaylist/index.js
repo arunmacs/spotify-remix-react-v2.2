@@ -25,6 +25,14 @@ class EditorPickPlaylist extends Component {
     return token
   }
 
+  sessionTimedOut = () => {
+    const {history} = this.props
+    // const token = this.getAccessToken()
+    localStorage.removeItem('pa_token')
+
+    history.replace('/login')
+  }
+
   getSpecificItem = async () => {
     const {match} = this.props
     const {params} = match
@@ -93,6 +101,8 @@ class EditorPickPlaylist extends Component {
         // playingSong: updatedTracksData[0],
         isLoading: false,
       })
+    } else {
+      this.sessionTimedOut()
     }
   }
 

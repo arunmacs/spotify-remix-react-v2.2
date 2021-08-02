@@ -21,7 +21,7 @@ class GenreCategory extends Component {
 
     const {match} = this.props
     const {params} = match
-    const {id} = params
+    const {categoryId} = params
 
     const userApiUrl = 'https://api.spotify.com/v1/me'
     const userOptions = {
@@ -34,7 +34,7 @@ class GenreCategory extends Component {
     const userData = await userDataResponse.json()
     const {country} = userData
 
-    const genreListApiUrl = `https://api.spotify.com/v1/browse/categories/${id}/playlists?country=${country}`
+    const genreListApiUrl = `https://api.spotify.com/v1/browse/categories/${categoryId}/playlists?country=${country}`
     const genreListOptions = {
       headers: {
         Authorization: `Bearer ${token}`,

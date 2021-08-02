@@ -34,6 +34,14 @@ class SpotifyClone extends Component {
     return timestamp
   }
 
+  sessionTimedOut = () => {
+    const {history} = this.props
+    // const token = this.getAccessToken()
+    localStorage.removeItem('pa_token')
+
+    history.replace('/login')
+  }
+
   getEditorsPickData = async () => {
     const token = this.getAccessToken()
     const timeStamp = this.getTimeStamp()
@@ -57,6 +65,7 @@ class SpotifyClone extends Component {
     }
 
     const response = await fetch(editorsPickApiUrl, editorsPickOptions)
+    // console.log(response)
 
     if (response.ok === true) {
       const data = await response.json()
@@ -82,6 +91,8 @@ class SpotifyClone extends Component {
         editorsPickData: updatedData,
         isEditorPickSectionLoading: false,
       })
+    } else {
+      this.sessionTimedOut()
     }
   }
 
@@ -113,6 +124,8 @@ class SpotifyClone extends Component {
         genresAndMoodsData: updatedData,
         isGenreMoodSectionLoading: false,
       })
+    } else {
+      this.sessionTimedOut()
     }
   }
 
@@ -163,6 +176,8 @@ class SpotifyClone extends Component {
         newReleasesData: updatedData,
         isNewReleaseSectionLoading: false,
       })
+    } else {
+      this.sessionTimedOut()
     }
   }
 

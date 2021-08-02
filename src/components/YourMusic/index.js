@@ -1,13 +1,19 @@
 import {Component} from 'react'
-import moment from 'moment'
-import NavBar from '../NavBar'
-// import MusicPlayer from '../MusicPlayer'
+// import moment from 'moment'
+// import NavBar from '../NavBar'
+import Player from '../Player'
 import LoaderView from '../LoaderView'
 
 import './index.css'
 
 class YourMusic extends Component {
-  state = {yourMusicPlayListData: [], playingSong: {}, isLoading: true}
+  state = {
+    musicList: [],
+    displayInfo: {},
+    // playingSong: {},
+    isLoading: true,
+    // pause: false,
+  }
 
   componentDidMount() {
     this.getYourMusicPlayLists()
@@ -57,77 +63,94 @@ class YourMusic extends Component {
       //   console.log(updatedData)
 
       this.setState({
-        yourMusicPlayListData: updatedMusicListData,
+        musicList: updatedMusicListData,
         isLoading: false,
       })
+    } else {
+      //   console.log('error')
+      this.sessionTimedOut()
     }
   }
 
-  getDurationTime = inMilliSecs => {
-    const inSecs = moment.duration(inMilliSecs).seconds()
-    const inMins = moment.duration(inMilliSecs).minutes()
+  sessionTimedOut = () => {
+    const {history} = this.props
+    // const token = this.getAccessToken()
+    localStorage.removeItem('pa_token')
 
-    if (inSecs < 10) {
-      return `${inMins}:0${inSecs}`
-    }
-    return `${inMins}:${inSecs}`
+    history.replace('/login')
   }
 
-  renderYourMusicPlayLists = data => {
-    const {album, name, id, artists, durationMs, previewUrl} = data
+  //   getDurationTime = inMilliSecs => {
+  //     const inSecs = moment.duration(inMilliSecs).seconds()
+  //     const inMins = moment.duration(inMilliSecs).minutes()
 
-    this.onClickSelectSong = () => {
-      this.setState({playingSong: previewUrl})
-    }
+  //     if (inSecs < 10) {
+  //       return `${inMins}:0${inSecs}`
+  //     }
+  //     return `${inMins}:${inSecs}`
+  //   }
 
-    return (
-      <li className="music-item" onClick={this.onClickSelectSong} key={id}>
-        <img src={album.images[2].url} alt={`album `} className="item-image" />
-        <div className="item-info">
-          <p className="item-name">{name}</p>
-          <div className="artist-div">
-            {artists.map(artist => (
-              <span className="item-artist" key={artist.id}>
-                {artist.name}
-              </span>
-            ))}
-          </div>
-        </div>
-        <span className="item-duration">
-          {this.getDurationTime(durationMs)}
-        </span>
-      </li>
-    )
-  }
+  //   renderYourMusicPlayLists = data => {
+  //     const {album, name, id, artists, durationMs, previewUrl} = data
 
-  renderPage = () => {
-    const {yourMusicPlayListData, playingSong} = this.state
-    console.log(playingSong)
+  //     this.onClickSelectSong = () => {
+  //       this.setState({playingSong: previewUrl})
+  //     }
 
-    return (
-      <>
-        <div className="your-music-main-container">
-          <h1 className="playlist-name">Your Music</h1>
-          <ul className="your-music-container">
-            {yourMusicPlayListData.map(item =>
-              this.renderYourMusicPlayLists(item),
-            )}
-          </ul>
-        </div>
-        {/* <MusicPlayer songUrl={playingSong} /> */}
-      </>
-    )
-  }
+  //     return (
+  //       <li className="music-item" onClick={this.onClickSelectSong} key={id}>
+  //         <img src={album.images[2].url} alt={`album `} className="item-image" />
+  //         <div className="item-info">
+  //           <p className="item-name">{name}</p>
+  //           <div className="artist-div">
+  //             {artists.map(artist => (
+  //               <span className="item-artist" key={artist.id}>
+  //                 {artist.name}
+  //               </span>
+  //             ))}
+  //           </div>
+  //         </div>
+  //         <span className="item-duration">
+  //           {this.getDurationTime(durationMs)}
+  //         </span>
+  //       </li>
+  //     )
+  //   }
+
+  //   renderPage = () => {
+  //     const {yourMusicPlayListData, playingSong} = this.state
+  //     console.log(playingSong)
+
+  //     return (
+  //       <>
+  //         <div className="your-music-main-container">
+  //           <h1 className="playlist-name">Your Music</h1>
+  //           <ul className="your-music-container">
+  //             {yourMusicPlayListData.map(item =>
+  //               this.renderYourMusicPlayLists(item),
+  //             )}
+  //           </ul>
+  //         </div>
+  //         {/* <MusicPlayer songUrl={playingSong} /> */}
+  //       </>
+  //     )
+  //   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, displayInfo, musicList} = this.state
+    // console.log(displayInfo, ' editPlay')
 
     return (
-      <div className="app-body">
-        <NavBar />
-        <div className="container">
-          {isLoading ? <LoaderView /> : this.renderPage()}
-        </div>
+      <div>
+        {isLoading ? (
+          <LoaderView />
+        ) : (
+          <Player
+            displayInfo={displayInfo}
+            musicList={musicList}
+            // playingSong={playingSong}
+          />
+        )}
       </div>
     )
   }

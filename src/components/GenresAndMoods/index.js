@@ -6,6 +6,9 @@ const GenresAndMoods = props => {
   const {icons, name, id} = genresAndMoodsData
   //   console.log(icons, 'icons')
 
+  const categoryId = id
+  //   console.log(categoryId)
+
   let icon
 
   if (icons !== undefined) {
@@ -18,7 +21,7 @@ const GenresAndMoods = props => {
   }
 
   return (
-    <Link to={`/genre/${id}`}>
+    <Link to={`/genre/${categoryId}`}>
       <div className="genres-moods-item">
         <img src={icon} alt="" className="genres-moods-item-image" />
         <p className="genres-moods-item-name">{name}</p>
