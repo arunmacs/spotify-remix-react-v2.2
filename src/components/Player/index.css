@@ -23,6 +23,7 @@
   height: 70px;
   width: 100%;
   background-color: #202020;
+  border-top: 1px solid #9b9b9b;
   position: fixed;
   bottom: 0;
   display: flex;

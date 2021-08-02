@@ -1,12 +1,12 @@
 .song-item {
   list-style-type: none;
   width: 97%;
-  height: 80px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 3px 4px 3px 4px;
-  padding: 3px 5px 3px 5px;
+  margin: 5px 3px 5px 3px;
+  padding: 2px 4px 2px 4px;
   overflow: hidden;
 }
 
