@@ -185,14 +185,14 @@ class SpotifyClone extends Component {
     const {editorsPickData} = this.state
 
     return (
-      <>
-        <h1 className="container-name">Editor&apos;s picks</h1>
-        <div className="editor-container">
+      <div className="content-container">
+        <h1 className="content-heading">Editor&apos;s picks</h1>
+        <div className="content">
           {editorsPickData.map(item => (
             <EditorsPicks editorsPicksData={item} key={item.id} />
           ))}
         </div>
-      </>
+      </div>
     )
   }
 
@@ -200,14 +200,14 @@ class SpotifyClone extends Component {
     const {genresAndMoodsData} = this.state
 
     return (
-      <>
-        <h1 className="container-name">Genres & Moods</h1>
-        <div className="genres-moods-container">
+      <div className="content-container">
+        <h1 className="content-heading">Genres & Moods</h1>
+        <div className="content">
           {genresAndMoodsData.map(item => (
             <GenresAndMoods genresAndMoodsData={item} key={item.id} />
           ))}
         </div>
-      </>
+      </div>
     )
   }
 
@@ -215,14 +215,14 @@ class SpotifyClone extends Component {
     const {newReleasesData} = this.state
 
     return (
-      <>
-        <h1 className="container-name">New Releases</h1>
-        <div className="new-releases-container">
+      <div className="content-container">
+        <h1 className="content-heading">New Releases</h1>
+        <div className="content">
           {newReleasesData.map(item => (
             <NewReleases newReleasesData={item} key={item.id} />
           ))}
         </div>
-      </>
+      </div>
     )
   }
 
