@@ -22,30 +22,66 @@ class NavBar extends Component {
   }
 
   onClickRenderMenuButton = () => (
-    <nav className="nav-container">
-      <button
-        type="button"
-        onClick={this.onClickRedirectHome}
-        className="menu-button"
-      >
-        <img
-          src="/img/music.svg"
-          alt="music-spectrum"
-          className="music-spectrum-img"
-        />
-      </button>
-      <button
-        type="button"
-        onClick={this.onClickToggleMenu}
-        className="menu-button"
-      >
-        <FiMenu className="menu-icon" />
-      </button>
-    </nav>
+    <>
+      <nav className="top-navbar-container">
+        <button
+          type="button"
+          onClick={this.onClickRedirectHome}
+          className="logo-button"
+        >
+          <img
+            src="/img/music.svg"
+            alt="music-spectrum"
+            className="music-spectrum-img"
+          />
+        </button>
+        <button
+          type="button"
+          onClick={this.onClickToggleMenu}
+          className="menu-button"
+        >
+          <FiMenu className="menu-icon" />
+        </button>
+      </nav>
+      <nav className="side-navbar-container">
+        <button
+          type="button"
+          onClick={this.onClickRedirectHome}
+          className="logo-button"
+        >
+          <img
+            src="/img/music.svg"
+            alt="music-spectrum"
+            className="music-spectrum-img"
+          />
+        </button>
+        <div className="side-navbar-links">
+          <Link to="/profile" className="icon-container active-icon">
+            <BsFillPersonFill className="menu-option" />
+          </Link>
+
+          <Link to="/" className="icon-container">
+            <IoMdHome className="menu-option" />
+          </Link>
+
+          <Link to="/search" className="icon-container">
+            <FiSearch className="menu-option" />
+          </Link>
+
+          <Link to="/your-music" className="icon-container">
+            <IoMusicalNotesSharp className="menu-option" />
+          </Link>
+
+          <Link to="/playlists" className="icon-container">
+            <BsMusicNoteList className="menu-option" />
+          </Link>
+        </div>
+      </nav>
+    </>
   )
 
   onClickRenderMenuOptions = () => (
-    <nav className="nav-links-container">
+    <nav className="top-navbar-links">
       <Link to="/profile">
         <BsFillPersonFill className="menu-option" />
       </Link>
@@ -75,7 +111,7 @@ class NavBar extends Component {
     const {showMenu} = this.state
 
     return (
-      <header className="top-nav-bar-container">
+      <header className="navbar-container">
         {showMenu
           ? this.onClickRenderMenuOptions()
           : this.onClickRenderMenuButton()}

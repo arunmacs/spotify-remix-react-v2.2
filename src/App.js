@@ -6,6 +6,7 @@ import YourPlayLists from './components/YourPlayLists'
 import YourMusic from './components/YourMusic'
 import NotFound from './components/NotFound'
 import Profile from './components/Profile'
+import NavBar from './components/NavBar'
 import EditorPickPlaylist from './components/EditorPickPlaylist'
 import NewReleasePlaylist from './components/NewReleasePlaylist'
 import PlayListAlbum from './components/PlayListAlbum'
@@ -17,6 +18,7 @@ import './App.css'
 
 const App = () => (
   <BrowserRouter>
+    <NavBar className="desktop-common-component" />
     <Switch>
       <Route exact path="/login" component={LoginForm} />
       <ProtectedRoute exact path="/" component={SpotifyClone} />

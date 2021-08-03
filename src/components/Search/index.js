@@ -4,7 +4,7 @@ import './index.css'
 const Search = () => (
   <div>
     <BackNavigation />
-    <h1>Agent Search Coming Soon...</h1>
+    <h1 className="search">Agent Search Coming Soon...</h1>
   </div>
 )
 

@@ -13,7 +13,7 @@ const GenresAndMoods = props => {
 
   if (icons !== undefined) {
     icon = icons.reduce((prev, curr) =>
-      prev.height < curr.height ? prev : curr,
+      prev.height > curr.height ? prev : curr,
     )
     icon = icon.url
   } else {

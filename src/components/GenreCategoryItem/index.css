@@ -32,3 +32,47 @@
   font-weight: 400;
   margin: 5px 5px 5px 0px;
 }
+
+@media (min-width: 768px) {
+  .genre-album-container {
+    list-style-type: none;
+    height: 185px;
+    width: 185px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 3px 0px 3px;
+    margin: 7px;
+  }
+
+  .genre-album-image {
+    height: 125px;
+    width: 125px;
+    margin: 5px 3px 3px 3px;
+    border-radius: 5px;
+  }
+
+  .genre-album-info {
+    margin: 3px 3px 3px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .genre-album-name {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 3px 2px 3px 0px;
+  }
+
+  .genre-album-tracks {
+    color: #64748b;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 3px 2px 3px 0px;
+  }
+}

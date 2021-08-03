@@ -13,10 +13,11 @@
   width: 130px;
   border-radius: 6px;
   margin: 5px 3px 5px 3px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 50px;
 }
 
 .album-display-name {
-  color: #ffffff;
+  color: #3a5a81;
   font-size: 20px;
   font-weight: 300;
   text-align: center;
@@ -37,5 +38,31 @@
   .album-display-name {
     font-size: 25px;
     font-weight: 400;
+  }
+}
+
+@media (min-width: 768px) {
+  .album-display-info {
+    width: 80%;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 13px 0px 13px 5px;
+  }
+
+  .album-display-image {
+    height: 180px;
+    width: 180px;
+    border-radius: 6px;
+    margin: 5px 3px 5px 3px;
+  }
+
+  .album-display-name {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 5px 4px 20px 10px;
+    align-self: flex-end;
   }
 }

@@ -1,17 +1,20 @@
-/* .app-body {
-  width: 100%;
-  height: 95vh;
-}
-
-.playlist-main-container {
-  height: 93vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.your-playlist-main-container {
+  height: 100vh;
   background-color: #181818;
   overflow: auto;
   border: 0px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.your-playlist-container {
+  margin: 40px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .your-playlist-name {
@@ -21,8 +24,7 @@
   margin: 20px 10px 20px 8px;
 }
 
-.playlist-music-container {
-  width: 100%;
+.your-playlist-music-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,4 +34,4 @@
 
 ul {
   padding: 0;
-} */
+}

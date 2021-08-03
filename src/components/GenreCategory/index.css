@@ -8,7 +8,7 @@
   padding: 10px 0px 10px 0px;
 }
 
-.podcast-heading {
+.category-heading {
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
@@ -20,4 +20,27 @@
   flex-direction: column;
   padding: 0;
   margin: 10px 5px 70px 10px;
+}
+
+@media (min-width: 768px) {
+  .genre-category-container {
+    display: flex;
+    flex-direction: column;
+    border: 0px;
+    margin: 0px 0px 0px 82px;
+  }
+
+  .category-heading {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 55px 8px 8px 20px;
+  }
+
+  .genre-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
 }

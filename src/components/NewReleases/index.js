@@ -10,7 +10,7 @@ const NewReleases = props => {
 
   if (images !== undefined) {
     image = images.reduce((prev, curr) =>
-      prev.height < curr.height ? prev : curr,
+      prev.height > curr.height ? prev : curr,
     )
   } else {
     image = null

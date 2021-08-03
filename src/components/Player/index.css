@@ -1,5 +1,5 @@
 .player-container {
-  background-color: #202020;
+  background-color: #eaeaea;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -18,13 +18,13 @@
 .playlist {
   padding: 0;
   width: 98%;
-  margin: 10px 3px 60px 3px;
+  margin: 30px 3px 60px 3px;
 }
 
 .music-controls {
   height: 65px;
   width: 100%;
-  background-color: #202020;
+  background-color: #3a5a81;
   border-top: 1px solid #9b9b9b;
   position: fixed;
   bottom: 0;
@@ -120,5 +120,95 @@
   .play-pause-icon {
     height: 35px;
     width: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  .player-container {
+    padding: 50px 0px 0px 0px;
+  }
+
+  .playlist-container {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .playlist {
+    padding: 0;
+    width: 90%;
+    margin: 20px 3px 80px 60px;
+    overflow: auto;
+  }
+
+  .music-controls {
+    height: 80px;
+    width: 100%;
+    border-top: 1px solid #9b9b9b;
+    position: fixed;
+    bottom: 0;
+    left: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .album-img {
+    margin: 3px 4px 3px 20px;
+    height: 65px;
+    width: 65px;
+    border-radius: 4px;
+  }
+
+  .album-info {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 2px 2px 2px 2px;
+  }
+
+  .album-name {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 3px 3px 3px 0px;
+    line-height: 18px;
+    overflow: hidden;
+  }
+
+  .artist-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2px 3px 2px 0px;
+    overflow: hidden;
+  }
+
+  .artist-name {
+    color: #9b9b9b;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    overflow: hidden;
+  }
+
+  .play-pause-button {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    padding: 3px;
+    margin: 2px 20px 2px 2px;
+  }
+
+  .play-pause-icon {
+    color: #ffffff;
+    height: 32px;
+    width: 32px;
   }
 }

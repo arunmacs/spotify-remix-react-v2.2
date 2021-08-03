@@ -46,3 +46,26 @@
     margin: 2px 1px 2px 1px;
   }
 }
+
+@media (min-width: 768px) {
+  .new-release-item {
+    width: 160px;
+    height: 170px;
+    margin: 6px;
+  }
+
+  .new-release-item-image {
+    height: 130px;
+    width: 130px;
+    border-radius: 6px;
+    margin: 2px;
+  }
+
+  .new-release-item-name {
+    color: #f8fafc;
+    font-size: 17px;
+    font-weight: 300;
+    text-align: center;
+    margin: 7px 1px 2px 1px;
+  }
+}

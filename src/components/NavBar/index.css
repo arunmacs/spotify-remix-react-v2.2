@@ -1,23 +1,24 @@
-.top-nav-bar-container {
+.navbar-container {
   height: 55px;
   width: 100%;
   background-color: #000000;
   position: fixed;
   top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
   padding: 0px 6px 0px 6px;
   overflow: hidden;
 }
 
-.nav-container {
+.side-navbar-container {
+  display: none;
+}
+
+.top-navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nav-links-container {
+.top-navbar-links {
   background-color: #393b40;
   height: 55px;
   width: 100%;
@@ -35,6 +36,12 @@
   height: 27px;
   width: 80px;
   margin: 5px 8px 5px 0px;
+}
+
+.logo-button {
+  border: 0;
+  background-color: transparent;
+  margin: 5px 8px 5px 5px;
 }
 
 .menu-button {
@@ -62,15 +69,17 @@
   margin: 4px 8px 4px 8px;
 }
 
-.active-tab {
-  color: #ffffff;
-}
-
 @media (min-width: 476px) {
-  .nav-container {
+  .top-navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .logo-button {
+    border: 0;
+    background-color: transparent;
+    margin: 5px 8px 5px 5px;
   }
 
   .music-spectrum-img {
@@ -102,5 +111,77 @@
     width: 27px;
     color: #aaaaaa;
     margin: 4px 8px 4px 8px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    height: 100vh;
+    width: 85px;
+    background-color: #040306;
+    position: fixed;
+    left: 0px;
+    padding: 0px 6px 0px 6px;
+    overflow: hidden;
+  }
+
+  .side-navbar-container {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .side-navbar-links {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .top-navbar-container {
+    display: none;
+  }
+
+  .top-navbar-links {
+    display: none;
+  }
+
+  .music-spectrum-img {
+    height: 35px;
+    width: 68px;
+    margin: 3px 1px 3px 1px;
+  }
+
+  .logo-button {
+    border: 0;
+    background-color: transparent;
+    margin: 20px 2px 15px 2px;
+  }
+
+  .icon-container {
+    width: 90px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .active-icon {
+    border-left: 6px solid #1ed760;
+    border-radius: 8px 0px 0px 8px;
+    background-color: #181818;
+  }
+
+  .menu-option {
+    height: 30px;
+    width: 30px;
+    color: #aaaaaa;
+    margin: 8px 5px 8px 1px;
   }
 }

@@ -75,7 +75,7 @@ class GenreCategory extends Component {
 
     return (
       <>
-        <h1 className="podcast-heading">Podcast</h1>
+        <h1 className="category-heading">Podcast</h1>
         <ul className="genre-list-container">
           {genreListData.map(item => (
             <GenreCategoryItem genreListItem={item} key={item.id} />

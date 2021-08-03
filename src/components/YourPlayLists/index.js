@@ -69,9 +69,9 @@ class YourPlayLists extends Component {
     const {yourPlayListData} = this.state
 
     return (
-      <div className="playlist-main-container">
+      <div className="your-playlist-container">
         <h1 className="your-playlist-name">Your Playlists</h1>
-        <ul className="playlist-music-container">
+        <ul className="your-playlist-music-container">
           {yourPlayListData.map(item => (
             <PlayListItem playListItem={item} key={item.id} />
           ))}
@@ -84,7 +84,7 @@ class YourPlayLists extends Component {
     const {isLoading} = this.state
 
     return (
-      <div className="app-body">
+      <div className="your-playlist-main-container">
         <NavBar />
         {isLoading ? <LoaderView /> : this.renderPage()}
       </div>

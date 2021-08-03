@@ -14,13 +14,6 @@
   margin: 40px 0px 0px 0px;
 }
 
-/* .side-nav-bar {
-  height: 100vh;
-  width: 20%;
-  color: white;
-  font-size: 20px;
-} */
-
 .container-name {
   color: #ffffff;
   font-size: 20px;
@@ -29,7 +22,6 @@
 }
 
 .editor-container {
-  width: 95%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -138,5 +130,40 @@ a {
     display: flex;
     flex-wrap: wrap;
     margin: 0px 0px 7px 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-body {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .container-name {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 25px 8px 8px 100px;
+  }
+
+  .editor-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px 0px 5px 80px;
+  }
+
+  .genres-moods-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 0px 5px 80px;
+  }
+
+  .new-releases-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 0px 5px 80px;
   }
 }
