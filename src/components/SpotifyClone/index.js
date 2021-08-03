@@ -256,9 +256,9 @@ class SpotifyClone extends Component {
 
   render() {
     return (
-      <div className="app-body">
+      <div className="app-container">
         <NavBar />
-        <div className="main-container">{this.renderHomeView()}</div>
+        <div className="app-body">{this.renderHomeView()}</div>
       </div>
     )
   }

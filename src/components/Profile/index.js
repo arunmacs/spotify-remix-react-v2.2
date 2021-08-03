@@ -53,7 +53,7 @@ class Profile extends Component {
 
     return (
       <div className="profile-container">
-        <img src="/img/profile-user.svg" alt="user" className="user-icon" />
+        <img src="/img/avatar-icon.png" alt="avatar" className="user-icon" />
         <h1 className="user-name">{userData.displayName}</h1>
         <div className="followers-playlists-info-container">
           <div className="followers-playlists-div">

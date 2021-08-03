@@ -19,14 +19,44 @@
 
 .back-arrow {
   color: #ffffff;
-  height: 27px;
-  width: 26px;
+  height: 26px;
+  width: 27px;
   margin: 4px 5px 4px 0px;
 }
 
 .back-text {
   color: #ffffff;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   margin: 4px 8px 8px 8px;
+}
+
+@media (min-width: 476px) {
+  .back-arrow-container {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px 5px 20px;
+    background-color: #202020;
+    border: none;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+  }
+
+  .back-button {
+    background-color: transparent;
+    padding: 0px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .back-arrow {
+    height: 30px;
+    width: 28px;
+  }
+
+  .back-text {
+    font-size: 18px;
+    font-weight: 400;
+  }
 }

@@ -3,23 +3,46 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px 5px 5px 5px;
+  margin: 3px;
   padding: 0px;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 125px;
+  overflow-flow: hidden;
 }
 
 .new-release-item-image {
-  height: 80px;
-  width: 80px;
+  height: 76px;
+  width: 76px;
   border-radius: 5px;
-  margin: 3px 2px 3px 2px;
+  margin: 2px;
 }
 
 .new-release-item-name {
   color: #f8fafc;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   text-align: center;
-  margin: 3px 2px 3px 2px;
+  margin: 3px 2px 2px 2px;
+}
+
+@media (min-width: 476px) {
+  .new-release-item {
+    width: 120px;
+    height: 135px;
+  }
+
+  .new-release-item-image {
+    height: 90px;
+    width: 90px;
+    border-radius: 6px;
+    margin: 2px;
+  }
+
+  .new-release-item-name {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    margin: 2px 1px 2px 1px;
+  }
 }

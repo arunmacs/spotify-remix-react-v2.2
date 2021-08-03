@@ -1,16 +1,17 @@
-.app-body {
+.app-container {
   width: 100%;
   height: 100vh;
+  overflow: auto;
 }
 
-.main-container {
-  height: 93vh;
+.app-body {
   display: flex;
   flex-direction: column;
   background-color: #202020;
-  overflow: auto;
+  width: 100%;
   border: 0px;
-  padding: 10px;
+  padding: 10px 5px 10px 5px;
+  margin: 40px 0px 0px 0px;
 }
 
 /* .side-nav-bar {
@@ -20,33 +21,33 @@
   font-size: 20px;
 } */
 
-.editor-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0px 0px 20px 0px;
-}
-
 .container-name {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 20px 10px 7px 20px;
+  margin: 25px 8px 8px 15px;
 }
 
-.app-container {
-  width: 80%;
+.editor-container {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px 0px 5px 0px;
 }
 
 .genres-moods-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 5px 0px;
 }
 
 .new-releases-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 5px 0px;
 }
 
 .bottom-group {
@@ -111,4 +112,31 @@
 
 a {
   text-decoration: none;
+}
+
+@media (min-width: 476px) {
+  .container-name {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 8px 8px 15px;
+  }
+
+  .editor-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 7px 0px;
+  }
+
+  .genres-moods-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 7px 0px;
+  }
+
+  .new-releases-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 7px 0px;
+  }
 }

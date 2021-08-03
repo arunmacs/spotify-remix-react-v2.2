@@ -20,8 +20,10 @@ const AlbumDisplayInfo = props => {
     image = noAlbumImg
   }
 
-  if (name === undefined || null) {
+  if (name === undefined) {
     albumName = 'Album'
+  } else {
+    albumName = name
   }
 
   return (

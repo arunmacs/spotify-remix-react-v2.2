@@ -22,7 +22,7 @@ class NavBar extends Component {
   }
 
   onClickRenderMenuButton = () => (
-    <nav className="top-bar-container">
+    <nav className="nav-container">
       <button
         type="button"
         onClick={this.onClickRedirectHome}
@@ -75,11 +75,11 @@ class NavBar extends Component {
     const {showMenu} = this.state
 
     return (
-      <div className="nav-bar-container">
+      <header className="top-nav-bar-container">
         {showMenu
           ? this.onClickRenderMenuOptions()
           : this.onClickRenderMenuButton()}
-      </div>
+      </header>
     )
   }
 }

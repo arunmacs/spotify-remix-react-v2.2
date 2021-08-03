@@ -1,24 +1,41 @@
 .album-display-info {
-  width: 280px;
-  height: 220px;
+  width: 240px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 13px 0px 10px 5px;
+  margin: 13px 0px 13px 5px;
 }
 
 .album-display-image {
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
   border-radius: 6px;
   margin: 5px 3px 5px 3px;
 }
 
 .album-display-name {
   color: #ffffff;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
   margin: 5px 4px 5px 4px;
+}
+
+@media (min-width: 476px) {
+  .album-display-info {
+    width: 280px;
+    height: 280px;
+  }
+
+  .album-display-image {
+    height: 170px;
+    width: 170px;
+  }
+
+  .album-display-name {
+    font-size: 25px;
+    font-weight: 400;
+  }
 }

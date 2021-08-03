@@ -9,7 +9,6 @@ const EditorsPicks = props => {
   const image = images.reduce((prev, curr) =>
     prev.height < curr.height ? prev : curr,
   )
-  //   console.log(image, 'image')
 
   return (
     <Link to={`/editor-pick/${id}`}>
