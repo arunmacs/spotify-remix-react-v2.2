@@ -1,17 +1,16 @@
 .back-arrow-container {
   display: flex;
   align-items: center;
-  padding: 10px 10px 5px 15px;
-  background-color: #202020;
   border: none;
-  margin: 0px 0px 0px 0px;
-  width: 100%;
-  position: sticky;
+  position: fixed;
+  top:15px;
+  left:15px;
 }
 
 .back-button {
-  background-color: transparent;
-  padding: 0px;
+  background-color: #20202080;
+  border-radius: 30px;
+  padding: 3px 8px 3px 4px;
   border: 0;
   cursor: pointer;
   outline: none;
@@ -19,35 +18,22 @@
 
 .back-arrow {
   color: #ffffff;
-  height: 26px;
-  width: 27px;
-  margin: 4px 5px 4px 0px;
+  height: 27px;
+  width: 25px;
 }
 
-.back-text {
+/* .back-text {
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
   margin: 4px 8px 8px 8px;
-}
+} */
 
 @media (min-width: 476px) {
   .back-arrow-container {
     display: flex;
     align-items: center;
-    padding: 15px 10px 5px 20px;
-    background-color: #202020;
     border: none;
-    margin: 0px 0px 0px 0px;
-    width: 100%;
-  }
-
-  .back-button {
-    background-color: transparent;
-    padding: 0px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
   }
 
   .back-arrow {
@@ -65,35 +51,16 @@
   .back-arrow-container {
     display: flex;
     align-items: center;
-    padding: 10px 10px 5px 15px;
-    background-color: #202020;
     border: none;
-    margin: 0px 0px 0px 0px;
-    width: 92%;
+    margin: 8px 0px 0px 0px;
     position: fixed;
     top: 0px;
     left: 84px;
   }
 
-  .back-button {
-    background-color: transparent;
-    padding: 0px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-  }
-
   .back-arrow {
-    color: #ffffff;
-    height: 30px;
-    width: 30px;
-    margin: 4px 5px 4px 0px;
+    height: 28px;
+    width: 25px;
   }
 
-  .back-text {
-    color: #ffffff;
-    font-size: 17px;
-    font-weight: 400;
-    margin: 4px 8px 8px 8px;
-  }
 }

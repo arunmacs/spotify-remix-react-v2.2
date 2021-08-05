@@ -120,6 +120,8 @@
     width: 80px;
     background-color: #040306;
     position: fixed;
+    top:0px;
+    bottom:0px;
     left: 0px;
     padding: 0px 6px 0px 6px;
     overflow: hidden;

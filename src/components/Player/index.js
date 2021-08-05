@@ -1,5 +1,6 @@
 import React from 'react'
 import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
+import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
 import SongItem from '../SongItem'
@@ -7,26 +8,32 @@ import SongItem from '../SongItem'
 import './index.css'
 
 class Player extends React.Component {
-  state = {...this.props, index: 0, pause: false, activeSongClass: 0}
+  state = {
+    ...this.props,
+    index: 0,
+    pause: false,
+    activeSongClass: 0,
+    screenSize: window.innerWidth,
+  }
 
   componentDidMount() {
-    console.log('DidMount - Music')
+    // console.log('DidMount - Music')
 
     this.playerRef.addEventListener('timeupdate', this.timeUpdate)
     this.playerRef.addEventListener('ended', this.nextSong)
-    // this.timelineRef.addEventListener('click', this.changeCurrentTime, false)
-    // this.timelineRef.addEventListener('mousemove', this.hoverTimeLine, false)
-    // this.timelineRef.addEventListener('mouseout', this.resetTimeLine, false)
+    window.addEventListener('resize', this.resize)
   }
 
   componentWillUnmount() {
-    console.log('WillUnMount - Music')
+    // console.log('WillUnMount - Music')
 
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
     this.playerRef.removeEventListener('ended', this.nextSong)
-    // this.timelineRef.removeEventListener('click', this.changeCurrentTime)
-    // this.timelineRef.removeEventListener('mousemove', this.hoverTimeLine)
-    // this.timelineRef.removeEventListener('mouseout', this.resetTimeLine)
+    window.removeEventListener('resize', this.resize)
+  }
+
+  resize = () => {
+    this.setState({screenSize: window.innerWidth})
   }
 
   getArtistName = artist => {
@@ -123,7 +130,8 @@ class Player extends React.Component {
   }
 
   renderMusicControls = () => {
-    const {musicList, index, pause} = this.state
+    const {musicList, index, pause, screenSize} = this.state
+    console.log(screenSize)
     const currentSong = musicList[index]
     const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
 
@@ -181,10 +189,11 @@ class Player extends React.Component {
   }
 
   render() {
-    const {displayInfo} = this.state
+    const {displayInfo, screenSize} = this.state
 
     return (
       <div className="player-container">
+        {screenSize >= 768 && <NavBar />}
         <BackNavigation />
         <div className="playlist-container">
           <AlbumDisplayInfo displayInfo={displayInfo} />

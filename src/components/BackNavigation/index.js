@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {withRouter} from 'react-router-dom'
-import {BsArrowLeft} from 'react-icons/bs'
+import {IoIosArrowBack} from 'react-icons/io'
 
 import './index.css'
 
@@ -19,9 +19,9 @@ class BackNavigation extends Component {
           onClick={this.onClickGoBack}
           className="back-button"
         >
-          <BsArrowLeft className="back-arrow" />
+          <IoIosArrowBack className="back-arrow" />
         </button>
-        <p className="back-text">Back</p>
+        {/* <p className="back-text">Back</p> */}
       </div>
     )
   }
