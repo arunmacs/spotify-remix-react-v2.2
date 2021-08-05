@@ -11,20 +11,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px 7px 5px 7px;
-  width: 100%;
   overflow: auto;
 }
 
+.playlist-columns {
+  display: none;
+}
+
 .playlist {
-  padding: 20px 3px 25px 3px;
-  width: 98%;
-  margin: 8px 3px 40px 3px;
+  padding: 20px 0px 45px 0px;
+  width: 100%;
+  margin: 3px 0px 3px 0px;
   overflow: auto;
 }
 
 .music-controls {
-  height: 65px;
+  height: 45px;
   width: 100%;
   background-color: #3a5a81;
   border-top: 1px solid #9b9b9b;
@@ -39,9 +41,9 @@
 }
 
 .album-img {
-  margin: 3px 4px 3px 20px;
-  height: 50px;
-  width: 50px;
+  margin: 3px 4px 3px 15px;
+  height: 40px;
+  width: 40px;
   border-radius: 4px;
 }
 
@@ -51,15 +53,15 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 2px 2px 2px 2px;
+  margin: 2px 2px 2px 4px;
 }
 
 .album-name {
   color: #ffffff;
   font-size: 13px;
   font-weight: 400;
-  margin: 3px 3px 3px 0px;
-  line-height: 18px;
+  margin: 3px 2px 3px 0px;
+  line-height: 16px;
   overflow: hidden;
 }
 
@@ -67,7 +69,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 2px 3px 2px 0px;
+  margin: 3px 2px 2px 0px;
   overflow: hidden;
 }
 
@@ -75,7 +77,7 @@
   color: #9b9b9b;
   font-size: 13px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 16px;
   overflow: hidden;
 }
 
@@ -89,19 +91,27 @@
 
 .play-pause-icon {
   color: #ffffff;
-  height: 27px;
-  width: 27px;
+  height: 26px;
+  width: 26px;
 }
 
 @media (min-width: 476px) {
+  .playlist-columns {
+    display: none;
+  }
+
+  .playlist {
+    padding: 20px 0px 55px 0px;
+  }
+
   .music-controls {
-    height: 75px;
+    height: 50px;
   }
 
   .album-img {
-    height: 60px;
-    width: 60px;
-    border-radius: 6px;
+    height: 45px;
+    width: 45px;
+    border-radius: 4px;
   }
 
   .album-info {
@@ -109,21 +119,21 @@
   }
 
   .album-name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
   }
 
   .artist-name {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .play-pause-button {
-    padding: 6px;
+    padding: 5px;
   }
 
   .play-pause-icon {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -146,15 +156,33 @@
     height: 93%;
   }
 
+  .playlist-columns {
+    border-bottom: 1px solid #475569;
+    width: 98%;
+    height: 45px;
+    margin: 5px 0px 5px 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .column-name {
+    padding: 3px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 2px;
+  }
+
   .playlist {
-    padding: 20px 3px 40px 3px;
+    padding: 10px 3px 40px 3px;
     width: 98%;
     margin: 20px 3px 60px 3px;
     overflow: auto;
   }
 
   .music-controls {
-    height: 80px;
+    height: 70px;
     width: 100%;
     border-top: 1px solid #9b9b9b;
     position: fixed;
@@ -168,8 +196,8 @@
 
   .album-img {
     margin: 3px 4px 3px 20px;
-    height: 65px;
-    width: 65px;
+    height: 60px;
+    width: 60px;
     border-radius: 4px;
   }
 

@@ -195,6 +195,22 @@ class Player extends React.Component {
         <BackNavigation />
         <div className="playlist-container">
           <AlbumDisplayInfo displayInfo={displayInfo} />
+          {/* <div>
+            <span className="column-name">Track</span>
+            <span className="column-name">Album</span>
+            <span className="column-name">Time</span>
+            <span className="column-name">Artist</span>
+            <span className="column-name">Added</span>
+          </div> */}
+          <table style={{width: '100%'}}>
+            <tr>
+              <th>Track</th>
+              <th>Album</th>
+              <th>Time</th>
+              <th>Artist</th>
+              <th>Added</th>
+            </tr>
+          </table>
           <ul className="playlist">{this.renderSongsList()}</ul>
         </div>
         <div className="music-controls">{this.renderMusicControls()}</div>

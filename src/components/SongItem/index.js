@@ -4,9 +4,11 @@ import './index.css'
 
 const SongItem = props => {
   const {songData, selectSong, index, isActive} = props
-  const {artists, album, durationMs, name} = songData
+  const {artists, album, durationMs, name, trackNumber} = songData
 
-  //   console.log(isActive)
+  console.log(songData)
+
+  const added = album.release_date
 
   const activeSongClass = isActive ? 'activeClass' : ''
 
@@ -38,16 +40,25 @@ const SongItem = props => {
   return (
     <li className={`song-item ${activeSongClass}`} onClick={onClickSelectSong}>
       <img src={image} alt="album" className="song-thumbnail" />
-      <div className="song-info">
+      <div className="song-info-md">
         <p className="song-name">{name}</p>
         <div className="artists-div">
           <span className="song-artist">{artists[0].name}</span>
-          {/* {artists.map(artist => (
-            
-          ))} */}
         </div>
       </div>
-      <span className="song-duration">{getDurationTime(durationMs)}</span>
+      <span className="song-duration-md">{getDurationTime(durationMs)}</span>
+      <tr className="table-row">
+        <td style={{width: '45'}}>
+          <img src={image} className="album-thumbnail-lg" alt="album-img" />
+        </td>
+        <td>{name}</td>
+        <td>{album.name}</td>
+        <td>{getDurationTime(durationMs)}</td>
+        <td>
+          <span className="song-artist">{artists[0].name}</span>
+        </td>
+        <td>{added}</td>
+      </tr>
     </li>
   )
 }

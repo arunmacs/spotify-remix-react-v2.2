@@ -5,14 +5,14 @@
   align-items: center;
   margin: 3px;
   padding: 0px;
-  width: 100px;
+  width: 105px;
   height: 125px;
   overflow-flow: hidden;
 }
 
 .genres-moods-item-image {
-  height: 75px;
-  width: 75px;
+  height: 70px;
+  width: 70px;
   border-radius: 5px;
   margin: 2px;
 }
