@@ -2,9 +2,7 @@
   display: flex;
   align-items: center;
   border: none;
-  position: fixed;
-  top:15px;
-  left:15px;
+  padding: 20px 10px 8px 20px;
 }
 
 .back-button {
@@ -52,7 +50,7 @@
     display: flex;
     align-items: center;
     border: none;
-    margin: 8px 0px 0px 0px;
+    padding: 15px 10px 8px 15px;
     position: fixed;
     top: 0px;
     left: 84px;
@@ -62,5 +60,4 @@
     height: 28px;
     width: 25px;
   }
-
 }

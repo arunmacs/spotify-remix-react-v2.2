@@ -1,11 +1,12 @@
 import {Component} from 'react'
 import LoaderView from '../LoaderView'
 import BackNavigation from '../BackNavigation'
+import NavBar from '../NavBar'
 import GenreCategoryItem from '../GenreCategoryItem'
 import './index.css'
 
 class GenreCategory extends Component {
-  state = {genreListData: [], isLoading: true}
+  state = {genreListData: [], isLoading: true, screenSize: window.innerWidth}
 
   componentDidMount() {
     this.getGenrePlayList()
@@ -86,12 +87,13 @@ class GenreCategory extends Component {
   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, screenSize} = this.state
 
     return (
       <>
-        <BackNavigation />
         <div className="genre-category-container">
+          {screenSize >= 768 && <NavBar />}
+          <BackNavigation />
           {isLoading ? <LoaderView /> : this.renderPage()}
         </div>
       </>

@@ -27,8 +27,8 @@
 
 .song-name {
   color: #111a21;
-  font-size: 13px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   margin: 3px 3px 3px 3px;
   line-height: 18px;
   overflow: hidden;
@@ -54,7 +54,7 @@
 .song-duration {
   color: #111a21;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin: 4px 8px 4px 6px;
 }

@@ -18,7 +18,6 @@ class Player extends React.Component {
 
   componentDidMount() {
     // console.log('DidMount - Music')
-
     this.playerRef.addEventListener('timeupdate', this.timeUpdate)
     this.playerRef.addEventListener('ended', this.nextSong)
     window.addEventListener('resize', this.resize)
@@ -26,7 +25,6 @@ class Player extends React.Component {
 
   componentWillUnmount() {
     // console.log('WillUnMount - Music')
-
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
     this.playerRef.removeEventListener('ended', this.nextSong)
     window.removeEventListener('resize', this.resize)

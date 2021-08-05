@@ -1,24 +1,25 @@
 .player-container {
   background-color: #eaeaea;
   background-size: cover;
-  /* overflow: auto; */
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
 }
 
-/* .playlist-container {
+.playlist-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 5px 7px 5px 7px;
   width: 100%;
   overflow: auto;
-} */
+}
 
 .playlist {
-  padding: 0;
+  padding: 20px 3px 25px 3px;
   width: 98%;
-  margin: 30px 3px 60px 3px;
+  margin: 8px 3px 40px 3px;
   overflow: auto;
 }
 
@@ -29,6 +30,8 @@
   border-top: 1px solid #9b9b9b;
   position: fixed;
   bottom: 0;
+  left: 0px;
+  right: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -53,8 +56,8 @@
 
 .album-name {
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 13px;
+  font-weight: 400;
   margin: 3px 3px 3px 0px;
   line-height: 18px;
   overflow: hidden;
@@ -126,8 +129,8 @@
 
 @media (min-width: 768px) {
   .player-container {
-    padding: 50px 0px 0px 0px;
-    overflow: auto;
+    padding: 10px 0px 0px 10px;
+    position: absolute;
   }
 
   .playlist-container {
@@ -135,14 +138,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    width: 100%;
+    padding: 0px;
+    position: relative;
+    left: 55px;
+    top: 40px;
+    width: 93%;
+    height: 93%;
   }
 
   .playlist {
-    padding: 0;
-    width: 90%;
-    margin: 20px 3px 80px 60px;
+    padding: 20px 3px 40px 3px;
+    width: 98%;
+    margin: 20px 3px 60px 3px;
     overflow: auto;
   }
 
@@ -152,7 +159,7 @@
     border-top: 1px solid #9b9b9b;
     position: fixed;
     bottom: 0;
-    left: 85px;
+    left: 75px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -1,11 +1,11 @@
 .album-display-info {
-  width: 240px;
-  height: 200px;
+  width: 220px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 13px 0px 13px 5px;
+  margin: 12px 5px 8px 5px;
 }
 
 .album-display-image {
@@ -18,16 +18,16 @@
 
 .album-display-name {
   color: #3a5a81;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 27px;
+  font-weight: 400;
   text-align: center;
   margin: 5px 4px 5px 4px;
 }
 
 @media (min-width: 476px) {
   .album-display-info {
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
   }
 
   .album-display-image {
@@ -43,13 +43,13 @@
 
 @media (min-width: 768px) {
   .album-display-info {
-    width: 80%;
-    height: 180px;
+    width: 90%;
+    height: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin: 13px 0px 13px 5px;
+    margin: 12px 5px 8px 5px;
   }
 
   .album-display-image {

@@ -1,6 +1,6 @@
 .your-playlist-main-container {
   height: 100vh;
-  background-color: #181818;
+  background-color: #202020;
   overflow: auto;
   border: 0px;
   padding: 10px;
@@ -34,4 +34,41 @@
 
 ul {
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .your-playlist-main-container {
+    height: 100vh;
+    border: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .your-playlist-container {
+    padding: 20px 0px 0px 20px;
+    margin: 0px 0px 0px 0px;
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 75px;
+    top: 00px;
+  }
+
+  .your-playlist-name {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 10px 20px 8px;
+  }
+
+  .your-playlist-music-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 5px 15px 5px;
+  }
 }

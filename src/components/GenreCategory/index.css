@@ -1,33 +1,39 @@
 .genre-category-container {
   height: 100vh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   background-color: #202020;
-  overflow: auto;
+  background-size: cover;
   border: 0px;
-  padding: 10px 0px 10px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 .category-heading {
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
-  margin: 5px 8px 8px 20px;
+  margin: 10px 8px 5px 15px;
 }
 
 .genre-list-container {
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin: 10px 5px 70px 10px;
+  overflow: auto;
+  margin: 8px 5px 5px 10px;
 }
 
 @media (min-width: 768px) {
   .genre-category-container {
     display: flex;
     flex-direction: column;
+    width: 93%;
     border: 0px;
-    margin: 0px 0px 0px 82px;
+    position: absolute;
+    left: 75px;
+    top: 0px;
+    margin: 0px 0px 0px 0px;
   }
 
   .category-heading {
