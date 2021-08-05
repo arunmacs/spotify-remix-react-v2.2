@@ -16,7 +16,11 @@
 
 .playlist-columns {
   display: none;
-}
+} 
+
+table{
+  display: none;
+} 
 
 .playlist {
   padding: 20px 0px 45px 0px;
@@ -167,6 +171,10 @@
     align-items: center;
   }
 
+
+  table{
+    display: flex;
+} 
   .column-name {
     padding: 3px;
     font-size: 16px;
