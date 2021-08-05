@@ -4,7 +4,7 @@ import './index.css'
 
 const SongItem = props => {
   const {songData, selectSong, index, isActive} = props
-  const {artists, album, durationMs, name, trackNumber} = songData
+  const {artists, album, durationMs, name} = songData
 
   console.log(songData)
 
