@@ -67,6 +67,10 @@
   display: none;
 }
 
+tr{
+display:none;
+} 
+
 .activeClass {
   background-color: #d1dcc6;
   border-radius: 4px;
