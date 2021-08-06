@@ -58,7 +58,10 @@
   font-weight: 400;
   margin: 3px 2px 3px 0px;
   line-height: 16px;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-align: left;
+  text-overflow: ellipsis;
 }
 
 .artist-div {
@@ -74,7 +77,10 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 16px;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-align: left;
+  text-overflow: ellipsis;
 }
 
 .play-pause-button {
@@ -102,6 +108,7 @@
 
   .music-controls {
     height: 50px;
+    width: 95%;
   }
 
   .album-img {
@@ -135,8 +142,9 @@
 
 @media (min-width: 768px) {
   .player-container {
-    padding: 10px 0px 0px 10px;
+    padding: 0px 0px 0px 0px;
     position: absolute;
+    width: 100%;
   }
 
   .playlist-container {
@@ -146,9 +154,9 @@
     align-items: center;
     padding: 0px;
     position: relative;
-    left: 55px;
+    left: 75px;
     top: 40px;
-    width: 93%;
+    width: calc(100% - 75px);
     height: 93%;
   }
 
@@ -180,26 +188,42 @@
 
   .music-controls {
     height: 60px;
-    width: 100%;
+    width: calc(100% - 75px);
     border-top: 1px solid #9b9b9b;
+    padding: 0px 0px 0px 0px;
     position: fixed;
     bottom: 0;
+    right: 0px;
     left: 75px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
   }
 
+  .time-update {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 2px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  .seek-slider {
+    width: 35%;
+  }
+
   .album-img {
-    margin: 3px 4px 3px 20px;
-    height: 60px;
-    width: 60px;
+    margin: 2px;
+    height: 55px;
+    width: 55px;
     border-radius: 4px;
   }
 
   .album-info {
-    width: 240px;
+    width: 170px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -209,40 +233,57 @@
 
   .album-name {
     color: #ffffff;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 3px 3px 3px 0px;
-    line-height: 18px;
-    overflow: hidden;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 2px;
+    line-height: 16px;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-align: left;
+    text-overflow: ellipsis;
   }
 
   .artist-div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 2px 3px 2px 0px;
-    overflow: hidden;
+    margin: 2px;
   }
 
   .artist-name {
     color: #9b9b9b;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 18px;
-    overflow: hidden;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-align: left;
+    text-overflow: ellipsis;
   }
 
   .play-pause-button {
     background-color: transparent;
     outline: none;
     border: 0;
-    padding: 3px;
-    margin: 2px 20px 2px 2px;
+    padding: 2px;
+    margin: 2px;
   }
 
   .play-pause-icon {
     color: #ffffff;
-    height: 32px;
-    width: 32px;
+    height: 25px;
+    width: 25px;
+  }
+
+  .volume-icon {
+    color: #ffffff;
+    height: 20px;
+    width: 20px;
+  }
+
+  .volume-slider {
+    width: 10%;
   }
 }

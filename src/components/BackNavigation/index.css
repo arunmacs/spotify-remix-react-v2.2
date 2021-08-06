@@ -43,10 +43,14 @@
     display: flex;
     align-items: center;
     border: none;
-    padding: 15px 10px 8px 15px;
+    padding: 10px 5px 5px 10px;
     position: fixed;
     top: 0px;
     left: 84px;
+  }
+
+  .back-button {
+    padding: 2px 5px 0px 3px;
   }
 
   .back-arrow {

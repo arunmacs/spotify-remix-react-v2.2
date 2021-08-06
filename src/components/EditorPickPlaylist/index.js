@@ -71,7 +71,7 @@ class EditorPickPlaylist extends Component {
         uri: data.uri,
       }
 
-      console.log(data, 'DataNull')
+      //   console.log(data, 'DataNull')
 
       const updatedTracksData = data.tracks.items.map(item => ({
         album: item.track.album,
@@ -100,7 +100,6 @@ class EditorPickPlaylist extends Component {
       this.setState({
         musicList: updatedTracksData,
         displayInfo: updatedPlaylistInfo,
-        // playingSong: updatedTracksData[0],
         isLoading: false,
       })
     } else {

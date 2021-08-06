@@ -69,7 +69,7 @@
   display: none;
 }
 
-#song-row {
+#song-row-desktop {
   display: none;
 }
 
@@ -166,7 +166,7 @@
     overflow: hidden;
   }
 
-  #song-row {
+  #song-row-desktop {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -174,7 +174,7 @@
     width: 100%;
   }
 
-  td {
+  span {
     white-space: nowrap;
     overflow: hidden !important;
     text-align: left;
@@ -186,12 +186,12 @@
   }
 
   #song-name {
-    width: 115px;
+    width: 130px;
     color: #3a5a81;
   }
 
   #album-name {
-    width: 115px;
+    width: 130px;
   }
 
   #duration {
@@ -199,13 +199,14 @@
   }
 
   #artist-name {
-    width: 110px;
+    width: 120px;
     text-align: center;
     color: #181818;
   }
 
   #added {
     width: 105px;
+    text-align: center;
   }
 
   .song-name {

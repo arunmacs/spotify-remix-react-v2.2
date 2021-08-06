@@ -1,5 +1,6 @@
 import React from 'react'
 import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
+import {BiVolumeFull} from 'react-icons/bi'
 import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
@@ -127,7 +128,15 @@ class Player extends React.Component {
     )
   }
 
-  renderMusicControls = () => {
+  changeSeeker = event => {
+    console.log(event.target.value)
+  }
+
+  changeVolume = event => {
+    console.log(event.target.value)
+  }
+
+  renderMusicControlsMobileView = () => {
     const {musicList, index, pause, screenSize} = this.state
     console.log(screenSize)
     const currentSong = musicList[index]
@@ -148,9 +157,6 @@ class Player extends React.Component {
           <p className="album-name">{currentSong.name}</p>
           <div className="artist-div">
             <span className="artist-name">{albumArtist}</span>
-            {/* {artists.map(item => (
-            
-          ))} */}
           </div>
         </div>
         <button
@@ -164,6 +170,57 @@ class Player extends React.Component {
             <BsPauseFill className="play-pause-icon" />
           )}
         </button>
+      </>
+    )
+  }
+
+  renderMusicControlsDesktopView = () => {
+    const {musicList, index, pause} = this.state
+    const currentSong = musicList[index]
+    const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
+
+    return (
+      <>
+        <audio
+          ref={ref => {
+            this.playerRef = ref
+          }}
+        >
+          <source src={currentSong.previewUrl} type="audio/mp3" />
+          <track kind="captions" srcLang="en" />
+        </audio>
+        <img src={albumImage} alt="album" className="album-img" />
+        <div className="album-info">
+          <p className="album-name">{currentSong.name}</p>
+          <div className="artist-div">
+            <span className="artist-name">{albumArtist}</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={this.playOrPause}
+          className="play-pause-button"
+        >
+          {!pause ? (
+            <BsFillPlayFill className="play-pause-icon" />
+          ) : (
+            <BsPauseFill className="play-pause-icon" />
+          )}
+        </button>
+        <span className="time-update">00:00</span>
+        <input
+          type="range"
+          className="seek-slider"
+          onChange={this.changeSeeker}
+        />
+        <BiVolumeFull className="volume-icon" />
+        <input
+          type="range"
+          min="0"
+          max="10"
+          className="volume-slider"
+          onChange={this.changeVolume}
+        />
       </>
     )
   }
@@ -196,19 +253,21 @@ class Player extends React.Component {
         <div className="playlist-container">
           <AlbumDisplayInfo displayInfo={displayInfo} />
           {screenSize >= 768 && (
-            <table style={{width: '98%'}}>
-              <tr id="columns-row">
-                <th id="column-name">Track</th>
-                <th id="column-name">Album</th>
-                <th id="column-name">Time</th>
-                <th id="column-name">Artist</th>
-                <th id="column-name">Added</th>
-              </tr>
-            </table>
+            <div id="columns-row" style={{width: '95%'}}>
+              <span id="column-name">Track</span>
+              <span id="column-name">Album</span>
+              <span id="column-name">Time</span>
+              <span id="column-name">Artist</span>
+              <span id="column-name">Added</span>
+            </div>
           )}
           <ul className="playlist">{this.renderSongsList()}</ul>
         </div>
-        <div className="music-controls">{this.renderMusicControls()}</div>
+        <div className="music-controls">
+          {screenSize >= 768
+            ? this.renderMusicControlsDesktopView()
+            : this.renderMusicControlsMobileView()}
+        </div>
       </div>
     )
   }

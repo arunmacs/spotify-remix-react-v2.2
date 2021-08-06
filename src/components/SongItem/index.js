@@ -52,18 +52,18 @@ const SongItem = props => {
         </div>
       </div>
       <span className="song-duration-md">{getDurationTime(durationMs)}</span>
-      <tr id="song-row">
-        <td id="song-img">
+      <div id="song-row-desktop">
+        {/* <span id="song-img">
           <img src={image} className="album-thumbnail-lg" alt="album-img" />
-        </td>
-        <td id="song-name">{name}</td>
-        <td id="album-name">{album.name}</td>
-        <td id="duration">{getDurationTime(durationMs)}</td>
-        <td id="artist-name">
+        </span> */}
+        <span id="song-name">{name}</span>
+        <span id="album-name">{album.name}</span>
+        <span id="duration">{getDurationTime(durationMs)}</span>
+        <span id="artist-name">
           <span>{artists[0].name}</span>
-        </td>
-        <td id="added">{getFormaDistance(album.release_date)}</td>
-      </tr>
+        </span>
+        <span id="added">{getFormaDistance(album.release_date)}</span>
+      </div>
     </li>
   )
 }

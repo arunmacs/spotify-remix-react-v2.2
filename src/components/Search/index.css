@@ -1,3 +1,4 @@
 .search {
   margin: 80px 0px 0px 100px;
+  width: calc(100% - 75px);
 }

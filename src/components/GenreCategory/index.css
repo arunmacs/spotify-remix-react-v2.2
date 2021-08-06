@@ -28,7 +28,7 @@
   .genre-category-container {
     display: flex;
     flex-direction: column;
-    width: 93%;
+    width: calc(100% - 75px);
     border: 0px;
     position: absolute;
     left: 75px;
