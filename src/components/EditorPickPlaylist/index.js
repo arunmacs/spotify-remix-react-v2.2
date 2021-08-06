@@ -71,7 +71,7 @@ class EditorPickPlaylist extends Component {
         uri: data.uri,
       }
 
-      //   console.log(updatedPlaylistInfo)
+      console.log(data, 'DataNull')
 
       const updatedTracksData = data.tracks.items.map(item => ({
         album: item.track.album,
@@ -95,6 +95,8 @@ class EditorPickPlaylist extends Component {
         uri: item.track.uri,
       }))
 
+      //   console.log(updatedTracksData)
+
       this.setState({
         musicList: updatedTracksData,
         displayInfo: updatedPlaylistInfo,
@@ -105,51 +107,6 @@ class EditorPickPlaylist extends Component {
       this.sessionTimedOut()
     }
   }
-
-  //   onClickPlaySong = song => {
-  //     this.setState({playingSong: song})
-  //   }
-
-  //   renderSongsList = () => {
-  //     const {playlistData} = this.state
-
-  //     return (
-  //       <>
-  //         {playlistData.map(item => (
-  //           <SongItem
-  //             songData={item}
-  //             selectSong={this.onClickPlaySong}
-  //             key={item.id}
-  //           />
-  //         ))}
-  //       </>
-  //     )
-  //   }
-
-  //   playPauseStatus = () => {
-  //     this.setState(prevState => ({pause: !prevState.pause}))
-  //   }
-
-  //   renderPage = () => {
-  //     const {playingSong, playlistInfo, pause} = this.state
-  //     // console.log(playingSong)
-
-  //     return (
-  //       <>
-  //         <div className="editor-pick-playlist">
-  //           <AlbumDisplayInfo playListInfo={playlistInfo} />
-  //           <ul className="editor-pick-playlist-item">
-  //             {this.renderSongsList()}
-  //           </ul>
-  //         </div>
-  //         <MusicPlayer
-  //           playingSong={playingSong}
-  //           pause={pause}
-  //           playPauseStatus={this.playPauseStatus}
-  //         />
-  //       </>
-  //     )
-  //   }
 
   render() {
     const {isLoading, displayInfo, musicList} = this.state

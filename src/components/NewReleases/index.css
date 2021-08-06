@@ -5,9 +5,8 @@
   align-items: center;
   margin: 3px;
   padding: 0px;
-  width: 105px;
-  height: 125px;
-  overflow-flow: hidden;
+  width: 110px;
+  height: 105px;
 }
 
 .new-release-item-image {
@@ -23,6 +22,10 @@
   font-weight: 300;
   text-align: center;
   margin: 3px 2px 2px 2px;
+  width: 105px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 @media (min-width: 476px) {

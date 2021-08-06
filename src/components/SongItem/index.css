@@ -1,7 +1,7 @@
 .song-item {
   list-style-type: none;
   width: 98%;
-  height: 45px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -21,17 +21,17 @@
 .song-info-md {
   display: flex;
   flex-direction: column;
-  width: 270px;
-  overflow: hidden;
+  width: 250px;
 }
 
 .song-name {
   color: #111a21;
   font-size: 14px;
   font-weight: 400;
-  margin: 3px 3px 3px 3px;
-  line-height: 18px;
-  overflow: hidden;
+  margin: 3px 2px 2px 2px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .artists-div {
@@ -48,7 +48,9 @@
   font-weight: 300;
   margin: 2px;
   text-align: left;
-  line-height: 14px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .song-duration-md {
@@ -67,9 +69,9 @@
   display: none;
 }
 
-tr{
-display:none;
-} 
+#song-row {
+  display: none;
+}
 
 .activeClass {
   background-color: #d1dcc6;
@@ -81,17 +83,17 @@ display:none;
 @media (min-width: 476px) {
   .song-item {
     width: 98%;
-    height: 55px;
+    height: 50px;
   }
 
   .song-thumbnail {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     border-radius: 4px;
   }
 
   .song-info {
-    width: 300px;
+    width: 270px;
   }
 
   .song-duration-lg {
@@ -135,7 +137,9 @@ display:none;
   .song-item {
     list-style-type: none;
     width: 98%;
-    height: 45px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 4px 2px 4px 2px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -155,16 +159,6 @@ display:none;
     display: none;
   }
 
-  .song-info-lg {
-    margin: 5px 0px 5px 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
-  }
-
   .table-row {
     font-size: 13px;
     font-weight: 400;
@@ -172,26 +166,46 @@ display:none;
     overflow: hidden;
   }
 
-  tr {
+  #song-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    width: 100%;
   }
 
   td {
-    width: 90px;
-    overflow: hidden;
-    height: 45px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-align: left;
+    text-overflow: ellipsis;
   }
 
-  .song-duration-lg {
-    display: flex;
-    color: #111a21;
-    font-size: 13px;
-    font-weight: 400;
+  #song-img {
+    display: none;
+  }
+
+  #song-name {
+    width: 115px;
+    color: #3a5a81;
+  }
+
+  #album-name {
+    width: 115px;
+  }
+
+  #duration {
+    width: 45px;
+  }
+
+  #artist-name {
+    width: 110px;
     text-align: center;
-    margin: 4px 8px 4px 6px;
+    color: #181818;
+  }
+
+  #added {
+    width: 105px;
   }
 
   .song-name {

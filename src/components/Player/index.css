@@ -14,14 +14,6 @@
   overflow: auto;
 }
 
-.playlist-columns {
-  display: none;
-} 
-
-table{
-  display: none;
-} 
-
 .playlist {
   padding: 20px 0px 45px 0px;
   width: 100%;
@@ -160,26 +152,23 @@ table{
     height: 93%;
   }
 
-  .playlist-columns {
+  #columns-row {
     border-bottom: 1px solid #475569;
-    width: 98%;
     height: 45px;
-    margin: 5px 0px 5px 3px;
+    margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
   }
 
-
-  table{
-    display: flex;
-} 
-  .column-name {
-    padding: 3px;
+  #column-name {
+    padding: 2px;
     font-size: 16px;
     font-weight: 400;
-    margin: 2px;
+    margin: 0px;
+    width: 60px;
+    text-align: left;
   }
 
   .playlist {
@@ -190,7 +179,7 @@ table{
   }
 
   .music-controls {
-    height: 70px;
+    height: 60px;
     width: 100%;
     border-top: 1px solid #9b9b9b;
     position: fixed;

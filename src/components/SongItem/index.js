@@ -6,9 +6,9 @@ const SongItem = props => {
   const {songData, selectSong, index, isActive} = props
   const {artists, album, durationMs, name} = songData
 
-  console.log(songData)
+  //   console.log(songData)
 
-  const added = album.release_date
+  //   const added = album.release_date
 
   const activeSongClass = isActive ? 'activeClass' : ''
 
@@ -25,6 +25,11 @@ const SongItem = props => {
 
   const onClickSelectSong = () => {
     selectSong(index)
+  }
+
+  const getFormaDistance = added => {
+    const addedAgo = moment(added, 'YYYYMMDD').fromNow()
+    return addedAgo
   }
 
   const getDurationTime = inMilliSecs => {
@@ -47,17 +52,17 @@ const SongItem = props => {
         </div>
       </div>
       <span className="song-duration-md">{getDurationTime(durationMs)}</span>
-      <tr className="table-row">
-        <td style={{width: '45'}}>
+      <tr id="song-row">
+        <td id="song-img">
           <img src={image} className="album-thumbnail-lg" alt="album-img" />
         </td>
-        <td>{name}</td>
-        <td>{album.name}</td>
-        <td>{getDurationTime(durationMs)}</td>
-        <td>
-          <span className="song-artist">{artists[0].name}</span>
+        <td id="song-name">{name}</td>
+        <td id="album-name">{album.name}</td>
+        <td id="duration">{getDurationTime(durationMs)}</td>
+        <td id="artist-name">
+          <span>{artists[0].name}</span>
         </td>
-        <td>{added}</td>
+        <td id="added">{getFormaDistance(album.release_date)}</td>
       </tr>
     </li>
   )
