@@ -4,10 +4,8 @@ import './index.css'
 const GenresAndMoods = props => {
   const {genresAndMoodsData} = props
   const {icons, name, id} = genresAndMoodsData
-  //   console.log(icons, 'icons')
 
   const categoryId = id
-  //   console.log(categoryId)
 
   let icon
 

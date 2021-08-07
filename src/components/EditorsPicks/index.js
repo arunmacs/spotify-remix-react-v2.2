@@ -6,8 +6,6 @@ const EditorsPicks = props => {
   const {editorsPicksData} = props
   const {name, id, images} = editorsPicksData
 
-  //   console.log(editorsPicksData)
-
   const image = images.reduce((prev, curr) =>
     prev.height > curr.height ? prev : curr,
   )

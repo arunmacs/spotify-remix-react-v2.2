@@ -36,7 +36,6 @@ class SpotifyClone extends Component {
 
   sessionTimedOut = () => {
     const {history} = this.props
-    // const token = this.getAccessToken()
     localStorage.removeItem('pa_token')
 
     history.replace('/login')
@@ -65,7 +64,6 @@ class SpotifyClone extends Component {
     }
 
     const response = await fetch(editorsPickApiUrl, editorsPickOptions)
-    // console.log(response)
 
     if (response.ok === true) {
       const data = await response.json()
@@ -154,7 +152,6 @@ class SpotifyClone extends Component {
     const response = await fetch(newReleasesApiUrl, newReleasesOptions)
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data)
 
       const updatedData = data.albums.items.map(item => ({
         albumType: item.album_type,

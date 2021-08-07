@@ -7,7 +7,6 @@ import './index.css'
 class BackNavigation extends Component {
   onClickGoBack = () => {
     const {history} = this.props
-    // console.log(history)
     history.goBack()
   }
 
@@ -21,7 +20,6 @@ class BackNavigation extends Component {
         >
           <IoIosArrowBack className="back-arrow" />
         </button>
-        {/* <p className="back-text">Back</p> */}
       </div>
     )
   }

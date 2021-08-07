@@ -4,7 +4,6 @@ import './index.css'
 const GenreCategoryItem = props => {
   const {genreListItem} = props
   const {images, name, tracks, id} = genreListItem
-  //   console.log(id, 'idd')
 
   const getCategoryId = () => {
     const {match} = props

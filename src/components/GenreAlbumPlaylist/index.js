@@ -22,7 +22,6 @@ class GenreAlbumPlaylist extends Component {
 
   sessionTimedOut = () => {
     const {history} = this.props
-    // const token = this.getAccessToken()
     localStorage.removeItem('pa_token')
 
     history.replace('/login')
@@ -32,7 +31,6 @@ class GenreAlbumPlaylist extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
-    // console.log(match)
 
     const token = this.getAccessToken()
 
@@ -52,26 +50,23 @@ class GenreAlbumPlaylist extends Component {
 
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data, 'data')
 
-      //   const updatedPlaylistInfo = {
-      //     collaborative: data.collaborative,
-      //     description: data.description,
-      //     externalUrls: data.external_urls,
-      //     href: data.href,
-      //     id: data.id,
-      //     images: data.images,
-      //     name: data.name,
-      //     owner: data.owner,
-      //     primaryColor: data.primary_color,
-      //     public: data.public,
-      //     snapshotId: data.snapshot_id,
-      //     // tracks: data.tracks,
-      //     type: data.type,
-      //     uri: data.uri,
-      //   }
-
-      //   console.log(updatedPlaylistInfo)
+      const updatedPlaylistInfo = {
+        collaborative: data.collaborative,
+        description: data.description,
+        externalUrls: data.external_urls,
+        href: data.href,
+        id: data.id,
+        images: data.images,
+        name: data.name,
+        owner: data.owner,
+        primaryColor: data.primary_color,
+        public: data.public,
+        snapshotId: data.snapshot_id,
+        // tracks: data.tracks,
+        type: data.type,
+        uri: data.uri,
+      }
 
       const updatedTracksData = data.items.map(item => ({
         album: item.track.album,
@@ -95,11 +90,9 @@ class GenreAlbumPlaylist extends Component {
         uri: item.track.uri,
       }))
 
-      //   console.log(updatedTracksData)
-
       this.setState({
         musicList: updatedTracksData,
-        // displayInfo: updatedPlaylistInfo,
+        displayInfo: updatedPlaylistInfo,
         isLoading: false,
       })
     } else {
@@ -109,14 +102,17 @@ class GenreAlbumPlaylist extends Component {
 
   render() {
     const {isLoading, displayInfo, musicList} = this.state
-    // console.log(displayInfo, ' genrePLayList')
 
     return (
       <div>
         {isLoading ? (
           <LoaderView />
         ) : (
-          <Player displayInfo={displayInfo} musicList={musicList} />
+          <Player
+            displayInfo={displayInfo}
+            musicList={musicList}
+            section="Genre Category"
+          />
         )}
       </div>
     )

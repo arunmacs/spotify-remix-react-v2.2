@@ -4,7 +4,6 @@ import './index.css'
 const NewReleases = props => {
   const {newReleasesData} = props
   const {images, id, name} = newReleasesData
-  //   console.log(newReleasesData)
 
   let image
 

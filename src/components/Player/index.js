@@ -1,7 +1,7 @@
 import React from 'react'
 import {FiPlay, FiPause} from 'react-icons/fi'
 import {BiVolumeFull} from 'react-icons/bi'
-import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
+import {ImNext, ImPrevious, ImPlay2, ImPause} from 'react-icons/im'
 import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
@@ -16,20 +16,24 @@ class Player extends React.Component {
     pause: false,
     activeSongClass: 0,
     currTime: '0:00',
+    seek: 0,
+    volume: 5,
     screenSize: window.innerWidth,
   }
 
   componentDidMount() {
-    // console.log('DidMount - Music')
     this.playerRef.addEventListener('timeupdate', this.timeUpdate)
     this.playerRef.addEventListener('ended', this.nextSong)
+    this.playerRef.addEventListener('seeking', this.changeCurrTime)
+    this.playerRef.addEventListener('volumechange', this.adjustVolume)
     window.addEventListener('resize', this.resize)
   }
 
   componentWillUnmount() {
-    // console.log('WillUnMount - Music')
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
     this.playerRef.removeEventListener('ended', this.nextSong)
+    this.playerRef.removeEventListener('seeking', this.changeCurrTime)
+    this.playerRef.removeEventListener('volumechange', this.adjustVolume)
     window.removeEventListener('resize', this.resize)
   }
 
@@ -122,7 +126,6 @@ class Player extends React.Component {
 
   updatePlayer = () => {
     const {musicList, index, pause} = this.state
-    // console.log(index, pause)
 
     const currentSong = musicList[index]
     const audio = new Audio(currentSong.audio)
@@ -141,11 +144,13 @@ class Player extends React.Component {
 
     const inMins = Math.floor(currentTime / 60)
     const inSecs = Math.floor(currentTime % 60)
+    const progress =
+      100 * (this.playerRef.currentTime / this.playerRef.duration)
 
     if (inSecs < 10) {
-      this.setState({currTime: `${inMins}:0${inSecs}`})
+      this.setState({currTime: `${inMins}:0${inSecs}`, seek: progress})
     } else {
-      this.setState({currTime: `${inMins}:${inSecs}`})
+      this.setState({currTime: `${inMins}:${inSecs}`, seek: progress})
     }
   }
 
@@ -170,13 +175,22 @@ class Player extends React.Component {
     )
   }
 
-  changeSeeker = () => {
-    // console.log(event.target.value)
-    console.log(this.playerRef.duration)
+  changeCurrTime = () => {
+    const {seek} = this.state
+    this.playerRef.currentTime = (this.playerRef.duration * seek) / 100
   }
 
-  changeVolume = event => {
-    console.log(event.target.value)
+  adjustVolume = () => {
+    const {volume} = this.state
+    this.playerRef.volume = volume / 10
+  }
+
+  changeSeekSlider = event => {
+    this.setState({seek: event.target.value}, this.changeCurrTime)
+  }
+
+  changeVolumeSlider = event => {
+    this.setState({volume: event.target.value}, this.adjustVolume)
   }
 
   renderMusicControlsMobileView = () => {
@@ -217,7 +231,7 @@ class Player extends React.Component {
   }
 
   renderMusicControlsDesktopView = () => {
-    const {musicList, index, pause, currTime} = this.state
+    const {musicList, index, pause, currTime, seek, volume} = this.state
     const currentSong = musicList[index]
     const {durationMs} = currentSong
 
@@ -245,7 +259,7 @@ class Player extends React.Component {
           onClick={this.prevSong}
           className="next-prev-button"
         >
-          <GrChapterPrevious className="next-prev-icon" />
+          <ImPrevious className="next-prev-icon" />
         </button>
         <button
           type="button"
@@ -253,9 +267,9 @@ class Player extends React.Component {
           className="play-pause-button"
         >
           {!pause ? (
-            <FiPlay className="play-pause-icon" />
+            <ImPlay2 className="play-pause-icon" />
           ) : (
-            <FiPause className="play-pause-icon" />
+            <ImPause className="play-pause-icon" />
           )}
         </button>
         <button
@@ -263,7 +277,7 @@ class Player extends React.Component {
           onClick={this.nextSong}
           className="next-prev-button"
         >
-          <GrChapterNext className="next-prev-icon" />
+          <ImNext className="next-prev-icon" />
         </button>
         <span className="time-update">
           {this.formatTime(durationMs / 1000)}
@@ -271,16 +285,18 @@ class Player extends React.Component {
         <input
           type="range"
           className="seek-slider"
+          value={seek}
+          onChange={this.changeSeekSlider}
           max="100"
-          onChange={this.changeSeeker}
         />
         <span className="time-update">{currTime}</span>
         <BiVolumeFull className="volume-icon" />
         <input
           type="range"
           max="10"
+          value={volume}
           className="volume-slider"
-          onChange={this.changeVolume}
+          onChange={this.changeVolumeSlider}
         />
       </>
     )
@@ -305,14 +321,14 @@ class Player extends React.Component {
   }
 
   render() {
-    const {displayInfo, screenSize} = this.state
+    const {displayInfo, section, screenSize} = this.state
 
     return (
       <div className="player-container">
         {screenSize >= 768 && <NavBar />}
         <BackNavigation />
         <div className="playlist-container">
-          <AlbumDisplayInfo displayInfo={displayInfo} />
+          <AlbumDisplayInfo displayInfo={displayInfo} section={section} />
           {screenSize >= 768 && (
             <div id="columns-row" style={{width: '95%'}}>
               <span id="column-name">Track</span>

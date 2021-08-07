@@ -6,10 +6,6 @@ const SongItem = props => {
   const {songData, selectSong, index, isActive} = props
   const {artists, album, durationMs, name} = songData
 
-  //   console.log(songData)
-
-  //   const added = album.release_date
-
   const activeSongClass = isActive ? 'activeClass' : ''
 
   let image
@@ -53,9 +49,6 @@ const SongItem = props => {
       </div>
       <span className="song-duration-md">{getDurationTime(durationMs)}</span>
       <div id="song-row-desktop">
-        {/* <span id="song-img">
-          <img src={image} className="album-thumbnail-lg" alt="album-img" />
-        </span> */}
         <span id="song-name">{name}</span>
         <span id="album-name">{album.name}</span>
         <span id="duration">{getDurationTime(durationMs)}</span>

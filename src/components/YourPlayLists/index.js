@@ -41,7 +41,6 @@ class YourPlayLists extends Component {
     const response = await fetch(yourPlaylistsApiUrl, yourPlaylistsOptions)
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data)
 
       const updatedPlaylistData = data.items.map(item => ({
         collaborative: item.collaborative,
@@ -59,7 +58,6 @@ class YourPlayLists extends Component {
         type: item.type,
         uri: item.uri,
       }))
-      //   console.log(updatedData)
 
       this.setState({yourPlayListData: updatedPlaylistData, isLoading: false})
     }

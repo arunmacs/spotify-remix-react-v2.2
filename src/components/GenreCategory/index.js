@@ -46,7 +46,6 @@ class GenreCategory extends Component {
     const response = await fetch(genreListApiUrl, genreListOptions)
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data)
 
       const updatedData = data.playlists.items.map(item => ({
         collaborative: item.collaborative,
@@ -64,7 +63,6 @@ class GenreCategory extends Component {
         type: item.type,
         uri: item.uri,
       }))
-      //   console.log(updatedData)
 
       this.setState({genreListData: updatedData, isLoading: false})
     }
@@ -72,7 +70,6 @@ class GenreCategory extends Component {
 
   renderPage = () => {
     const {genreListData} = this.state
-    // console.log(genreListData)
 
     return (
       <>

@@ -1,19 +1,14 @@
 import {Component} from 'react'
 import Player from '../Player'
 import LoaderView from '../LoaderView'
-// import SongItem from '../SongItem'
-// import MusicPlayer from '../MusicPlayer'
-// import AlbumDisplayInfo from '../AlbumDisplayInfo'
-// import BackNavigation from '../BackNavigation'
+
 import './index.css'
 
 class PlayListAlbum extends Component {
   state = {
     musicList: [],
     displayInfo: {},
-    // playingSong: {},
     isLoading: true,
-    // pause: false,
   }
 
   componentDidMount() {
@@ -27,7 +22,6 @@ class PlayListAlbum extends Component {
 
   sessionTimedOut = () => {
     const {history} = this.props
-    // const token = this.getAccessToken()
     localStorage.removeItem('pa_token')
 
     history.replace('/login')
@@ -52,7 +46,6 @@ class PlayListAlbum extends Component {
 
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data)
 
       const updatedPlaylistAlbumInfo = {
         collaborative: data.collaborative,
@@ -66,12 +59,10 @@ class PlayListAlbum extends Component {
         primaryColor: data.primary_color,
         public: data.public,
         snapshotId: data.snapshot_id,
-        // tracks: data.tracks,
+        tracks: data.tracks,
         type: data.type,
         uri: data.uri,
       }
-
-      //   console.log(updatedPlaylistAlbumInfo)
 
       const updatedPlaylistData = data.tracks.items.map(item => ({
         album: item.track.album,
@@ -95,8 +86,6 @@ class PlayListAlbum extends Component {
         uri: item.track.uri,
       }))
 
-      //   console.log(updatedPlaylistData)
-
       this.setState({
         musicList: updatedPlaylistData,
         displayInfo: updatedPlaylistAlbumInfo,
@@ -107,45 +96,8 @@ class PlayListAlbum extends Component {
     }
   }
 
-  //   onClickPlaySong = url => {
-  //     // console.log(url)
-  //     this.setState({playingSong: url})
-  //   }
-
-  //   renderSongsList = () => {
-  //     const {playlistData} = this.state
-
-  //     return (
-  //       <>
-  //         {playlistData.map(item => (
-  //           <SongItem
-  //             songData={item}
-  //             selectSong={this.onClickPlaySong}
-  //             key={item.id}
-  //           />
-  //         ))}
-  //       </>
-  //     )
-  //   }
-
-  //   renderPage = () => {
-  //     const {playlistInfo, playingSong} = this.state
-  //     console.log(playingSong)
-
-  //     return (
-  //       <>
-  //         <div className="playlist-item-container">
-  //           <AlbumDisplayInfo playListInfo={playlistInfo} />
-  //           <ul className="playlist-item-list">{this.renderSongsList()}</ul>
-  //         </div>
-  //         {/* <MusicPlayer songUrl={playingSong} /> */}
-  //       </>
-  //     )
-  //   }
-
   render() {
     const {isLoading, displayInfo, musicList} = this.state
-    // console.log(displayInfo, ' editPlay')
 
     return (
       <div>
@@ -155,7 +107,7 @@ class PlayListAlbum extends Component {
           <Player
             displayInfo={displayInfo}
             musicList={musicList}
-            // playingSong={playingSong}
+            section="Your Playlist"
           />
         )}
       </div>

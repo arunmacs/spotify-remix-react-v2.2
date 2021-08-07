@@ -1,7 +1,4 @@
 import {Component} from 'react'
-// import BackNavigation from '../BackNavigation'
-// import SongItem from '../SongItem'
-// import AlbumDisplayInfo from '../AlbumDisplayInfo'
 import LoaderView from '../LoaderView'
 import Player from '../Player'
 
@@ -11,9 +8,7 @@ class NewReleasePlaylist extends Component {
   state = {
     musicList: [],
     displayInfo: {},
-    // playingSong: {},
     isLoading: true,
-    // pause: false,
   }
 
   componentDidMount() {
@@ -62,72 +57,42 @@ class NewReleasePlaylist extends Component {
         releaseDate: data.release_date,
         releaseDatePrecision: data.release_date_precision,
         totalTracks: data.total_tracks,
-        // tracks: data.tracks,
+        tracks: data.tracks,
         type: data.type,
         uri: data.uri,
       }
-
-      //   console.log(data, 'data')
 
       const updatedData = data.tracks.items.map(item => ({
         artists: item.artists,
         availableMarkets: item.available_markets,
         discNumber: item.disc_number,
         durationMs: item.duration_ms,
-        // episode: item.track.episode,
+        episode: item.track.episode,
         explicit: item.explicit,
-        // externalIds: item.track.external_ids,
+        externalIds: item.track.external_ids,
         externalUrls: item.external_urls,
         href: item.href,
         id: item.id,
         isLocal: item.is_local,
         name: item.name,
-        // popularity: item.track.popularity,
+        popularity: item.track.popularity,
         previewUrl: item.preview_url,
-        // track: item.track.track,
+        track: item.track.track,
         trackNumber: item.track_number,
         type: item.type,
         uri: item.uri,
       }))
 
-      //   console.log(updatedData, 'updated')
-
       this.setState({
         musicList: updatedData,
         displayInfo: updatedInfo,
-        // playingSong: updatedData[0],
         isLoading: false,
       })
     }
   }
 
-  //   onClickPlaySong = song => {
-  //     this.setState({playingSong: song})
-  //   }
-
-  //   playPauseStatus = () => {
-  //     this.setState(prevState => ({pause: !prevState.pause}))
-  //   }
-
-  //   renderSongsList = () => {
-  //     const {playlistData} = this.state
-
-  //     return (
-  //       <>
-  //         {playlistData.map(item => (
-  //           <SongItem
-  //             songData={item}
-  //             selectSong={this.onClickPlaySong}
-  //             key={item.id}
-  //           />
-  //         ))}
-  //       </>
-  //     )
-  //   }
-
   render() {
     const {isLoading, displayInfo, musicList} = this.state
-    console.log(displayInfo, ' NewPlay')
 
     return (
       <div>
@@ -137,7 +102,7 @@ class NewReleasePlaylist extends Component {
           <Player
             displayInfo={displayInfo}
             musicList={musicList}
-            // playingSong={playingSong}
+            section="New Releases"
           />
         )}
       </div>

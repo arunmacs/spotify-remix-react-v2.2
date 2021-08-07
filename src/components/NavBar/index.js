@@ -16,7 +16,6 @@ class NavBar extends Component {
 
   onClickRedirectHome = () => {
     const {history} = this.props
-    // console.log(history)
 
     history.replace('/')
   }

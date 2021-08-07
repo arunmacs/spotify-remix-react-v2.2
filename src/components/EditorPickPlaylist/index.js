@@ -1,19 +1,14 @@
 import {Component} from 'react'
 import Player from '../Player'
 import LoaderView from '../LoaderView'
-// import SongItem from '../SongItem'
-// import MusicPlayer from '../MusicPlayer'
-// import AlbumDisplayInfo from '../AlbumDisplayInfo'
-// import BackNavigation from '../BackNavigation'
+
 import './index.css'
 
 class EditorPickPlaylist extends Component {
   state = {
     musicList: [],
     displayInfo: {},
-    // playingSong: {},
     isLoading: true,
-    // pause: false,
   }
 
   componentDidMount() {
@@ -27,7 +22,6 @@ class EditorPickPlaylist extends Component {
 
   sessionTimedOut = () => {
     const {history} = this.props
-    // const token = this.getAccessToken()
     localStorage.removeItem('pa_token')
 
     history.replace('/login')
@@ -52,7 +46,6 @@ class EditorPickPlaylist extends Component {
 
     if (response.ok === true) {
       const data = await response.json()
-      //   console.log(data, 'data')
 
       const updatedPlaylistInfo = {
         collaborative: data.collaborative,
@@ -66,12 +59,10 @@ class EditorPickPlaylist extends Component {
         primaryColor: data.primary_color,
         public: data.public,
         snapshotId: data.snapshot_id,
-        // tracks: data.tracks,
+        tracks: data.tracks,
         type: data.type,
         uri: data.uri,
       }
-
-      //   console.log(data, 'DataNull')
 
       const updatedTracksData = data.tracks.items.map(item => ({
         album: item.track.album,
@@ -95,8 +86,6 @@ class EditorPickPlaylist extends Component {
         uri: item.track.uri,
       }))
 
-      //   console.log(updatedTracksData)
-
       this.setState({
         musicList: updatedTracksData,
         displayInfo: updatedPlaylistInfo,
@@ -109,7 +98,6 @@ class EditorPickPlaylist extends Component {
 
   render() {
     const {isLoading, displayInfo, musicList} = this.state
-    // console.log(displayInfo, ' editPlay')
 
     return (
       <div>
@@ -119,7 +107,7 @@ class EditorPickPlaylist extends Component {
           <Player
             displayInfo={displayInfo}
             musicList={musicList}
-            // playingSong={playingSong}
+            section="Editor's pick's"
           />
         )}
       </div>

@@ -200,13 +200,13 @@ $transition: 0.3s all ease;
 
   .music-controls {
     height: 60px;
-    width: calc(100% - 68px);
+    width: calc(100% - 69px);
     border-top: 1px solid #9b9b9b;
     padding: 0px 0px 0px 0px;
     position: fixed;
     bottom: 0;
     right: 0px;
-    left: 69px;
+    left: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -214,6 +214,7 @@ $transition: 0.3s all ease;
   }
 
   .time-update {
+    color: #ffffff;
     font-size: 14px;
     font-weight: 400;
     margin: 2px;
@@ -224,11 +225,10 @@ $transition: 0.3s all ease;
   }
 
   input[type='range'] {
-    --webkit-slider-appearance: none;
   }
 
   .seek-slider {
-    width: 35%;
+    width: 30%;
   }
 
   .album-img {
@@ -239,7 +239,7 @@ $transition: 0.3s all ease;
   }
 
   .album-info {
-    width: 170px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -249,7 +249,7 @@ $transition: 0.3s all ease;
 
   .album-name {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 300;
     margin: 2px;
     line-height: 16px;
@@ -268,8 +268,7 @@ $transition: 0.3s all ease;
   }
 
   .artist-name {
-    color: #9b9b9b;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     line-height: 18px;
     width: 180px;
@@ -289,8 +288,8 @@ $transition: 0.3s all ease;
 
   .play-pause-icon {
     color: #ffffff;
-    height: 24px;
-    width: 24px;
+    height: 27px;
+    width: 27px;
   }
 
   .next-prev-button {
@@ -302,9 +301,9 @@ $transition: 0.3s all ease;
   }
 
   .next-prev-icon {
-    color: #202020;
-    height: 20px;
-    width: 20px;
+    color: #ffffff;
+    height: 25px;
+    width: 25px;
   }
 
   .volume-icon {

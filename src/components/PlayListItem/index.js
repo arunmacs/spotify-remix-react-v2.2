@@ -7,7 +7,6 @@ const PlayListItem = props => {
   const image = images.reduce((prev, curr) =>
     prev.height < curr.height ? prev : curr,
   )
-  //   console.log(image)
 
   return (
     <Link to={`/your-playlists/${id}`}>

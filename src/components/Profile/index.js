@@ -1,7 +1,5 @@
 import {Component} from 'react'
-
 import NavBar from '../NavBar'
-// import Loader from '../LoaderView'
 
 import './index.css'
 
