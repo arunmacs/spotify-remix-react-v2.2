@@ -1,6 +1,7 @@
 import React from 'react'
-import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs'
+import {FiPlay, FiPause} from 'react-icons/fi'
 import {BiVolumeFull} from 'react-icons/bi'
+import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
@@ -14,6 +15,7 @@ class Player extends React.Component {
     index: 0,
     pause: false,
     activeSongClass: 0,
+    currTime: '0:00',
     screenSize: window.innerWidth,
   }
 
@@ -65,9 +67,25 @@ class Player extends React.Component {
     return {albumImage: image, albumArtist: artist}
   }
 
+  prevSong = () => {
+    const {index, activeSongClass, pause} = this.state
+
+    if (index - 1 >= 0 && activeSongClass - 1 >= 0) {
+      this.setState(
+        {
+          index: index - 1,
+          activeSongClass: activeSongClass - 1,
+        },
+        this.updatePlayer,
+      )
+    } else {
+      this.playerRef.pause()
+      this.setState({pause: !pause})
+    }
+  }
+
   nextSong = () => {
     const {index, activeSongClass, pause, musicList} = this.state
-    // console.log('NextSong', index, activeSongClass, pause, musicList)
 
     if (
       index + 1 === musicList.length &&
@@ -104,6 +122,7 @@ class Player extends React.Component {
 
   updatePlayer = () => {
     const {musicList, index, pause} = this.state
+    // console.log(index, pause)
 
     const currentSong = musicList[index]
     const audio = new Audio(currentSong.audio)
@@ -117,6 +136,29 @@ class Player extends React.Component {
     }
   }
 
+  timeUpdate = () => {
+    const {currentTime} = this.playerRef
+
+    const inMins = Math.floor(currentTime / 60)
+    const inSecs = Math.floor(currentTime % 60)
+
+    if (inSecs < 10) {
+      this.setState({currTime: `${inMins}:0${inSecs}`})
+    } else {
+      this.setState({currTime: `${inMins}:${inSecs}`})
+    }
+  }
+
+  formatTime = secs => {
+    const inMins = Math.floor(secs / 60)
+    const inSecs = Math.floor(secs % 60)
+
+    if (inSecs < 10) {
+      return `${inMins}:0${inSecs}`
+    }
+    return `${inMins}:${inSecs}`
+  }
+
   onClickSelectSong = indx => {
     this.setState(
       {
@@ -128,8 +170,9 @@ class Player extends React.Component {
     )
   }
 
-  changeSeeker = event => {
-    console.log(event.target.value)
+  changeSeeker = () => {
+    // console.log(event.target.value)
+    console.log(this.playerRef.duration)
   }
 
   changeVolume = event => {
@@ -137,44 +180,6 @@ class Player extends React.Component {
   }
 
   renderMusicControlsMobileView = () => {
-    const {musicList, index, pause, screenSize} = this.state
-    console.log(screenSize)
-    const currentSong = musicList[index]
-    const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
-
-    return (
-      <>
-        <audio
-          ref={ref => {
-            this.playerRef = ref
-          }}
-        >
-          <source src={currentSong.previewUrl} type="audio/mp3" />
-          <track kind="captions" srcLang="en" />
-        </audio>
-        <img src={albumImage} alt="album" className="album-img" />
-        <div className="album-info">
-          <p className="album-name">{currentSong.name}</p>
-          <div className="artist-div">
-            <span className="artist-name">{albumArtist}</span>
-          </div>
-        </div>
-        <button
-          type="button"
-          onClick={this.playOrPause}
-          className="play-pause-button"
-        >
-          {!pause ? (
-            <BsFillPlayFill className="play-pause-icon" />
-          ) : (
-            <BsPauseFill className="play-pause-icon" />
-          )}
-        </button>
-      </>
-    )
-  }
-
-  renderMusicControlsDesktopView = () => {
     const {musicList, index, pause} = this.state
     const currentSong = musicList[index]
     const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
@@ -202,21 +207,77 @@ class Player extends React.Component {
           className="play-pause-button"
         >
           {!pause ? (
-            <BsFillPlayFill className="play-pause-icon" />
+            <FiPlay className="play-pause-icon" />
           ) : (
-            <BsPauseFill className="play-pause-icon" />
+            <FiPause className="play-pause-icon" />
           )}
         </button>
-        <span className="time-update">00:00</span>
+      </>
+    )
+  }
+
+  renderMusicControlsDesktopView = () => {
+    const {musicList, index, pause, currTime} = this.state
+    const currentSong = musicList[index]
+    const {durationMs} = currentSong
+
+    const {albumImage, albumArtist} = this.getAlbumImageArtist(currentSong)
+
+    return (
+      <>
+        <audio
+          ref={ref => {
+            this.playerRef = ref
+          }}
+        >
+          <source src={currentSong.previewUrl} type="audio/mp3" />
+          <track kind="captions" srcLang="en" />
+        </audio>
+        <img src={albumImage} alt="album" className="album-img" />
+        <div className="album-info">
+          <p className="album-name">{currentSong.name}</p>
+          <div className="artist-div">
+            <span className="artist-name">{albumArtist}</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={this.prevSong}
+          className="next-prev-button"
+        >
+          <GrChapterPrevious className="next-prev-icon" />
+        </button>
+        <button
+          type="button"
+          onClick={this.playOrPause}
+          className="play-pause-button"
+        >
+          {!pause ? (
+            <FiPlay className="play-pause-icon" />
+          ) : (
+            <FiPause className="play-pause-icon" />
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={this.nextSong}
+          className="next-prev-button"
+        >
+          <GrChapterNext className="next-prev-icon" />
+        </button>
+        <span className="time-update">
+          {this.formatTime(durationMs / 1000)}
+        </span>
         <input
           type="range"
           className="seek-slider"
+          max="100"
           onChange={this.changeSeeker}
         />
+        <span className="time-update">{currTime}</span>
         <BiVolumeFull className="volume-icon" />
         <input
           type="range"
-          min="0"
           max="10"
           className="volume-slider"
           onChange={this.changeVolume}

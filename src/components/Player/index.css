@@ -1,3 +1,15 @@
+$border-radius: 20px;
+
+$primary: #709fdc;
+$base: #071739;
+$shadow-color: #274684;
+$lighter-shadow: rgba($shadow-color, 0.7);
+$white: #fff;
+$gray: #8c8c8c;
+$lighter-gray: rgba($gray, 0.1);
+$time-line-width: 240px;
+$transition: 0.3s all ease;
+
 .player-container {
   background-color: #eaeaea;
   background-size: cover;
@@ -154,9 +166,9 @@
     align-items: center;
     padding: 0px;
     position: relative;
-    left: 75px;
+    left: 70px;
     top: 40px;
-    width: calc(100% - 75px);
+    width: calc(100% - 70px);
     height: 93%;
   }
 
@@ -188,13 +200,13 @@
 
   .music-controls {
     height: 60px;
-    width: calc(100% - 75px);
+    width: calc(100% - 68px);
     border-top: 1px solid #9b9b9b;
     padding: 0px 0px 0px 0px;
     position: fixed;
     bottom: 0;
     right: 0px;
-    left: 75px;
+    left: 69px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -209,6 +221,10 @@
     overflow: hidden !important;
     text-align: left;
     text-overflow: ellipsis;
+  }
+
+  input[type='range'] {
+    --webkit-slider-appearance: none;
   }
 
   .seek-slider {
@@ -268,13 +284,27 @@
     outline: none;
     border: 0;
     padding: 2px;
-    margin: 2px;
+    margin: 0px;
   }
 
   .play-pause-icon {
     color: #ffffff;
-    height: 25px;
-    width: 25px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .next-prev-button {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    padding: 2px;
+    margin: 0px;
+  }
+
+  .next-prev-icon {
+    color: #202020;
+    height: 20px;
+    width: 20px;
   }
 
   .volume-icon {

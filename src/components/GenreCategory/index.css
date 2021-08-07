@@ -28,10 +28,10 @@
   .genre-category-container {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 75px);
+    width: calc(100% - 70px);
     border: 0px;
     position: absolute;
-    left: 75px;
+    left: 68px;
     top: 0px;
     margin: 0px 0px 0px 0px;
   }
