@@ -1,74 +1,63 @@
-.editor-picks-item {
+.editor-pick-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3px;
+  margin: 2px;
   padding: 0px;
-  width: 110px;
+  width: 100px;
   height: 105px;
 }
 
-.editor-pick-image {
-  height: 70px;
-  width: 70px;
-  border-radius: 5px;
+.editor-pick-item-image {
+  height: 65px;
+  width: 65px;
+  border-radius: 4px;
   margin: 2px;
 }
 
-.editor-pick-name {
+.editor-pick-item-name {
   color: #f8fafc;
   font-size: 12px;
   font-weight: 300;
   text-align: center;
-  margin: 3px 2px 2px 2px;
-  width: 105px;
+  margin: 2px 0px 2px 0px;
+  width: 100px;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
 }
 
 @media (min-width: 476px) {
-  .editor-picks-item {
-    width: 120px;
-    height: 135px;
+  .editor-pick-item {
+    width: 115px;
+    height: 130px;
   }
 
-  .editor-pick-image {
-    height: 90px;
-    width: 90px;
-    border-radius: 6px;
-    margin: 2px;
+  .editor-pick-item-image {
+    height: 85px;
+    width: 85px;
   }
 
-  .editor-pick-name {
-    color: #f8fafc;
+  .editor-pick-item-name {
     font-size: 14px;
-    font-weight: 300;
-    text-align: center;
-    margin: 2px 1px 2px 1px;
   }
 }
 
 @media (min-width: 768px) {
-  .editor-picks-item {
-    width: 160px;
-    height: 170px;
-    margin: 6px;
+  .editor-pick-item {
+    width: 125px;
+    height: 140px;
+    margin: 5px;
   }
 
-  .editor-pick-image {
-    height: 130px;
-    width: 130px;
-    border-radius: 6px;
-    margin: 2px;
+  .editor-pick-item-image {
+    height: 105px;
+    width: 105px;
   }
 
-  .editor-pick-name {
-    color: #f8fafc;
-    font-size: 17px;
-    font-weight: 300;
-    text-align: center;
-    margin: 7px 1px 2px 1px;
+  .editor-pick-item-name {
+    font-size: 16px;
+    margin: 5px 0px 2px 0px;
   }
 }

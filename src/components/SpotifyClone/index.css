@@ -19,75 +19,15 @@
 .content-heading {
   color: #ffffff;
   font-size: 18px;
-  font-weight: 700;
-  margin: 20px 8px 0px 20px;
+  font-weight: 600;
+  margin: 20px 8px 0px 15px;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0px 0px 5px 0px;
-}
-
-.bottom-group {
-  display: flex;
-  position: fixed;
-  border: 1px solid white;
-  background-color: white;
-  color: black;
-  height: 50px;
-  width: 100%;
-  z-index: 10;
-  bottom: 0px;
-  padding-left: 10px;
-}
-
-.icons {
-  font-size: 24px;
-}
-
-.buttons-play {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.volume {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-}
-
-.slider {
-  width: 100%;
-}
-
-.top-bar {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #393b40;
-  color: white;
-  border: 1px solid white;
-}
-
-.search-box {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.search-input {
-  width: 250px;
-  height: 25px;
-  margin-left: 20px;
-  border: none;
-  outline: none;
-  border-radius: 12px;
+  margin: 5px 0px 5px 0px;
 }
 
 a {
@@ -96,47 +36,36 @@ a {
 
 @media (min-width: 476px) {
   .content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
-  .content-name {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
+  .content-heading {
+    font-size: 22px;
+    font-weight: 700;
     margin: 25px 8px 8px 15px;
   }
 
   .content {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px 0px 7px 0px;
   }
 }
 
 @media (min-width: 768px) {
   .app-container {
-    position: absolute;
   }
 
   .app-body {
     position: relative;
-    left: 80px;
-    width: 90%;
-    margin: 0px 0px 0px 0px;
+    left: 65px;
+    width: calc(100% - 65px);
+    padding: 5px;
   }
 
-  .content-name {
-    color: #ffffff;
-    font-size: 30px;
+  .content-heading {
+    font-size: 25px;
     font-weight: bold;
-    margin: 25px 8px 8px 40px;
+    margin: 15px 5px 0px 10px;
   }
 
   .content {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px 0px 0px 0px;
+    margin: 10px 0px 10px 0px;
   }
 }

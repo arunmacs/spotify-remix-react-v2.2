@@ -1,23 +1,27 @@
 .profile-container {
-  height: 100vh;
+  height: calc(100vh - 45px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 45px;
+  left: 0px;
+  right: 0px;
   background-color: #181818;
 }
 
 .user-icon {
-  height: 110px;
-  width: 110px;
+  height: 100px;
+  width: 100px;
   margin: 10px 5px 10px 5px;
 }
 
 .user-name {
   color: #dddddd;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
-  margin: 20px 5px 20px 5px;
+  margin: 10px 5px 10px 5px;
 }
 
 .followers-playlists-info-container {
@@ -36,178 +40,96 @@
 
 .followers-playlists-info {
   color: #1db954;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   margin: 5px;
 }
 
 .followers-playlists-info-text {
   color: #dddddd;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   margin: 5px;
 }
 
 .logout-button {
   color: #dddddd;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   background-color: transparent;
   border: 1px solid #ffffff;
   border-radius: 22px;
-  padding: 10px 24px 10px 24px;
-  width: 100px;
-  height: 40px;
-  margin: 20px 5px 20px 5px;
-  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-  transition: 0.1s all;
+  padding: 7px 15px 8px 15px;
+  width: 80px;
+  height: 30px;
+  margin: 10px 5px 10px 5px;
+  box-shadow: 7px 6px 25px 1px rgba(0, 0, 0, 0.24);
+  transition: 0.16s all;
 }
 
 .logout-button:active {
-  transform: scale(0.6);
-  /* Scaling button to 0.98 to its original size */
+  transform: scale(0.9);
   box-shadow: 3px 2px 20px 7px rgba(0, 0, 0, 0.75);
-  /* Lowering the shadow */
 }
 
 @media (min-width: 476px) {
-  /* .profile-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #181818;
-  } */
-
   .user-icon {
-    height: 150px;
-    width: 150px;
-    margin: 10px 5px 10px 5px;
+    height: 120px;
+    width: 120px;
   }
 
   .user-name {
-    color: #dddddd;
-    font-size: 30px;
-    font-weight: 500;
-    margin: 20px 5px 20px 5px;
-  }
-
-  .followers-playlists-info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .followers-playlists-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+    font-size: 26px;
   }
 
   .followers-playlists-info {
-    color: #1db954;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 5px;
+    font-size: 16px;
   }
 
   .followers-playlists-info-text {
-    color: #dddddd;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 5px;
+    font-size: 16px;
   }
 
   .logout-button {
-    font-size: 18px;
-    font-weight: 400;
-    border-radius: 30px;
-    padding: 8px 22px 8px 22px;
-    width: 120px;
-    height: 50px;
-  }
-
-  .logout-button:active {
-    transform: scale(0.7);
-    /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.18);
-    /* Lowering the shadow */
+    font-size: 15px;
+    padding: 7px 18px 7px 18px;
+    width: 100px;
+    height: 35px;
   }
 }
 
 @media (min-width: 768px) {
   .profile-container {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #181818;
+    width: calc(100% - 65px);
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
   }
 
   .user-icon {
-    height: 110px;
-    width: 110px;
-    margin: 10px 5px 10px 5px;
+    height: 150px;
+    width: 150px;
   }
 
   .user-name {
-    color: #dddddd;
-    font-size: 26px;
-    font-weight: 500;
-    margin: 20px 5px 20px 5px;
-  }
-
-  .followers-playlists-info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .followers-playlists-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+    font-size: 28px;
   }
 
   .followers-playlists-info {
-    color: #1db954;
-    font-size: 15px;
-    font-weight: 400;
-    margin: 5px;
+    font-size: 18px;
   }
 
   .followers-playlists-info-text {
-    color: #dddddd;
-    font-size: 15px;
-    font-weight: 400;
-    margin: 5px;
+    font-size: 18px;
   }
 
   .logout-button {
-    color: #dddddd;
-    font-size: 14px;
-    font-weight: 400;
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    border-radius: 22px;
-    padding: 10px 24px 10px 24px;
-    width: 100px;
+    font-size: 15px;
+    padding: 8px 20px 8px 20px;
+    width: 110px;
     height: 40px;
-    margin: 20px 5px 20px 5px;
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-    transition: 0.1s all;
-  }
-
-  .logout-button:active {
-    transform: scale(0.6);
-    /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 20px 7px rgba(0, 0, 0, 0.75);
-    /* Lowering the shadow */
   }
 }

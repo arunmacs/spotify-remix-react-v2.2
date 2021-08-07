@@ -27,7 +27,7 @@ const AlbumDisplayInfo = props => {
 
   return (
     <div className="album-display-info">
-      <img src={image} alt="" className="album-display-image" />
+      <img src={image} alt="display" className="album-display-image" />
       <div className="section-name">
         <p className="section">{section}</p>
         <h1 className="album-display-name">{albumName}</h1>

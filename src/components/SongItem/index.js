@@ -6,7 +6,7 @@ const SongItem = props => {
   const {songData, selectSong, index, isActive} = props
   const {artists, album, durationMs, name} = songData
 
-  const activeSongClass = isActive ? 'activeClass' : ''
+  const activeSongClass = isActive && 'activeClass'
 
   let image
 

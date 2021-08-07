@@ -1,22 +1,9 @@
-$border-radius: 20px;
-
-$primary: #709fdc;
-$base: #071739;
-$shadow-color: #274684;
-$lighter-shadow: rgba($shadow-color, 0.7);
-$white: #fff;
-$gray: #8c8c8c;
-$lighter-gray: rgba($gray, 0.1);
-$time-line-width: 240px;
-$transition: 0.3s all ease;
-
 .player-container {
-  background-color: #eaeaea;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   width: 100%;
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: column;
 }
 
 .playlist-container {
@@ -27,9 +14,9 @@ $transition: 0.3s all ease;
 }
 
 .playlist {
-  padding: 20px 0px 45px 0px;
+  padding: 10px 0px 50px 0px;
   width: 100%;
-  margin: 3px 0px 3px 0px;
+  margin: 0px;
   overflow: auto;
 }
 
@@ -39,40 +26,39 @@ $transition: 0.3s all ease;
   background-color: #3a5a81;
   border-top: 1px solid #9b9b9b;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   left: 0px;
   right: 0px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .album-img {
-  margin: 3px 4px 3px 15px;
+  margin: 2px 3px 2px 15px;
   height: 40px;
   width: 40px;
   border-radius: 4px;
 }
 
 .album-info {
-  width: 240px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 2px 2px 2px 4px;
+  margin: 2px 2px 2px 3px;
 }
 
 .album-name {
   color: #ffffff;
   font-size: 13px;
   font-weight: 400;
-  margin: 3px 2px 3px 0px;
-  line-height: 16px;
+  margin: 2px 0px;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden !important;
-  text-align: left;
   text-overflow: ellipsis;
 }
 
@@ -80,18 +66,16 @@ $transition: 0.3s all ease;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 3px 2px 2px 0px;
-  overflow: hidden;
+  margin: 2px 0px;
 }
 
 .artist-name {
   color: #9b9b9b;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16px;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden !important;
-  text-align: left;
   text-overflow: ellipsis;
 }
 
@@ -99,14 +83,19 @@ $transition: 0.3s all ease;
   background-color: transparent;
   outline: none;
   border: 0;
-  padding: 3px;
-  margin: 2px 20px 2px 2px;
+  padding: 2px;
+  margin: 2px 10px 2px 2px;
+  transition: 0.15s all;
 }
 
 .play-pause-icon {
   color: #ffffff;
-  height: 26px;
-  width: 26px;
+  height: 22px;
+  width: 22px;
+}
+
+.play-pause-button:active {
+  transform: scale(0.85);
 }
 
 @media (min-width: 476px) {
@@ -120,13 +109,11 @@ $transition: 0.3s all ease;
 
   .music-controls {
     height: 50px;
-    width: 95%;
   }
 
   .album-img {
     height: 45px;
     width: 45px;
-    border-radius: 4px;
   }
 
   .album-info {
@@ -134,12 +121,11 @@ $transition: 0.3s all ease;
   }
 
   .album-name {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 14px;
   }
 
   .artist-name {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .play-pause-button {
@@ -147,29 +133,28 @@ $transition: 0.3s all ease;
   }
 
   .play-pause-icon {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
   }
 }
 
 @media (min-width: 768px) {
   .player-container {
-    padding: 0px 0px 0px 0px;
+    padding: 0px;
     position: absolute;
     width: 100%;
   }
 
   .playlist-container {
-    overflow: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     position: relative;
-    left: 70px;
-    top: 40px;
-    width: calc(100% - 70px);
-    height: 93%;
+    left: 65px;
+    top: 45px;
+    width: calc(100% - 65px);
+    height: calc(100vh - 45px);
   }
 
   #columns-row {
@@ -185,38 +170,32 @@ $transition: 0.3s all ease;
   #column-name {
     padding: 2px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0px;
-    width: 60px;
+    width: 55px;
     text-align: left;
   }
 
   .playlist {
-    padding: 10px 3px 40px 3px;
-    width: 98%;
-    margin: 20px 3px 60px 3px;
-    overflow: auto;
+    padding: 10px 0px 30px 0px;
+    width: 99%;
+    margin: 0px 0px 40px 0px;
   }
 
   .music-controls {
-    height: 60px;
-    width: calc(100% - 69px);
-    border-top: 1px solid #9b9b9b;
-    padding: 0px 0px 0px 0px;
+    height: 65px;
+    width: calc(100% - 65px);
+    padding: 0px;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     right: 0px;
-    left: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    left: 65px;
   }
 
   .time-update {
     color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 300;
     margin: 2px;
     white-space: nowrap;
     overflow: hidden !important;
@@ -224,22 +203,14 @@ $transition: 0.3s all ease;
     text-overflow: ellipsis;
   }
 
-  input[type='range'] {
-  }
-
-  .seek-slider {
-    width: 30%;
-  }
-
   .album-img {
     margin: 2px;
     height: 55px;
     width: 55px;
-    border-radius: 4px;
   }
 
   .album-info {
-    width: 180px;
+    width: 140px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -249,70 +220,68 @@ $transition: 0.3s all ease;
 
   .album-name {
     color: #ffffff;
-    font-size: 15px;
-    font-weight: 300;
-    margin: 2px;
+    font-size: 13px;
+    font-weight: 400;
     line-height: 16px;
-    width: 180px;
+    width: 140px;
     white-space: nowrap;
     overflow: hidden !important;
     text-align: left;
     text-overflow: ellipsis;
-  }
-
-  .artist-div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 2px;
   }
 
   .artist-name {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 18px;
-    width: 180px;
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-align: left;
-    text-overflow: ellipsis;
+    width: 140px;
   }
 
   .play-pause-button {
     background-color: transparent;
-    outline: none;
-    border: 0;
-    padding: 2px;
-    margin: 0px;
+    padding: 0px;
+    margin: 2px;
   }
 
   .play-pause-icon {
     color: #ffffff;
-    height: 27px;
-    width: 27px;
+    height: 25px;
+    width: 25px;
   }
 
   .next-prev-button {
     background-color: transparent;
     outline: none;
     border: 0;
-    padding: 2px;
-    margin: 0px;
+    padding: 0px;
+    margin: 2px;
+    transition: 0.1s all;
+  }
+
+  .next-prev-button:active {
+    transform: scale(0.85);
   }
 
   .next-prev-icon {
     color: #ffffff;
-    height: 25px;
-    width: 25px;
+    height: 22px;
+    width: 22px;
   }
 
   .volume-icon {
     color: #ffffff;
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
+  }
+
+  input[type='range'] {
+  }
+
+  .seek-slider {
+    width: 28%;
   }
 
   .volume-slider {
-    width: 10%;
+    width: 11%;
   }
 }

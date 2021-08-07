@@ -37,13 +37,14 @@ class SpotifyClone extends Component {
   sessionTimedOut = () => {
     const {history} = this.props
     localStorage.removeItem('pa_token')
-
     history.replace('/login')
   }
 
   getEditorsPickData = async () => {
     const token = this.getAccessToken()
+
     const timeStamp = this.getTimeStamp()
+
     const userApiUrl = 'https://api.spotify.com/v1/me'
     const userOptions = {
       headers: {
@@ -98,7 +99,6 @@ class SpotifyClone extends Component {
     const token = this.getAccessToken()
 
     const categoryApiUrl = 'https://api.spotify.com/v1/browse/categories'
-
     const categoryOptions = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -186,7 +186,7 @@ class SpotifyClone extends Component {
         <h1 className="content-heading">Editor&apos;s picks</h1>
         <div className="content">
           {editorsPickData.map(item => (
-            <EditorsPicks editorsPicksData={item} key={item.id} />
+            <EditorsPicks editorsPickData={item} key={item.id} />
           ))}
         </div>
       </div>

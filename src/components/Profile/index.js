@@ -1,13 +1,20 @@
 import {Component} from 'react'
+import LoaderView from '../LoaderView'
 import NavBar from '../NavBar'
 
 import './index.css'
 
 class Profile extends Component {
-  state = {userData: []}
+  state = {userData: [], isLoading: true}
 
   componentDidMount() {
     this.getUserProfileData()
+  }
+
+  sessionTimedOut = () => {
+    const {history} = this.props
+    localStorage.removeItem('pa_token')
+    history.replace('/login')
   }
 
   onClickLogout = () => {
@@ -42,7 +49,9 @@ class Profile extends Component {
         type: data.type,
         uri: data.uri,
       }
-      this.setState({userData: updatedUserData})
+      this.setState({userData: updatedUserData, isLoading: false})
+    } else {
+      this.sessionTimedOut()
     }
   }
 
@@ -75,11 +84,13 @@ class Profile extends Component {
   }
 
   render() {
+    const {isLoading} = this.state
+
     return (
       <>
         <NavBar />
-        {/* {isLoading ? <Loader /> : this.renderProfilePage()} */}
-        {this.renderProfilePage()}
+        {isLoading ? <LoaderView /> : this.renderProfilePage()}
+        {/* {this.renderProfilePage()} */}
       </>
     )
   }

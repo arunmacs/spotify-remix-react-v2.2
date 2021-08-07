@@ -16,11 +16,10 @@ class NavBar extends Component {
 
   onClickRedirectHome = () => {
     const {history} = this.props
-
     history.replace('/')
   }
 
-  onClickRenderMenuButton = () => (
+  RenderMenuButton = () => (
     <>
       <nav className="top-navbar-container">
         <button
@@ -37,7 +36,7 @@ class NavBar extends Component {
         <button
           type="button"
           onClick={this.onClickToggleMenu}
-          className="menu-button"
+          className="menu-close-button"
         >
           <FiMenu className="menu-icon" />
         </button>
@@ -79,7 +78,7 @@ class NavBar extends Component {
     </>
   )
 
-  onClickRenderMenuOptions = () => (
+  RenderMenuOptions = () => (
     <nav className="top-navbar-links">
       <Link to="/profile">
         <BsFillPersonFill className="menu-option" />
@@ -99,7 +98,7 @@ class NavBar extends Component {
       <button
         type="button"
         onClick={this.onClickToggleMenu}
-        className="menu-button"
+        className="menu-close-button"
       >
         <IoClose className="close-icon" />
       </button>
@@ -111,9 +110,7 @@ class NavBar extends Component {
 
     return (
       <header className="navbar-container">
-        {showMenu
-          ? this.onClickRenderMenuOptions()
-          : this.onClickRenderMenuButton()}
+        {showMenu ? this.RenderMenuOptions() : this.RenderMenuButton()}
       </header>
     )
   }

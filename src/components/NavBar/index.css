@@ -1,3 +1,8 @@
+:root {
+  --menu-close-color: #ffffff;
+  --main-button-border: 0;
+}
+
 .navbar-container {
   height: 45px;
   background-color: #000000;
@@ -30,44 +35,43 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 0px;
 }
 
 .music-spectrum-img {
-  height: 20px;
+  height: 25px;
   width: 60px;
-  margin: 5px 8px 5px 0px;
+  margin: 3px 5px 3px 0px;
 }
 
 .logo-button {
-  border: 0;
+  border: var(--main-button-border);
   background-color: transparent;
-  margin: 5px 8px 5px 5px;
+  margin: 4px 5px 3px 5px;
 }
 
-.menu-button {
-  border: 0;
+.menu-close-button {
+  border: var(--main-button-border);
   background-color: transparent;
-  margin: 5px 8px 5px 5px;
+  margin: 4px 6px 4px 6px;
 }
 
 .menu-icon {
   height: 23px;
   width: 23px;
-  color: #ffffff;
+  color: var(--menu-close-color);
 }
 
 .close-icon {
-  height: 25px;
-  width: 25px;
-  color: #ffffff;
+  height: 24px;
+  width: 24px;
+  color: var(--menu-close-color);
 }
 
 .menu-option {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   color: #aaaaaa;
-  margin: 4px 8px 4px 8px;
+  margin: 3px 6px 3px 6px;
 }
 
 @media (min-width: 476px) {
@@ -86,38 +90,32 @@
   }
 
   .logo-button {
-    border: 0;
-    background-color: transparent;
     margin: 5px 8px 5px 5px;
   }
 
   .music-spectrum-img {
-    height: 25px;
+    height: 26px;
     width: 70px;
-    margin: 5px 8px 5px 0px;
+    margin: 4px 6px 4px 0px;
   }
 
-  .menu-button {
-    border: 0;
-    background-color: transparent;
+  .menu-close-button {
     margin: 5px 15px 5px 15px;
   }
 
   .menu-icon {
-    height: 27px;
-    width: 27px;
-    color: #ffffff;
+    height: 26px;
+    width: 26px;
   }
 
   .close-icon {
-    height: 30px;
-    width: 30px;
-    color: #ffffff;
+    height: 27px;
+    width: 27px;
   }
 
   .menu-option {
-    height: 25px;
-    width: 25px;
+    height: 22px;
+    width: 22px;
     color: #aaaaaa;
     margin: 4px 8px 4px 8px;
   }
@@ -126,14 +124,13 @@
 @media (min-width: 768px) {
   .navbar-container {
     height: 100vh;
-    width: 70px;
+    width: 65px;
     background-color: #040306;
     position: fixed;
     top: 0px;
     bottom: 0px;
     left: 0px;
-    padding: 0px 3px 0px 3px;
-    overflow: hidden;
+    padding: 0px 2px 0px 2px;
   }
 
   .side-navbar-container {
@@ -146,7 +143,7 @@
   }
 
   .side-navbar-links {
-    height: 60%;
+    height: 55%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -164,19 +161,17 @@
 
   .music-spectrum-img {
     height: 35px;
-    width: 65px;
+    width: 60px;
     margin: 3px 1px 3px 1px;
   }
 
   .logo-button {
-    border: 0;
-    background-color: transparent;
-    margin: 20px 2px 15px 2px;
+    margin: 15px 0px 15px 0px;
   }
 
   .icon-container {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -184,15 +179,14 @@
   }
 
   .active-icon {
-    border-left: 4px solid #1ed760;
-    border-radius: 6px 0px 0px 6px;
+    border-left: 2px solid #1ed760;
     background-color: #181818;
   }
 
   .menu-option {
-    height: 28px;
-    width: 28px;
+    height: 25px;
+    width: 25px;
     color: #aaaaaa;
-    margin: 8px 5px 8px 1px;
+    margin: 8px 5px 8px 2px;
   }
 }
