@@ -1,7 +1,7 @@
 import React from 'react'
 import {FiPlay, FiPause} from 'react-icons/fi'
 import {BiVolumeFull} from 'react-icons/bi'
-import {ImNext, ImPrevious, ImPlay2, ImPause} from 'react-icons/im'
+import {BsSkipForward, BsSkipBackward} from 'react-icons/bs'
 import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
 import AlbumDisplayInfo from '../AlbumDisplayInfo'
@@ -24,7 +24,6 @@ class Player extends React.Component {
   componentDidMount() {
     this.playerRef.addEventListener('timeupdate', this.timeUpdate)
     this.playerRef.addEventListener('ended', this.nextSong)
-    this.playerRef.addEventListener('seeking', this.changeCurrTime)
     this.playerRef.addEventListener('volumechange', this.adjustVolume)
     window.addEventListener('resize', this.resize)
   }
@@ -32,7 +31,6 @@ class Player extends React.Component {
   componentWillUnmount() {
     this.playerRef.removeEventListener('timeupdate', this.timeUpdate)
     this.playerRef.removeEventListener('ended', this.nextSong)
-    this.playerRef.removeEventListener('seeking', this.changeCurrTime)
     this.playerRef.removeEventListener('volumechange', this.adjustVolume)
     window.removeEventListener('resize', this.resize)
   }
@@ -232,6 +230,8 @@ class Player extends React.Component {
 
   renderMusicControlsDesktopView = () => {
     const {musicList, index, pause, currTime, seek, volume} = this.state
+    console.log(seek, volume)
+
     const currentSong = musicList[index]
     const {durationMs} = currentSong
 
@@ -259,7 +259,7 @@ class Player extends React.Component {
           onClick={this.prevSong}
           className="next-prev-button"
         >
-          <ImPrevious className="next-prev-icon" />
+          <BsSkipBackward className="next-prev-icon" />
         </button>
         <button
           type="button"
@@ -267,9 +267,9 @@ class Player extends React.Component {
           className="play-pause-button"
         >
           {!pause ? (
-            <ImPlay2 className="play-pause-icon" />
+            <FiPlay className="play-pause-icon" />
           ) : (
-            <ImPause className="play-pause-icon" />
+            <FiPause className="play-pause-icon" />
           )}
         </button>
         <button
@@ -277,7 +277,7 @@ class Player extends React.Component {
           onClick={this.nextSong}
           className="next-prev-button"
         >
-          <ImNext className="next-prev-icon" />
+          <BsSkipForward className="next-prev-icon" />
         </button>
         <span className="time-update">
           {this.formatTime(durationMs / 1000)}
@@ -303,13 +303,14 @@ class Player extends React.Component {
   }
 
   renderSongsList = () => {
-    const {musicList, activeSongClass} = this.state
+    const {musicList, activeSongClass, displayInfo} = this.state
 
     return (
       <>
         {musicList.map((item, key = 0) => (
           <SongItem
             songData={item}
+            displayInfo={displayInfo}
             selectSong={this.onClickSelectSong}
             isActive={activeSongClass === key}
             index={key}
@@ -336,6 +337,7 @@ class Player extends React.Component {
               <span id="column-name">Time</span>
               <span id="column-name">Artist</span>
               <span id="column-name">Added</span>
+              {/* <span id="column-name">Popularity</span> */}
             </div>
           )}
           <ul className="playlist">{this.renderSongsList()}</ul>

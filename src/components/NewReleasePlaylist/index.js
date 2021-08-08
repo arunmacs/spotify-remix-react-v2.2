@@ -67,17 +67,16 @@ class NewReleasePlaylist extends Component {
         availableMarkets: item.available_markets,
         discNumber: item.disc_number,
         durationMs: item.duration_ms,
-        episode: item.track.episode,
         explicit: item.explicit,
-        externalIds: item.track.external_ids,
+        // externalIds: item.track.external_ids,
         externalUrls: item.external_urls,
         href: item.href,
         id: item.id,
         isLocal: item.is_local,
         name: item.name,
-        popularity: item.track.popularity,
+        // popularity: item.track.popularity,
         previewUrl: item.preview_url,
-        track: item.track.track,
+        // track: item.track.track,
         trackNumber: item.track_number,
         type: item.type,
         uri: item.uri,
@@ -93,6 +92,8 @@ class NewReleasePlaylist extends Component {
 
   render() {
     const {isLoading, displayInfo, musicList} = this.state
+    console.log(displayInfo, 'info')
+    console.log(musicList, 'list')
 
     return (
       <div>

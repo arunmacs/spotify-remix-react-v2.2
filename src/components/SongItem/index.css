@@ -109,6 +109,10 @@
     width: 240px;
   }
 
+  #song-row-desktop {
+    display: none;
+  }
+
   .song-artist {
     font-size: 13px;
     width: 240px;
@@ -125,7 +129,7 @@
 
 @media (min-width: 768px) {
   .song-item {
-    height: 35px;
+    height: 30px;
     margin: 4px 0px 4px 0px;
   }
 
@@ -157,14 +161,14 @@
   }
 
   #song-name {
-    width: 130px;
+    width: 100px;
     font-size: 15px;
     font-weight: 400;
     color: #3a5a81;
   }
 
   #album-name {
-    width: 130px;
+    width: 110px;
     font-size: 14px;
     font-weight: 300;
   }
@@ -172,11 +176,12 @@
   #duration {
     width: 45px;
     font-size: 14px;
+    text-align: center;
     font-weight: 300;
   }
 
   #artist-name {
-    width: 120px;
+    width: 110px;
     text-align: center;
     font-size: 13px;
     font-weight: 300;
@@ -184,10 +189,13 @@
   }
 
   #added {
-    width: 105px;
+    width: 100px;
     text-align: center;
     font-size: 13px;
     font-weight: 300;
+  }
+
+  #popularity {
   }
 
   .song-name {

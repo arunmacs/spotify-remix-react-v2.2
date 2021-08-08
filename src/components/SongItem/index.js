@@ -3,7 +3,7 @@ import moment from 'moment'
 import './index.css'
 
 const SongItem = props => {
-  const {songData, selectSong, index, isActive} = props
+  const {songData, selectSong, index, isActive, displayInfo} = props
   const {artists, album, durationMs, name} = songData
 
   const activeSongClass = isActive && 'activeClass'
@@ -50,12 +50,19 @@ const SongItem = props => {
       <span className="song-duration-md">{getDurationTime(durationMs)}</span>
       <div id="song-row-desktop">
         <span id="song-name">{name}</span>
-        <span id="album-name">{album.name}</span>
+        <span id="album-name">{album ? album.name : '(Album?)'}</span>
         <span id="duration">{getDurationTime(durationMs)}</span>
         <span id="artist-name">
           <span>{artists[0].name}</span>
         </span>
-        <span id="added">{getFormaDistance(album.release_date)}</span>
+        <span id="added">
+          {album
+            ? getFormaDistance(album.release_date)
+            : getFormaDistance(displayInfo.releaseDate)}
+        </span>
+        {/* <span id="popularity">
+          {album ? album.popularity : displayInfo.popularity}
+        </span> */}
       </div>
     </li>
   )
