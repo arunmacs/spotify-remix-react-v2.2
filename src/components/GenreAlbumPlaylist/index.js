@@ -63,7 +63,6 @@ class GenreAlbumPlaylist extends Component {
         primaryColor: data.primary_color,
         public: data.public,
         snapshotId: data.snapshot_id,
-        // tracks: data.tracks,
         type: data.type,
         uri: data.uri,
       }

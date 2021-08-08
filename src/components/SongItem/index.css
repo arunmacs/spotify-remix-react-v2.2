@@ -1,4 +1,11 @@
-.song-item {
+span {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.song-row {
   list-style-type: none;
   width: 98%;
   height: 45px;
@@ -7,7 +14,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 8px 0px 8px 0px;
-  padding: 0px 3px 0px 3px;
+  padding: 0px 2px 0px 2px;
   overflow: hidden;
 }
 
@@ -15,63 +22,60 @@
   height: 40px;
   width: 40px;
   margin: 2px 5px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .song-info-md {
   display: flex;
   flex-direction: column;
-  width: 200px;
-}
-
-.song-name {
-  color: #3a5a81;
-  font-size: 13px;
-  font-weight: 500;
-  margin: 2px;
-  width: 190px;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-}
-
-.artists-div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 2px;
-  overflow: hidden;
-}
-
-.song-artist {
-  color: #111a21;
-  font-size: 12px;
-  font-weight: 400;
-  margin: 2px;
+  justify-content: center;
   text-align: left;
   width: 190px;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+  margin: 0px 5px 0px 0px;
 }
 
-.song-duration-md {
-  color: #111a21;
+.song-name-md {
+  color: #3a5a81;
   font-size: 13px;
   font-weight: 400;
-  text-align: center;
-  margin: 2px 5px;
+  margin: 2px;
+  width: 180px;
 }
 
-.song-duration-lg {
+.artist-name-md {
+  margin: 2px;
+  width: 180px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #181818;
+}
+
+#song-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#duration {
+  font-size: 13px;
+  font-weight: 300;
+  margin: 5px;
+}
+
+#song-name {
   display: none;
 }
 
-.song-duration-lg {
+#album-name {
   display: none;
 }
 
-#song-row-desktop {
+#artist-name {
+  display: none;
+}
+
+#added {
   display: none;
 }
 
@@ -82,43 +86,31 @@
 }
 
 @media (min-width: 476px) {
-  .song-item {
+  .song-row {
     height: 50px;
   }
 
   .song-thumbnail {
     height: 45px;
     width: 45px;
-    border-radius: 3px;
   }
 
   .song-info-md {
-    width: 250px;
+    width: 210px;
+    margin: 0px 20px 0px 0px;
   }
 
-  .song-duration-lg {
-    display: none;
-  }
-
-  .song-duration-lg {
-    display: none;
-  }
-
-  .song-name {
+  .song-name-md {
     font-size: 14px;
-    width: 240px;
+    width: 210px;
   }
 
-  #song-row-desktop {
-    display: none;
-  }
-
-  .song-artist {
+  .artist-name-md {
     font-size: 13px;
-    width: 240px;
+    width: 210px;
   }
 
-  .song-duration {
+  #duration {
     font-size: 14px;
   }
 
@@ -128,48 +120,46 @@
 }
 
 @media (min-width: 768px) {
-  .song-item {
+  .song-row {
+    width: 100%;
     height: 30px;
     margin: 4px 0px 4px 0px;
   }
 
-  .song-thumbnail {
-    display: none;
+  #song-info {
+    width: 100%;
+    justify-content: space-evenly;
   }
 
   .song-info-md {
     display: none;
   }
 
-  #song-row-desktop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+  .song-name-md {
+    display: none;
   }
 
-  span {
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-align: left;
-    text-overflow: ellipsis;
+  .artist-name-md {
+    display: none;
   }
 
-  #song-img {
+  .song-thumbnail {
     display: none;
   }
 
   #song-name {
-    width: 100px;
+    display: flex;
+    width: 120px;
     font-size: 15px;
     font-weight: 400;
     color: #3a5a81;
   }
 
   #album-name {
+    display: flex;
     width: 110px;
-    font-size: 14px;
+    color: #181818 !important;
+    font-size: 15px;
     font-weight: 300;
   }
 
@@ -181,6 +171,7 @@
   }
 
   #artist-name {
+    display: flex;
     width: 110px;
     text-align: center;
     font-size: 13px;
@@ -189,41 +180,11 @@
   }
 
   #added {
+    display: flex;
     width: 100px;
     text-align: center;
     font-size: 13px;
     font-weight: 300;
-  }
-
-  #popularity {
-  }
-
-  .song-name {
-    font-size: 16px;
-    font-weight: 400;
-    margin: 3px 3px 3px 3px;
-    line-height: 18px;
-    overflow: hidden;
-  }
-
-  .artists-div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 3px 2px 3px 2px;
-    overflow: hidden;
-  }
-
-  .song-artist {
-    font-size: 15px;
-    font-weight: 300;
-    margin: 2px;
-    text-align: left;
-    line-height: 14px;
-  }
-
-  .song-duration-md {
-    display: none;
   }
 
   .activeClass {

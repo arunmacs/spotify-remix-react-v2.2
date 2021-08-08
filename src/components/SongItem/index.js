@@ -5,6 +5,7 @@ import './index.css'
 const SongItem = props => {
   const {songData, selectSong, index, isActive, displayInfo} = props
   const {artists, album, durationMs, name} = songData
+  //   console.log(songData, 'item')
 
   const activeSongClass = isActive && 'activeClass'
 
@@ -39,30 +40,24 @@ const SongItem = props => {
   }
 
   return (
-    <li className={`song-item ${activeSongClass}`} onClick={onClickSelectSong}>
+    <li className={`song-row ${activeSongClass}`} onClick={onClickSelectSong}>
       <img src={image} alt="album" className="song-thumbnail" />
-      <div className="song-info-md">
-        <p className="song-name">{name}</p>
-        <div className="artists-div">
-          <span className="song-artist">{artists[0].name}</span>
+      <div id="song-info">
+        <div className="song-info-md">
+          <span className="song-name-md">{name}</span>
+          <span className="artist-name-md">
+            {artists ? artists[0].name : 'Artist'}
+          </span>
         </div>
-      </div>
-      <span className="song-duration-md">{getDurationTime(durationMs)}</span>
-      <div id="song-row-desktop">
         <span id="song-name">{name}</span>
         <span id="album-name">{album ? album.name : '(Album?)'}</span>
         <span id="duration">{getDurationTime(durationMs)}</span>
-        <span id="artist-name">
-          <span>{artists[0].name}</span>
-        </span>
+        <span id="artist-name">{artists ? artists[0].name : 'Artist'}</span>
         <span id="added">
           {album
             ? getFormaDistance(album.release_date)
             : getFormaDistance(displayInfo.releaseDate)}
         </span>
-        {/* <span id="popularity">
-          {album ? album.popularity : displayInfo.popularity}
-        </span> */}
       </div>
     </li>
   )

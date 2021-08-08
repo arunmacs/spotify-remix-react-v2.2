@@ -337,7 +337,6 @@ class Player extends React.Component {
               <span id="column-name">Time</span>
               <span id="column-name">Artist</span>
               <span id="column-name">Added</span>
-              {/* <span id="column-name">Popularity</span> */}
             </div>
           )}
           <ul className="playlist">{this.renderSongsList()}</ul>

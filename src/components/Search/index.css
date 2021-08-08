@@ -1,4 +1,112 @@
-.search {
-  margin: 80px 0px 0px 100px;
-  width: calc(100% - 75px);
+.search-body {
+  background-image: linear-gradient(to bottom, #4b80cc, #4b80cc, #1c2f4b);
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.search-container {
+  width: calc(100% - 65px);
+  height: calc(100vh - 50px);
+  position: relative;
+  left: 65px;
+  right: 0px;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 5px;
+  margin: 5px 0px 5px 10px;
+  cursor: pointer;
+  height: 40px;
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: 20px 15px 20px 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.4s ease-out;
+  transform: scale(0.9);
+}
+
+.input-container:hover {
+  width: 50%;
+  transform: scale(1);
+}
+
+input {
+  outline: none;
+  border: none;
+  height: 32px;
+  width: 100%;
+  margin: 0px 5px;
+  padding: 2px 6px;
+  color: #75818c;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+input:placeholder {
+  color: #757575;
+  font-size: 15px;
+  font-weight: 300px;
+  padding: 2px 6px;
+}
+
+.search-icon {
+  height: 28px;
+  width: 28px;
+  margin: 3px;
+}
+
+.search-results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search-playlist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+
+.content-name {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 8px;
+}
+
+.playlist-content {
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+  padding: 0px;
+  margin: 5px 0px;
+}
+
+.search-tracks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+
+.songs-content {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 0px;
+  margin: 5px 0px;
 }

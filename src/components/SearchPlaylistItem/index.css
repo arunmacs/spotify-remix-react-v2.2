@@ -1,0 +1,50 @@
+.search-list-item {
+  list-style-type: none;
+  background-color: #accbff;
+  height: 260px;
+  width: 200px;
+  border-radius: 4px;
+  margin: 2px 8px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-item-image {
+  height: 160px;
+  width: 145px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.search-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-item-name {
+  color: #192132;
+  font-size: 15px;
+  font-weight: 500;
+  width: 180px;
+  text-align: center;
+  margin: 2px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.search-tracks {
+  color: #2f313b;
+  font-size: 14px;
+  font-weight: 400;
+  width: 180px;
+  text-align: center;
+  margin: 2px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
