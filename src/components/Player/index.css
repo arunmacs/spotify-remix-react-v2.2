@@ -21,7 +21,7 @@
 }
 
 .music-controls {
-  height: 45px;
+  height: 60px;
   width: 100%;
   background-color: #3a5a81;
   border-top: 1px solid #9b9b9b;
@@ -38,8 +38,8 @@
 
 .album-img {
   margin: 2px 3px 2px 15px;
-  height: 43px;
-  width: 43px;
+  height: 50px;
+  width: 50px;
   border-radius: 4px;
 }
 
@@ -132,13 +132,13 @@
   }
 
   .music-controls {
-    height: 50px;
+    height: 65px;
     padding: 0px 15px 0px 0px;
   }
 
   .album-img {
-    height: 47px;
-    width: 47px;
+    height: 55px;
+    width: 55px;
   }
 
   .album-info {
@@ -210,7 +210,7 @@
   }
 
   .music-controls {
-    height: 65px;
+    height: 75px;
     width: calc(100% - 65px);
     padding: 0px;
     position: fixed;
@@ -232,8 +232,8 @@
 
   .album-img {
     margin: 2px;
-    height: 55px;
-    width: 55px;
+    height: 60px;
+    width: 60px;
   }
 
   .album-info {
