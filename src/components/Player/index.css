@@ -29,6 +29,7 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
+  padding: 0px 7px 0px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -37,13 +38,13 @@
 
 .album-img {
   margin: 2px 3px 2px 15px;
-  height: 40px;
-  width: 40px;
+  height: 43px;
+  width: 43px;
   border-radius: 4px;
 }
 
 .album-info {
-  width: 200px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -55,6 +56,7 @@
   color: #ffffff;
   font-size: 13px;
   font-weight: 400;
+  width: 150px;
   margin: 2px 0px;
   text-align: left;
   white-space: nowrap;
@@ -72,6 +74,7 @@
 .artist-name {
   color: #9b9b9b;
   font-size: 12px;
+  width: 150px;
   font-weight: 300;
   text-align: left;
   white-space: nowrap;
@@ -85,7 +88,7 @@
   cursor: pointer;
   border: 0;
   padding: 2px;
-  margin: 2px 10px 2px 2px;
+  margin: 3px 5px;
   transition: 0.15s all;
 }
 
@@ -99,6 +102,26 @@
   transform: scale(0.85);
 }
 
+.next-prev-button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0px;
+  margin: 3px 5px;
+  transition: 0.1s all;
+}
+
+.next-prev-button:active {
+  transform: scale(0.85);
+}
+
+.next-prev-icon {
+  color: #ffffff;
+  height: 20px;
+  width: 20px;
+}
+
 @media (min-width: 476px) {
   .playlist-columns {
     display: none;
@@ -110,23 +133,26 @@
 
   .music-controls {
     height: 50px;
+    padding: 0px 15px 0px 0px;
   }
 
   .album-img {
-    height: 45px;
-    width: 45px;
+    height: 47px;
+    width: 47px;
   }
 
   .album-info {
-    width: 300px;
+    width: 250px;
   }
 
   .album-name {
     font-size: 14px;
+    width: 250px;
   }
 
   .artist-name {
     font-size: 13px;
+    width: 200px;
   }
 
   .play-pause-button {

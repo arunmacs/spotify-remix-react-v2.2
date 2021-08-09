@@ -215,6 +215,13 @@ class Player extends React.Component {
         </div>
         <button
           type="button"
+          onClick={this.prevSong}
+          className="next-prev-button"
+        >
+          <BsSkipBackward className="next-prev-icon" />
+        </button>
+        <button
+          type="button"
           onClick={this.playOrPause}
           className="play-pause-button"
         >
@@ -223,6 +230,13 @@ class Player extends React.Component {
           ) : (
             <FiPause className="play-pause-icon" />
           )}
+        </button>
+        <button
+          type="button"
+          onClick={this.nextSong}
+          className="next-prev-button"
+        >
+          <BsSkipForward className="next-prev-icon" />
         </button>
       </>
     )
