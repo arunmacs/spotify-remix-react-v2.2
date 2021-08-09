@@ -54,23 +54,23 @@ class NavBar extends Component {
           />
         </button>
         <div className="side-navbar-links">
-          <Link to="/profile" className="icon-container active-icon">
+          <Link to="/profile" key="profile" className="icon-container">
             <BsFillPersonFill className="menu-option" />
           </Link>
 
-          <Link to="/" className="icon-container">
+          <Link to="/" key="avatar" className="icon-container">
             <IoMdHome className="menu-option" />
           </Link>
 
-          <Link to="/search" className="icon-container">
+          <Link to="/search" key="search" className="icon-container">
             <FiSearch className="menu-option" />
           </Link>
 
-          <Link to="/your-music" className="icon-container">
+          <Link to="/your-music" key="yourMusic" className="icon-container">
             <IoMusicalNotesSharp className="menu-option" />
           </Link>
 
-          <Link to="/playlists" className="icon-container">
+          <Link to="/playlists" key="yourPlaylist" className="icon-container">
             <BsMusicNoteList className="menu-option" />
           </Link>
         </div>

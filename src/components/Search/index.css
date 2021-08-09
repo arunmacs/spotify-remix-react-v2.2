@@ -160,21 +160,21 @@ input:placeholder {
   }
 
   .form-input-container {
-    height: 45px;
+    height: 70px;
     position: fixed;
-    top: 45px;
+    top: 50px;
     right: 0px;
     left: 65px;
     margin: 5px 0px;
   }
 
   .input-container {
-    height: 45px;
+    height: 70px;
     width: 30%;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 20px 15px 20px 5px rgba(0, 0, 0, 0.3);
     transition: width 0.4s ease-out;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 
   .input-container:hover {
@@ -202,15 +202,15 @@ input:placeholder {
   }
 
   .search-icon {
-    height: 28px;
-    width: 28px;
-    margin: 3px;
+    height: 35px;
+    width: 35px;
+    margin: 5px;
   }
 
   .search-results-container {
     position: absolute;
     left: 0px;
-    top: 50px;
+    top: 75px;
   }
 
   .search-playlist-container {
