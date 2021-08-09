@@ -275,8 +275,7 @@
   }
 
   .seek-slider {
-    width: 28%;
-    max-width: 350px;
+    width: 27%;
   }
 
   .seek-slider,
@@ -305,7 +304,6 @@
   }
 
   .volume-slider {
-    width: 11%;
-    max-width: 200px;
+    width: 10%;
   }
 }

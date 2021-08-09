@@ -90,7 +90,6 @@ class Profile extends Component {
       <>
         <NavBar />
         {isLoading ? <LoaderView /> : this.renderProfilePage()}
-        {/* {this.renderProfilePage()} */}
       </>
     )
   }

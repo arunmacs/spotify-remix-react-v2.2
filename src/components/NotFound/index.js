@@ -1,7 +1,11 @@
+import BackNavigation from '../BackNavigation'
+
 import './index.css'
 
 const NotFound = () => (
   <>
+    <BackNavigation />
+
     <div className="not-found-container">
       <img
         src="https://galeri13.uludagsozluk.com/699/devlet-bahceli-nin-serefi_1793959.jpg"

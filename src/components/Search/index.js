@@ -1,28 +1,27 @@
 import {Component} from 'react'
 import {FiSearch} from 'react-icons/fi'
-// import LoaderView from '../LoaderView'
-// import Player from '../Player'
-import SongItem from '../SongItem'
+import SearchTrackItem from '../SearchTrackItem'
 import SearchPlaylistItem from '../SearchPlaylistItem'
 import NavBar from '../NavBar'
 import BackNavigation from '../BackNavigation'
-import './index.css'
 import LoaderView from '../LoaderView'
 
-// const searchStatus = {
-//   initial: 'INITIAL',
-//   inProgress: 'INPROGRESS',
-//   success: 'SUCCESS',
-//   error: 'ERROR',
-// }
+import './index.css'
+
+const apiStatus = {
+  initial: 'INITIAL',
+  inProgress: 'INPROGRESS',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+}
 
 class Search extends Component {
   state = {
     searchPlaylistData: [],
     searchTracksData: [],
-    searchInput: 'telugu',
-    // searchStatus: searchStatus.initial,
-    isLoading: false,
+    searchInput: '',
+    playlistsStatus: apiStatus.initial,
+    tracksStatus: apiStatus.initial,
     screenSize: window.innerWidth,
   }
 
@@ -32,8 +31,11 @@ class Search extends Component {
   }
 
   fetchSearchResults = async event => {
+    this.setState({
+      playlistsStatus: apiStatus.inProgress,
+      tracksStatus: apiStatus.inProgress,
+    })
     event.preventDefault()
-    this.setState({isLoading: true})
     const {searchInput} = this.state
     const token = this.getAccessToken()
 
@@ -50,49 +52,64 @@ class Search extends Component {
     if (response.ok) {
       const data = await response.json()
 
-      const updatedPlaylist = data.playlists.items.map(item => ({
-        collaborative: item.collaborative,
-        description: item.description,
-        externalUrls: item.external_urls,
-        href: item.href,
-        id: item.id,
-        images: item.images,
-        name: item.name,
-        owner: item.owner,
-        primaryColor: item.primary_color,
-        public: item.public,
-        snapshotId: item.snapshot_id,
-        tracks: item.tracks,
-        type: item.type,
-        uri: item.uri,
-      }))
+      if (data.playlists.total !== 0) {
+        const updatedPlaylist = data.playlists.items.map(item => ({
+          collaborative: item.collaborative,
+          description: item.description,
+          externalUrls: item.external_urls,
+          href: item.href,
+          id: item.id,
+          images: item.images,
+          name: item.name,
+          owner: item.owner,
+          primaryColor: item.primary_color,
+          public: item.public,
+          snapshotId: item.snapshot_id,
+          tracks: item.tracks,
+          type: item.type,
+          uri: item.uri,
+        }))
 
-      const updatedTracksData = data.tracks.items.map(item => ({
-        album: item.album,
-        artists: item.artists,
-        discNumber: item.disc_number,
-        durationMs: item.duration_ms,
-        explicit: item.explicit,
-        externalIds: item.external_ids,
-        externalUrls: item.external_urls,
-        href: item.href,
-        id: item.id,
-        isLocal: item.is_local,
-        isPlayable: item.is_playable,
-        name: item.name,
-        popularity: item.popularity,
-        previewUrl: item.preview_url,
-        trackNumber: item.track_number,
-        type: item.type,
-        uri: item.uri,
-      }))
+        this.setState({
+          searchPlaylistData: updatedPlaylist,
+          playlistsStatus: apiStatus.success,
+        })
+      } else {
+        this.setState({
+          playlistsStatus: apiStatus.failure,
+        })
+      }
 
-      this.setState({
-        searchPlaylistData: updatedPlaylist,
-        searchTracksData: updatedTracksData,
-        // searchStatus: searchStatus.success,
-        isLoading: false,
-      })
+      if (data.tracks.total !== 0) {
+        const updatedTracksData = data.tracks.items.map(item => ({
+          album: item.album,
+          artists: item.artists,
+          discNumber: item.disc_number,
+          durationMs: item.duration_ms,
+          explicit: item.explicit,
+          externalIds: item.external_ids,
+          externalUrls: item.external_urls,
+          href: item.href,
+          id: item.id,
+          isLocal: item.is_local,
+          isPlayable: item.is_playable,
+          name: item.name,
+          popularity: item.popularity,
+          previewUrl: item.preview_url,
+          trackNumber: item.track_number,
+          type: item.type,
+          uri: item.uri,
+        }))
+
+        this.setState({
+          searchTracksData: updatedTracksData,
+          tracksStatus: apiStatus.success,
+        })
+      } else {
+        this.setState({
+          tracksStatus: apiStatus.failure,
+        })
+      }
     }
   }
 
@@ -100,49 +117,102 @@ class Search extends Component {
     this.setState({searchInput: event.target.value})
   }
 
-  renderSearchResults = () => {
-    const {searchPlaylistData, searchTracksData} = this.state
-    // console.log(searchTracksData, 'tracks')
+  renderPlaylistsResults = () => {
+    const {searchPlaylistData} = this.state
 
     return (
-      <>
-        <div className="search-playlist-container">
-          <h1 className="content-name">Playlists</h1>
-          <ul className="playlist-content">
-            {searchPlaylistData.map(item => (
-              <SearchPlaylistItem playlistItem={item} key={item.id} />
-            ))}
-          </ul>
-        </div>
-        <div className="search-tracks-container">
-          <h1 className="content-name">Songs</h1>
-          <ul className="songs-content">
-            {searchTracksData.map(item => (
-              <SongItem songData={item} key={item.id} />
-            ))}
-          </ul>
-        </div>
-      </>
+      <div className="search-playlist-container">
+        <h1 className="content-name">Playlists</h1>
+        <ul className="playlist-content">
+          {searchPlaylistData.map(item => (
+            <SearchPlaylistItem playlistItem={item} key={item.id} />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  renderTracksResults = () => {
+    const {searchTracksData} = this.state
+
+    return (
+      <div className="search-tracks-container">
+        <h1 className="content-name">Songs</h1>
+        <ul className="tracks-content">
+          {searchTracksData.map(item => (
+            <SearchTrackItem trackData={item} key={item.id} />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  getPlaylists = () => {
+    const {playlistsStatus} = this.state
+
+    switch (playlistsStatus) {
+      case apiStatus.inProgress:
+        return <LoaderView />
+      case apiStatus.success:
+        return this.renderPlaylistsResults()
+      case apiStatus.failure:
+        return this.noResultsFoundView()
+      default:
+        return null
+    }
+  }
+
+  getTracksLists = () => {
+    const {tracksStatus} = this.state
+
+    switch (tracksStatus) {
+      case apiStatus.inProgress:
+        return <LoaderView />
+      case apiStatus.success:
+        return this.renderTracksResults()
+      case apiStatus.failure:
+        return this.noResultsFoundView()
+      default:
+        return null
+    }
+  }
+
+  noResultsFoundView = () => {
+    const {searchInput} = this.state
+
+    return (
+      <div className="no-results-container">
+        <h1 className="no-result-text">
+          No results found for {`${searchInput}`}
+        </h1>
+        <p className="no-result-description">
+          Please make sure your words are spelled correctly or use less or
+          different keywords.
+        </p>
+      </div>
     )
   }
 
   renderSearchView = () => {
-    const {searchInput, isLoading} = this.state
+    const {searchInput} = this.state
 
     return (
       <>
-        <form className="input-container" onSubmit={this.fetchSearchResults}>
-          <FiSearch className="search-icon" />
-          <input
-            type="search"
-            value={searchInput}
-            name="search"
-            onChange={this.setInputValue}
-            placeholder="Try Search ?"
-          />
-        </form>
+        <div className="form-input-container">
+          <form className="input-container" onSubmit={this.fetchSearchResults}>
+            <FiSearch className="search-icon" />
+            <input
+              type="search"
+              value={searchInput}
+              name="search"
+              onChange={this.setInputValue}
+              placeholder="Try Search ?"
+            />
+          </form>
+        </div>
         <div className="search-results-container">
-          {isLoading ? <LoaderView /> : this.renderSearchResults()}
+          {this.getPlaylists()}
+          {this.getTracksLists()}
         </div>
       </>
     )
@@ -153,10 +223,9 @@ class Search extends Component {
 
     return (
       <div className="search-body">
-        {screenSize >= 768 ? <NavBar /> : ''}
+        {screenSize >= 768 && <NavBar />}
         <BackNavigation />
         <div className="search-container">{this.renderSearchView()}</div>
-        {/* <Player /> */}
       </div>
     )
   }

@@ -1,0 +1,100 @@
+span {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.track-row {
+  list-style-type: none;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.track-thumbnail {
+  height: 50px;
+  width: 50px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  width: 190px;
+  margin: 0px 5px 0px 0px;
+}
+
+.track-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 300;
+  margin: 1px;
+  width: 180px;
+}
+
+.track-artist-name {
+  width: 180px;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 1px;
+  color: #181818;
+}
+
+.track-album-name {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 1px;
+  width: 180px;
+}
+
+.track-duration {
+  font-size: 13px;
+  font-weight: 300;
+  margin: 2px 5px 2px 3px;
+}
+
+@media (min-width: 768px) {
+  .track-row {
+    height: 70px;
+  }
+
+  .track-thumbnail {
+    height: 60px;
+    width: 60px;
+  }
+
+  .track-info {
+    width: 300px;
+  }
+
+  .track-name {
+    font-size: 15px;
+    width: 280px;
+  }
+
+  .track-artist-name {
+    width: 250px;
+    font-size: 14px;
+  }
+
+  .track-album-name {
+    font-size: 16px;
+    width: 280px;
+  }
+
+  .track-duration {
+    font-size: 15px;
+    font-weight: 400;
+  }
+}

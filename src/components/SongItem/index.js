@@ -5,7 +5,6 @@ import './index.css'
 const SongItem = props => {
   const {songData, selectSong, index, isActive, displayInfo} = props
   const {artists, album, durationMs, name} = songData
-  //   console.log(songData, 'item')
 
   const activeSongClass = isActive && 'activeClass'
 

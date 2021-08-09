@@ -1,8 +1,8 @@
 .search-list-item {
   list-style-type: none;
   background-color: #accbff;
-  height: 260px;
-  width: 200px;
+  height: 180px;
+  width: 150px;
   border-radius: 4px;
   margin: 2px 8px 2px 8px;
   display: flex;
@@ -12,10 +12,10 @@
 }
 
 .search-item-image {
-  height: 160px;
-  width: 145px;
+  height: 120px;
+  width: 110px;
   border-radius: 4px;
-  margin: 5px;
+  margin: 3px;
 }
 
 .search-item-info {
@@ -27,11 +27,11 @@
 
 .search-item-name {
   color: #192132;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
-  width: 180px;
+  width: 140px;
   text-align: center;
-  margin: 2px;
+  margin: 2px 0px;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
@@ -39,12 +39,37 @@
 
 .search-tracks {
   color: #2f313b;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  width: 180px;
+  width: 140px;
   text-align: center;
-  margin: 2px;
+  margin: 2px 0px;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .search-list-item {
+    height: 260px;
+    width: 200px;
+  }
+
+  .search-item-image {
+    height: 160px;
+    width: 145px;
+  }
+
+  .search-item-info {
+  }
+
+  .search-item-name {
+    font-size: 15px;
+    width: 180px;
+  }
+
+  .search-tracks {
+    font-size: 14px;
+    width: 180px;
+  }
 }

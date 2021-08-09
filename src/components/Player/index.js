@@ -230,7 +230,6 @@ class Player extends React.Component {
 
   renderMusicControlsDesktopView = () => {
     const {musicList, index, pause, currTime, seek, volume} = this.state
-    console.log(seek, volume)
 
     const currentSong = musicList[index]
     const {durationMs} = currentSong
