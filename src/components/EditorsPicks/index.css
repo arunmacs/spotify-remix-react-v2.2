@@ -41,23 +41,25 @@
 
   .editor-pick-item-name {
     font-size: 14px;
+    width: 110px;
   }
 }
 
 @media (min-width: 768px) {
   .editor-pick-item {
-    width: 125px;
-    height: 140px;
+    width: 160px;
+    height: 180px;
     margin: 5px;
   }
 
   .editor-pick-item-image {
-    height: 105px;
-    width: 105px;
+    height: 140px;
+    width: 140px;
   }
 
   .editor-pick-item-name {
     font-size: 16px;
+    width: 150px;
     margin: 5px 0px 2px 0px;
   }
 }

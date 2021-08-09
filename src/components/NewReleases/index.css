@@ -46,17 +46,18 @@
 
 @media (min-width: 768px) {
   .new-release-item {
-    width: 125px;
-    height: 140px;
+    width: 160px;
+    height: 180px;
     margin: 5px;
   }
 
   .new-release-item-image {
-    height: 105px;
-    width: 105px;
+    height: 140px;
+    width: 140px;
   }
 
   .new-release-item-name {
+    width: 150px;
     font-size: 16px;
     margin: 5px 0px 2px 0px;
   }
